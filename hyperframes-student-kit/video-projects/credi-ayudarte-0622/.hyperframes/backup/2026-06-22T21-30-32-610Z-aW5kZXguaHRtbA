@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>Credi Ayudarte — Tasas 0622</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:block;src:url('assets/fonts/Inter-500.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:block;src:url('assets/fonts/Inter-700.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:800;font-display:block;src:url('assets/fonts/Inter-800.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:900;font-display:block;src:url('assets/fonts/Inter-900.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:block;src:url('assets/fonts/JetBrainsMono-700.woff2') format('woff2');}
+      @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:block;src:url('assets/fonts/SpaceGrotesk-700.woff2') format('woff2');}
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1080px; height: 1920px; overflow: hidden;
+        background: #0d0d0d; font-family: "Inter", sans-serif; color: #fff;
+      }
+      :root {
+        --gold: #efc01e;
+        --green: #5fa22e;
+        --gray: #9ca1a6;
+        --charcoal: #3c4043;
+        --alert: #e4572e;
+        --ink: #0d0d0d;
+        --soft: #c9cdd2;
+      }
+
+      /* ---------- base video ---------- */
+      #face-video {
+        position: absolute; top: 0; left: 0;
+        width: 1080px; height: 1920px; object-fit: cover;
+        transform-origin: center center;
+        filter: contrast(1.06) saturate(1.05) brightness(0.95);
+        z-index: 0;
+      }
+
+      /* ---------- global legibility / mood layers ---------- */
+      .layer { position: absolute; inset: 0; pointer-events: none; }
+      #scrim-top {
+        background: linear-gradient(180deg,
+          rgba(13,13,13,0.82) 0%, rgba(13,13,13,0.55) 14%,
+          rgba(13,13,13,0.0) 30%);
+      }
+      #scrim-bottom {
+        background: linear-gradient(0deg,
+          rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.6) 14%,
+          rgba(13,13,13,0.0) 30%);
+      }
+      #vignette {
+        background: radial-gradient(ellipse 78% 64% at 50% 46%,
+          transparent 58%, rgba(13,13,13,0.42) 100%);
+      }
+      #grain {
+        opacity: 0.5; mix-blend-mode: overlay;
+        background-image:
+          radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+          radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+          radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+        background-size: 3px 3px, 5px 5px, 7px 7px;
+        background-position: 0 0, 1px 2px, 2px 1px;
+      }
+
+      /* ---------- reusable bits ---------- */
+      .scene { position: absolute; inset: 0; }
+      .glass {
+        position: absolute;
+        background: linear-gradient(135deg,
+            rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.05) 40%,
+            rgba(13,13,13,0.30) 100%),
+          rgba(20,21,23,0.52);
+        backdrop-filter: blur(16px) saturate(135%);
+        -webkit-backdrop-filter: blur(16px) saturate(135%);
+        border: 1.5px solid rgba(255,255,255,0.20);
+        border-radius: 30px;
+        box-shadow:
+          0 22px 60px rgba(0,0,0,0.45),
+          inset 0 1px 0 rgba(255,255,255,0.30),
+          inset 0 -16px 30px rgba(0,0,0,0.22);
+      }
+      .pill {
+        position: absolute; left: 50%; transform: translateX(-50%);
+        display: inline-flex; align-items: center; gap: 14px;
+        padding: 16px 30px; border-radius: 999px;
+        background: rgba(13,13,13,0.6);
+        backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        border: 1.5px solid rgba(255,255,255,0.16);
+        box-shadow: 0 12px 34px rgba(0,0,0,0.4);
+        font-family: "Inter", sans-serif; font-weight: 800;
+        font-size: 34px; letter-spacing: 0.4px; white-space: nowrap;
+      }
+      .pill .dot { width: 14px; height: 14px; border-radius: 50%; }
+      .label-mono {
+        font-family: "JetBrains Mono", monospace; font-weight: 700;
+        letter-spacing: 3px; text-transform: uppercase;
+      }
+      .display { font-family: "Space Grotesk", sans-serif; font-weight: 700; }
+
+      /* TOP graphics anchor band: y ~ 60–470 */
+      .top-band { position: absolute; top: 70px; left: 0; width: 1080px; text-align: center; }
+
+      /* ---------- S1 hook ---------- */
+      #s1-emblem {
+        position: absolute; top: 96px; left: 50%; transform: translateX(-50%);
+        width: 168px; height: 168px; border-radius: 50%;
+        display: grid; place-items: center;
+        background: radial-gradient(circle at 38% 32%, rgba(239,192,30,0.30), rgba(13,13,13,0.55));
+        border: 2px solid rgba(239,192,30,0.6);
+        box-shadow: 0 0 40px rgba(239,192,30,0.35), inset 0 2px 0 rgba(255,255,255,0.25);
+        font-family: "Space Grotesk"; font-weight: 700; font-size: 92px; color: var(--gold);
+      }
+      #s1-emblem .arrow { font-size: 46px; margin-left: -6px; }
+      #s1-title {
+        position: absolute; top: 296px; left: 60px; width: 960px; text-align: center;
+        font-family: "Space Grotesk"; font-weight: 700; font-size: 66px; line-height: 1.02;
+        text-shadow: 0 4px 24px rgba(0,0,0,0.7);
+      }
+      #s1-title .hl { color: var(--gold); }
+
+      /* ---------- S2 alert ---------- */
+      #s2-pill { top: 150px; color: #fff; border-color: rgba(228,87,46,0.5);
+        background: rgba(40,16,10,0.62); }
+      #s2-pill .dot { background: var(--alert); box-shadow: 0 0 16px var(--alert); }
+      #s2-sub {
+        position: absolute; top: 232px; left: 60px; width: 960px; text-align: center;
+        font-family: "Inter"; font-weight: 700; font-size: 36px; color: var(--soft);
+        text-shadow: 0 3px 14px rgba(0,0,0,0.8);
+      }
+
+      /* ---------- S3 mangos hero ---------- */
+      #s3-word {
+        position: absolute; top: 150px; left: 0; width: 1080px; text-align: center;
+        font-family: "Space Grotesk"; font-weight: 700; font-size: 210px; letter-spacing: -4px;
+        color: var(--gold); text-shadow: 0 0 60px rgba(239,192,30,0.55), 0 8px 30px rgba(0,0,0,0.6);
+      }
+      #s3-emoji { position: absolute; top: 372px; left: 50%; transform: translateX(-50%); font-size: 130px; }
+      #s3-kicker { position: absolute; top: 96px; left: 0; width: 1080px; text-align: center;
+        color: var(--soft); font-size: 30px; }
+
+      /* ---------- S4 supply/demand ---------- */
+      #s4-card { top: 96px; left: 120px; width: 840px; padding: 30px 34px 36px; text-align: center; }
+      #s4-card .ttl { font-family: "Inter"; font-weight: 800; font-size: 34px; margin-bottom: 22px; }
+      #s4-mangos { font-size: 70px; letter-spacing: 8px; height: 84px; }
+      #s4-mangos span { display: inline-block; }
+      #s4-arrow { font-size: 40px; color: var(--gray); margin: 8px 0; }
+      #s4-price { font-family: "Space Grotesk"; font-weight: 700; font-size: 58px; color: var(--alert); }
+      #s4-price .up { font-size: 44px; }
+
+      /* ---------- S5 morph ---------- */
+      #s5-row { position: absolute; top: 150px; left: 0; width: 1080px; text-align: center;
+        font-size: 120px; }
+      #s5-mango, #s5-money { display: inline-block; }
+      #s5-eq { font-size: 70px; color: var(--gray); margin: 0 26px; vertical-align: 30px; }
+      #s5-cap { position: absolute; top: 322px; left: 0; width: 1080px; text-align: center;
+        color: var(--soft); font-size: 34px; font-weight: 700; }
+      #s5-cap b { color: var(--green); }
+
+      /* ---------- S6 dashboard ---------- */
+      #s6-card { top: 88px; left: 96px; width: 888px; padding: 30px 38px 34px; }
+      #s6-card .hd { font-family: "JetBrains Mono"; font-weight: 700; font-size: 26px;
+        letter-spacing: 2px; color: var(--gray); text-transform: uppercase; margin-bottom: 26px; }
+      .bar-row { display: flex; align-items: center; gap: 18px; margin: 18px 0; }
+      .bar-row .name { width: 200px; font-family: "Inter"; font-weight: 700; font-size: 30px; text-align: left; }
+      .bar-track { flex: 1; height: 26px; border-radius: 13px; background: rgba(255,255,255,0.10);
+        overflow: hidden; position: relative; }
+      .bar-fill { position: absolute; left: 0; top: 0; height: 100%; width: 0%; border-radius: 13px; }
+      .bar-row .tag { width: 64px; font-family: "Space Grotesk"; font-weight: 700; font-size: 40px; text-align: right; }
+      #s6-cap-fill { background: linear-gradient(90deg, #6b7077, var(--gray)); }
+      #s6-rate-fill { background: linear-gradient(90deg, #b6431f, var(--alert)); box-shadow: 0 0 18px rgba(228,87,46,0.5); }
+
+      /* ---------- S7 not enough ---------- */
+      #s7-badge { top: 150px; left: 190px; width: 700px; padding: 30px 32px; text-align: center; }
+      #s7-badge .gov { font-family: "Inter"; font-weight: 800; font-size: 40px; position: relative; display: inline-block; }
+      #s7-strike { position: absolute; left: -6px; top: 52%; height: 5px; width: 0%;
+        background: var(--alert); border-radius: 3px; }
+      #s7-stamp { position: absolute; top: 300px; left: 0; width: 1080px; text-align: center;
+        font-family: "Space Grotesk"; font-weight: 700; font-size: 50px; color: var(--alert);
+        letter-spacing: 1px; }
+
+      /* ---------- S8 checklist ---------- */
+      #s8-card { top: 80px; left: 110px; width: 860px; padding: 28px 34px 30px; }
+      #s8-card .hd { font-family: "Inter"; font-weight: 800; font-size: 32px; margin-bottom: 20px; color: #fff; }
+      #s8-card .hd b { color: var(--gold); }
+      .chk { display: flex; align-items: center; gap: 20px; margin: 16px 0; opacity: 0; }
+      .chk .box { width: 50px; height: 50px; border-radius: 14px; display: grid; place-items: center;
+        background: rgba(95,162,46,0.16); border: 2px solid var(--green); color: var(--green);
+        font-size: 32px; font-weight: 900; flex: none; }
+      .chk .tx { font-family: "Inter"; font-weight: 700; font-size: 38px; }
+      .chk .tx small { display: block; font-weight: 500; font-size: 26px; color: var(--gray); }
+
+      /* ---------- S9 compare ---------- */
+      #s9-wrap { position: absolute; top: 120px; left: 0; width: 1080px; display: flex;
+        justify-content: center; gap: 26px; }
+      .cmp { width: 380px; padding: 30px 26px; border-radius: 26px; text-align: center; }
+      #s9-a { background: linear-gradient(135deg, rgba(239,192,30,0.20), rgba(13,13,13,0.5));
+        border: 2px solid rgba(239,192,30,0.55); }
+      #s9-b { background: rgba(20,21,23,0.55); border: 2px solid rgba(156,161,166,0.4); }
+      .cmp .q { font-family: "Space Grotesk"; font-weight: 700; font-size: 44px; }
+      #s9-a .q { color: var(--gold); }
+      #s9-b .q { color: var(--gray); }
+      .cmp .s { margin-top: 8px; font-family: "Inter"; font-weight: 500; font-size: 26px; color: var(--soft); }
+      #s9-foot { position: absolute; top: 360px; left: 0; width: 1080px; text-align: center;
+        font-family: "Inter"; font-weight: 700; font-size: 38px; }
+      #s9-foot b { color: var(--gold); }
+
+      /* ---------- S10 CTA ---------- */
+      #cta-dim { position: absolute; inset: 0; background: rgba(13,13,13,0.55); opacity: 0; }
+      #cta-card { top: 560px; left: 90px; width: 900px; padding: 60px 56px 64px; text-align: center; border-radius: 40px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(13,13,13,0.40)), rgba(11,12,14,0.88); }
+      #cta-logo { width: 150px; height: 150px; object-fit: contain; margin: 0 auto 18px;
+        display: block; filter: drop-shadow(0 6px 20px rgba(0,0,0,0.5)); }
+      #cta-brand { font-family: "Space Grotesk"; font-weight: 700; font-size: 56px; letter-spacing: 0.5px; }
+      #cta-brand .ay { color: var(--gold); }
+      #cta-head { margin-top: 14px; font-family: "Inter"; font-weight: 700; font-size: 38px; color: #ffffff; }
+      #cta-wa { margin: 34px auto 0; width: 720px; padding: 26px 30px; border-radius: 22px;
+        background: rgba(95,162,46,0.16); border: 2px solid var(--green);
+        display: flex; align-items: center; justify-content: center; gap: 18px; }
+      #cta-wa .ic { font-size: 46px; }
+      #cta-wa .num { font-family: "JetBrains Mono"; font-weight: 700; font-size: 46px; color: #fff; }
+      #cta-key { margin-top: 22px; font-family: "Inter"; font-weight: 700; font-size: 32px; }
+      #cta-key b { color: var(--gold); letter-spacing: 2px; }
+
+      /* ---------- captions (karaoke) ---------- */
+      #captions { position: absolute; left: 60px; width: 960px; bottom: 268px; height: 220px;
+        text-align: center; }
+      .cap-block {
+        position: absolute; left: 0; bottom: 0; width: 960px; opacity: 0;
+        font-family: "Inter"; font-weight: 800; font-size: 60px; line-height: 1.04;
+        text-shadow: 0 3px 16px rgba(0,0,0,0.9);
+      }
+      .cap-block .w { color: rgba(255,255,255,0.5); margin: 0 5px; display: inline-block;
+        transform: translateZ(0); }
+      .cap-block .w.past { color: #fff; opacity: 0.9; }
+      .cap-block .w.active { color: var(--gold); transform: scale(1.07);
+        text-shadow: 0 0 18px rgba(239,192,30,0.6), 0 3px 16px rgba(0,0,0,0.9); }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="hf-eyo2" id="root" data-composition-id="root" data-start="0" data-duration="35.9" data-width="1080" data-height="1920">
+
+      <!-- base video -->
+      <video data-hf-id="hf-ry3r" id="face-video" data-start="0" data-duration="35.9" data-track-index="0" src="assets/source.mp4" muted playsinline></video>
+
+      <!-- audio -->
+      <audio data-hf-id="hf-v4b6" id="face-audio" data-start="0" data-duration="35.9" data-track-index="1" data-volume="1" src="assets/audio.mp3"></audio>
+
+      <!-- global mood / legibility -->
+      <div data-hf-id="hf-ezi6" id="scrim-top" class="layer clip" data-start="0" data-duration="35.9" data-track-index="2"></div>
+      <div data-hf-id="hf-89t9" id="scrim-bottom" class="layer clip" data-start="0" data-duration="35.9" data-track-index="3"></div>
+      <div data-hf-id="hf-2t2m" id="vignette" class="layer clip" data-start="0" data-duration="35.9" data-track-index="4"></div>
+      <div data-hf-id="hf-hlia" id="grain" class="layer clip" data-start="0" data-duration="35.9" data-track-index="5"></div>
+
+      <!-- S1 hook 0.0–2.6 -->
+      <div data-hf-id="hf-v8yr" id="s1" class="scene clip" data-start="0.0" data-duration="2.6" data-track-index="10">
+        <div data-hf-id="hf-h7xz" id="s1-emblem">%<span data-hf-id="hf-urxh" class="arrow">↓</span></div>
+        <div data-hf-id="hf-fbci" id="s1-title">¿Van a bajar <span data-hf-id="hf-h8xj" class="hl">las tasas</span>?</div>
+      </div>
+
+      <!-- S2 alert 2.6–4.3 -->
+      <div data-hf-id="hf-gkgs" id="s2" class="scene clip" data-start="2.6" data-duration="1.75" data-track-index="11">
+        <div data-hf-id="hf-9om2" id="s2-pill" class="pill"><span data-hf-id="hf-9gry" class="dot"></span>PERO NO DE INMEDIATO</div>
+        <div data-hf-id="hf-x15z" id="s2-sub">no es algo que pase de un día para otro</div>
+      </div>
+
+      <!-- S3 mangos hero 4.27–5.95 -->
+      <div data-hf-id="hf-r7rc" id="s3" class="scene clip" data-start="4.27" data-duration="1.78" data-track-index="12">
+        <div data-hf-id="hf-n4j5" id="s3-kicker" class="label-mono">PASA COMO CON LOS</div>
+        <div data-hf-id="hf-d8nf" id="s3-word">MANGOS</div>
+        <div data-hf-id="hf-e0pn" id="s3-emoji">🥭</div>
+      </div>
+
+      <!-- S4 supply/demand 5.95–8.85 -->
+      <div data-hf-id="hf-cdcn" id="s4" class="scene clip" data-start="5.95" data-duration="2.9" data-track-index="13">
+        <div data-hf-id="hf-ig2u" id="s4-card" class="glass">
+          <div data-hf-id="hf-mvuo" class="ttl">Menos cosecha…</div>
+          <div data-hf-id="hf-v8vo" id="s4-mangos"><span data-hf-id="hf-pkgw">🥭</span><span data-hf-id="hf-zp3s">🥭</span><span data-hf-id="hf-yi6p">🥭</span><span data-hf-id="hf-ywhq">🥭</span><span data-hf-id="hf-xpkn">🥭</span></div>
+          <div data-hf-id="hf-p9b1" id="s4-arrow">↓</div>
+          <div data-hf-id="hf-1wkj" id="s4-price">$ <span data-hf-id="hf-wkjg" class="up">▲</span> más caros</div>
+        </div>
+      </div>
+
+      <!-- S5 morph 8.85–10.6 -->
+      <div data-hf-id="hf-uvk9" id="s5" class="scene clip" data-start="8.85" data-duration="1.75" data-track-index="14">
+        <div data-hf-id="hf-22rm" id="s5-row"><span data-hf-id="hf-cyiy" id="s5-mango">🥭</span><span data-hf-id="hf-zndw" id="s5-eq">=</span><span data-hf-id="hf-uudb" id="s5-money">💵</span></div>
+        <div data-hf-id="hf-6j8r" id="s5-cap">con el dinero pasa <b data-hf-id="hf-2vvv">lo mismo</b></div>
+      </div>
+
+      <!-- S6 dashboard 10.6–16.0 -->
+      <div data-hf-id="hf-k0n9" id="s6" class="scene clip" data-start="10.6" data-duration="5.4" data-track-index="15">
+        <div data-hf-id="hf-ol74" id="s6-card" class="glass">
+          <div data-hf-id="hf-1kg7" class="hd">¿Qué mueve las tasas?</div>
+          <div data-hf-id="hf-vxho" class="bar-row">
+            <div data-hf-id="hf-ng9z" class="name">Capitales</div>
+            <div data-hf-id="hf-2kxp" class="bar-track"><div data-hf-id="hf-7r8x" id="s6-cap-fill" class="bar-fill"></div></div>
+            <div data-hf-id="hf-0ydh" class="tag" style="color:var(--gray)">↓</div>
+          </div>
+          <div data-hf-id="hf-x17o" class="bar-row">
+            <div data-hf-id="hf-012f" class="name">Tasas</div>
+            <div data-hf-id="hf-dok1" class="bar-track"><div data-hf-id="hf-745h" id="s6-rate-fill" class="bar-fill"></div></div>
+            <div data-hf-id="hf-6mxw" class="tag" style="color:var(--alert)">↑</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S7 not enough 16.0–19.3 -->
+      <div data-hf-id="hf-8xcu" id="s7" class="scene clip" data-start="16.0" data-duration="3.3" data-track-index="16">
+        <div data-hf-id="hf-pf9u" id="s7-badge" class="glass">
+          <span data-hf-id="hf-q8m6" class="gov">Cambio de gobierno<span data-hf-id="hf-64wj" id="s7-strike"></span></span>
+        </div>
+        <div data-hf-id="hf-6681" id="s7-stamp">no basta por sí solo</div>
+      </div>
+
+      <!-- S8 checklist 19.3–24.75 -->
+      <div data-hf-id="hf-twim" id="s8" class="scene clip" data-start="19.3" data-duration="5.45" data-track-index="17">
+        <div data-hf-id="hf-ppq2" id="s8-card" class="glass">
+          <div data-hf-id="hf-yhoi" class="hd">También debe haber <b data-hf-id="hf-jxz5">3 cosas</b></div>
+          <div data-hf-id="hf-8bvx" class="chk" id="s8-1"><div data-hf-id="hf-oc48" class="box">✓</div><div data-hf-id="hf-x3v7" class="tx">Confianza<small data-hf-id="hf-66sv">en el país</small></div></div>
+          <div data-hf-id="hf-c9zy" class="chk" id="s8-2"><div data-hf-id="hf-mzlc" class="box">✓</div><div data-hf-id="hf-ngpl" class="tx">Inversión<small data-hf-id="hf-ed9l">que entren capitales</small></div></div>
+          <div data-hf-id="hf-g83z" class="chk" id="s8-3"><div data-hf-id="hf-lso9" class="box">✓</div><div data-hf-id="hf-7s0s" class="tx">Competencia<small data-hf-id="hf-5jya">más entidades prestando</small></div></div>
+        </div>
+      </div>
+
+      <!-- S9 compare 24.9–31.3 -->
+      <div data-hf-id="hf-43ti" id="s9" class="scene clip" data-start="24.9" data-duration="6.4" data-track-index="18">
+        <div data-hf-id="hf-hmji" id="s9-wrap">
+          <div data-hf-id="hf-u2t0" id="s9-a" class="cmp"><div data-hf-id="hf-146c" class="q">¿Avanzar hoy?</div><div data-hf-id="hf-faen" class="s">si hoy te conviene</div></div>
+          <div data-hf-id="hf-2qov" id="s9-b" class="cmp"><div data-hf-id="hf-el3n" class="q">¿Esperar?</div><div data-hf-id="hf-6j77" class="s">si es mejor más tarde</div></div>
+        </div>
+        <div data-hf-id="hf-8mdu" id="s9-foot">Primero <b data-hf-id="hf-fwie">revisa tu caso</b></div>
+      </div>
+
+      <!-- S10 CTA 31.4–35.9 -->
+      <div data-hf-id="hf-t93m" id="cta-dim" class="clip" data-start="31.4" data-duration="4.5" data-track-index="19"></div>
+      <div data-hf-id="hf-7x79" id="s10" class="scene clip" data-start="31.4" data-duration="4.5" data-track-index="20">
+        <div data-hf-id="hf-3l6r" id="cta-card" class="glass">
+          <img data-hf-id="hf-o9ts" id="cta-logo" src="assets/logo-white.png" alt="Credi Ayudarte">
+          <div data-hf-id="hf-ajjk" id="cta-brand">Credi <span data-hf-id="hf-cza4" class="ay">Ayudarte</span></div>
+          <div data-hf-id="hf-h6f4" id="cta-head">Revisamos tu caso, sin compromiso</div>
+          <div data-hf-id="hf-3uhy" id="cta-wa"><span data-hf-id="hf-e62o" class="ic">💬</span><span data-hf-id="hf-ai0m" class="num">315 247 4348</span></div>
+          <div data-hf-id="hf-td2w" id="cta-key">Escríbenos la palabra <b data-hf-id="hf-ys8l">CRÉDITO</b></div>
+        </div>
+      </div>
+
+      <!-- captions -->
+      <div data-hf-id="hf-a509" id="captions" class="clip" data-start="0" data-duration="35.9" data-track-index="30"></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const DUR = 35.9;
+
+      /* ============ base video: subtle Ken Burns ============ */
+      tl.fromTo("#face-video", { scale: 1.0 }, { scale: 1.06, duration: DUR, ease: "none" }, 0);
+
+      /* ============ tiny helpers ============ */
+      // entrance: fade + slight rise + de-blur
+      function inn(sel, t, opt) {
+        opt = opt || {};
+        gsap.set(sel, { opacity: 0, y: opt.y != null ? opt.y : 24, filter: "blur(8px)" });
+        tl.to(sel, { opacity: 1, y: 0, filter: "blur(0px)",
+          duration: opt.d || 0.4, ease: opt.e || "power3.out" }, t);
+      }
+      // exit: fade up out
+      function out(sel, t) {
+        tl.to(sel, { opacity: 0, y: -16, filter: "blur(6px)", duration: 0.26, ease: "power2.in" }, t);
+        tl.set(sel, { opacity: 0 }, t + 0.26); // hard kill: clean state on non-linear seek
+      }
+
+      /* ============ S1 hook ============ */
+      gsap.set("#s1-emblem", { opacity: 0, scale: 0.7 });
+      tl.to("#s1-emblem", { scale: 1.06, duration: 0.5, ease: "sine.inOut", yoyo: true, repeat: 2 }, 0.5);
+      inn("#s1-title", 0.45, { y: 20 });
+      out("#s1", 2.34);
+
+      /* ============ S2 alert ============ */
+      gsap.set("#s2-pill", { opacity: 0, y: -22 });
+      tl.to("#s2-pill", { opacity: 1, y: 0, duration: 0.36, ease: "back.out(1.5)" }, 2.66);
+      tl.to("#s2-pill .dot", { opacity: 0.35, duration: 0.4, yoyo: true, repeat: 3, ease: "sine.inOut" }, 2.9);
+      inn("#s2-sub", 2.86, { y: 14 });
+      out("#s2", 4.12);
+
+      /* ============ S3 mangos hero ============ */
+      inn("#s3-kicker", 4.3, { y: 10, d: 0.3 });
+      gsap.set("#s3-word", { opacity: 0, scale: 0.65 });
+      tl.to("#s3-word", { opacity: 1, scale: 1.0, duration: 0.42, ease: "back.out(1.7)" }, 4.42);
+      tl.to("#s3-word", { scale: 1.04, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: 1 }, 4.9);
+      gsap.set("#s3-emoji", { opacity: 0, scale: 0.4, rotation: -18 });
+      tl.to("#s3-emoji", { opacity: 1, scale: 1, rotation: 0, duration: 0.45, ease: "back.out(2)" }, 4.55);
+      out("#s3", 5.82);
+
+      /* ============ S4 supply/demand ============ */
+      inn("#s4-card", 5.98, { y: 26 });
+      // mangos vanish one by one (scarcity)
+      ["#s4-mangos span:nth-child(5)", "#s4-mangos span:nth-child(4)", "#s4-mangos span:nth-child(3)"]
+        .forEach((s, i) => tl.to(s, { opacity: 0.12, scale: 0.6, duration: 0.3, ease: "power2.in" }, 6.7 + i * 0.4));
+      gsap.set("#s4-price", { opacity: 0, scale: 0.7 });
+      tl.to("#s4-price", { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.7)" }, 8.0);
+      out("#s4", 8.62);
+
+      /* ============ S5 morph mango -> money ============ */
+      gsap.set("#s5-money", { opacity: 0, scale: 0.4 });
+      gsap.set(["#s5-mango", "#s5-eq"], { opacity: 0, scale: 0.6 });
+      tl.to(["#s5-mango", "#s5-eq"], { opacity: 1, scale: 1, duration: 0.34, ease: "back.out(1.6)", stagger: 0.08 }, 8.9);
+      tl.to("#s5-money", { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.9)" }, 9.3);
+      inn("#s5-cap", 9.4, { y: 14 });
+      out("#s5", 10.36);
+
+      /* ============ S6 dashboard ============ */
+      inn("#s6-card", 10.66, { y: 28 });
+      // capitals bar shrinks-in to a low value; rates bar grows high (alert)
+      tl.fromTo("#s6-cap-fill", { width: "0%" }, { width: "34%", duration: 0.7, ease: "power2.out" }, 11.2);
+      tl.fromTo("#s6-rate-fill", { width: "0%" }, { width: "82%", duration: 0.9, ease: "power3.out" }, 13.4);
+      tl.to("#s6-card", { boxShadow: "0 22px 60px rgba(0,0,0,0.45), 0 0 36px rgba(228,87,46,0.35), inset 0 1px 0 rgba(255,255,255,0.30)", duration: 0.5, yoyo: true, repeat: 1 }, 14.2);
+      out("#s6", 15.78);
+
+      /* ============ S7 not enough ============ */
+      inn("#s7-badge", 16.04, { y: 22 });
+      tl.fromTo("#s7-strike", { width: "0%" }, { width: "112%", duration: 0.4, ease: "power2.in" }, 17.4);
+      gsap.set("#s7-stamp", { opacity: 0, scale: 1.3 });
+      tl.to("#s7-stamp", { opacity: 1, scale: 1, duration: 0.34, ease: "back.out(1.8)" }, 17.7);
+      out("#s7", 19.08);
+
+      /* ============ S8 checklist ============ */
+      inn("#s8-card", 19.34, { y: 26 });
+      // three checks land on: confianza(20.5), inversión(21.6), competencia(22.8)
+      [["#s8-1", 20.45], ["#s8-2", 21.55], ["#s8-3", 22.75]].forEach(([s, t]) => {
+        gsap.set(s, { opacity: 0, x: -26 });
+        tl.to(s, { opacity: 1, x: 0, duration: 0.36, ease: "power3.out" }, t);
+        tl.fromTo(s + " .box", { scale: 0.4 }, { scale: 1, duration: 0.42, ease: "back.out(2.2)" }, t + 0.05);
+      });
+      out("#s8", 24.52);
+
+      /* ============ S9 compare ============ */
+      gsap.set("#s9-a", { opacity: 0, x: -40 });
+      gsap.set("#s9-b", { opacity: 0, x: 40 });
+      tl.to("#s9-a", { opacity: 1, x: 0, duration: 0.42, ease: "power3.out" }, 25.0);
+      tl.to("#s9-b", { opacity: 1, x: 0, duration: 0.42, ease: "power3.out" }, 25.2);
+      inn("#s9-foot", 28.0, { y: 16 });
+      out("#s9", 31.12);
+
+      /* ============ S10 CTA ============ */
+      tl.to("#cta-dim", { opacity: 1, duration: 0.5, ease: "power2.out" }, 31.4);
+      gsap.set("#cta-card", { opacity: 0, scale: 0.86, y: 30 });
+      tl.to("#cta-card", { opacity: 1, scale: 1, y: 0, duration: 0.55, ease: "back.out(1.5)" }, 31.5);
+      gsap.set("#cta-logo", { opacity: 0, scale: 0.5, rotation: -10 });
+      tl.to("#cta-logo", { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: "back.out(1.9)" }, 31.7);
+      tl.fromTo("#cta-wa", { boxShadow: "0 0 0 rgba(95,162,46,0)" },
+        { boxShadow: "0 0 30px rgba(95,162,46,0.5)", duration: 0.8, yoyo: true, repeat: 2, ease: "sine.inOut" }, 32.4);
+
+      /* ============ KARAOKE CAPTIONS ============ */
+      const WORDS = [["¿Con",0.031,0.171],["el",0.191,0.251],["nuevo",0.291,0.491],["gobierno",0.551,0.931],["van",0.951,1.411],["a",1.431,1.451],["bajar",1.491,1.711],["las",1.751,1.831],["tasas",1.891,2.091],["de",2.111,2.191],["interés?",2.231,2.511],["Es",2.691,2.771],["posible,",2.811,3.152],["pero",3.452,3.592],["no",3.632,3.712],["de",3.752,3.812],["inmediato.",3.852,4.192],["Pasa",4.272,4.512],["como",4.672,4.892],["con",5.032,5.132],["los",5.192,5.292],["mangos.",5.352,5.612],["Cuando",5.892,6.112],["no",6.152,6.212],["hay",6.232,6.332],["cosecha",6.372,6.772],["hay",7.012,7.112],["menos",7.152,7.372],["mangos",7.432,7.732],["y",7.752,7.772],["se",7.972,8.052],["ponen",8.092,8.292],["más",8.352,8.453],["caros.",8.513,8.773],["Con",8.933,9.053],["el",9.093,9.133],["dinero",9.173,9.433],["ocurre",9.453,9.893],["algo",9.913,10.093],["parecido.",10.153,10.493],["Cuando",10.653,10.873],["entran",10.933,11.193],["menos",11.253,11.453],["capitales",11.513,11.873],["al",11.893,12.053],["país",12.113,12.393],["hay",12.573,12.673],["menos",12.713,12.913],["recursos",12.973,13.333],["disponibles",13.393,13.853],["para",13.933,14.054],["prestar",14.114,14.434],["y",14.454,14.474],["las",14.794,14.874],["tasas",14.954,15.234],["pueden",15.414,15.614],["subir.",15.674,15.954],["Por",16.034,16.154],["eso",16.214,16.354],["para",16.514,16.654],["que",16.694,16.794],["las",16.854,16.934],["tasas",17.034,17.274],["bajen",17.394,17.634],["no",17.874,17.974],["basta",18.034,18.274],["con",18.314,18.414],["un",18.454,18.514],["cambio",18.574,18.774],["de",18.814,18.874],["gobierno.",18.934,19.254],["También",19.434,19.715],["debe",19.775,19.935],["mejorar",19.995,20.315],["la",20.355,20.415],["confianza,",20.495,21.015],["llegar",21.035,21.475],["a",21.495,21.515],["inversión",21.575,21.935],["y",21.955,21.975],["haber",21.995,22.515],["más",22.615,22.755],["entidades",22.835,23.255],["compitiendo",23.275,23.955],["por",24.175,24.295],["prestar.",24.355,24.675],["Antes",24.915,25.115],["de",25.135,25.196],["esperar",25.216,25.516],["un",25.556,25.616],["crédito",25.656,25.976],["porque",26.096,26.416],["de",26.476,26.556],["pronto",26.636,27.076],["bajan",27.136,27.376],["las",27.416,27.516],["tasas",27.596,27.836],["revisa",28.117,28.398],["si",28.599,28.699],["hoy",28.739,28.86],["realmente",28.9,29.262],["te",29.322,29.402],["conviene",29.442,29.744],["avanzar",29.764,30.165],["o",30.406,30.447],["si",30.487,30.567],["es",30.627,30.708],["mejor",30.748,30.949],["esperar.",30.969,31.25],["En",31.471,31.531],["Credi",31.551,31.812],["Ayudarte",31.833,32.274],["revisamos",32.315,32.736],["tu",32.817,32.917],["caso",32.957,33.158],["y",33.299,33.339],["si",33.399,33.5],["no",33.54,33.62],["te",33.66,33.741],["conviene",33.781,34.142],["ayudarte",34.203,34.584],["ahora,",34.604,34.825],["también",35.046,35.247],["te",35.287,35.368],["lo",35.408,35.468],["decimos.",35.488,35.81]];
+      // windows where a big graphic owns the screen -> no captions
+      const SUPPRESS = [[4.27, 5.62], [31.30, 35.9]];
+      const suppressed = (a, b) => SUPPRESS.some(([s, e]) => ((a + b) / 2) >= s && ((a + b) / 2) <= e);
+
+      // group words into readable blocks (<=5 words, <=2.4s, break after . ?)
+      const blocks = [];
+      let cur = [];
+      for (const w of WORDS) {
+        if (cur.length) {
+          const dur = w[2] - cur[0][1];
+          const prev = cur[cur.length - 1][0];
+          if (cur.length >= 5 || dur > 2.4 || /[.?]$/.test(prev)) { blocks.push(cur); cur = []; }
+        }
+        cur.push(w);
+      }
+      if (cur.length) blocks.push(cur);
+
+      const capRoot = document.getElementById("captions");
+      // keep only visible (non-suppressed) blocks, with show/hide times
+      const vis = [];
+      blocks.forEach((blk) => {
+        const bStart = blk[0][1], bEnd = blk[blk.length - 1][2];
+        if (suppressed(bStart, bEnd)) return;
+        vis.push({ blk, bStart, bEnd });
+      });
+      vis.forEach((v, idx) => {
+        const el = document.createElement("div");
+        el.className = "cap-block";
+        const spans = v.blk.map((w) => {
+          const s = document.createElement("span");
+          s.className = "w"; s.textContent = w[0];
+          el.appendChild(s); el.appendChild(document.createTextNode(" "));
+          return s;
+        });
+        capRoot.appendChild(el);
+        // mutually exclusive: a block hides exactly when the next one shows
+        const show = Math.max(0, v.bStart - 0.06);
+        let hide = v.bEnd + 0.2;
+        const next = vis[idx + 1];
+        if (next) { const nextShow = Math.max(0, next.bStart - 0.06); if (nextShow < hide) hide = nextShow; }
+        tl.set(el, { opacity: 1 }, show);
+        tl.set(el, { opacity: 0 }, hide);
+        // per-word karaoke (seek-safe sets)
+        v.blk.forEach((w, i) => {
+          tl.set(spans[i], { className: "w active" }, w[1]);
+          tl.set(spans[i], { className: "w past" }, w[2]);
+        });
+      });
+
+      /* ============ duration anchor ============ */
+      tl.set({}, {}, DUR);
+      tl.to("#s1-emblem", { opacity: 1, duration: 0.4, ease: "back.out(1.6)" }, 0.1);
+      tl.to("#s1-emblem", { scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 0.1);
+      window.__timelines["root"] = tl;
+    </script>
+  </body>
+</html>

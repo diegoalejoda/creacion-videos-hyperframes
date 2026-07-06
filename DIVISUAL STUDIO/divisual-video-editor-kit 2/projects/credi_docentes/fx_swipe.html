@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>FX — Swipe</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: transparent !important; width: 1080px; height: 1920px; overflow: hidden; }
+  .bar {
+    position: absolute; top: -120px; height: 2160px; width: 900px;
+    transform: skewX(-12deg) translateX(-1700px);
+    will-change: transform;
+  }
+  #b1 { background: #0D0D0D; left: -200px; }
+  #b2 { background: linear-gradient(180deg, #FFE26A, #FAC51C); left: -200px; box-shadow: 0 0 60px rgba(250,197,28,0.6); }
+  #spark { position: absolute; top:0; height:2160px; width: 16px; left:-200px; background:#fff;
+           transform: skewX(-12deg) translateX(-1700px); box-shadow: 0 0 40px 12px rgba(255,255,255,0.9); }
+</style>
+</head>
+<body>
+  <div class="bar" id="b1"></div>
+  <div class="bar" id="b2"></div>
+  <div id="spark"></div>
+<script>
+  const tl = gsap.timeline({ paused: true });
+  const OUT = 2200;
+  tl.fromTo('#b2', { x:-1700 }, { x:OUT, duration:0.50, ease:'power2.inOut' }, 0.00);
+  tl.fromTo('#b1', { x:-1700 }, { x:OUT, duration:0.50, ease:'power2.inOut' }, 0.08);
+  tl.fromTo('#spark',{ x:-1700, opacity:1 }, { x:OUT, opacity:1, duration:0.50, ease:'power2.inOut' }, 0.04);
+  window.__timelines = { main: tl };
+  tl.play();
+</script>
+</body>
+</html>

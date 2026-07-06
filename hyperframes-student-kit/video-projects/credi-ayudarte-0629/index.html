@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>Credi Ayudarte — El médico financiero 0629</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:block;src:url('assets/fonts/Inter-500.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:block;src:url('assets/fonts/Inter-700.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:800;font-display:block;src:url('assets/fonts/Inter-800.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:900;font-display:block;src:url('assets/fonts/Inter-900.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:block;src:url('assets/fonts/JetBrainsMono-700.woff2') format('woff2');}
+      @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:block;src:url('assets/fonts/SpaceGrotesk-700.woff2') format('woff2');}
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1080px; height: 1920px; overflow: hidden;
+        background: #0d0d0d; font-family: "Inter", sans-serif; color: #fff;
+      }
+      :root {
+        --gold: #efc01e; --green: #5fa22e; --gray: #9ca1a6;
+        --charcoal: #3c4043; --alert: #e4572e; --ink: #0d0d0d; --soft: #c9cdd2;
+      }
+
+      /* ---------- base video ---------- */
+      #face-video {
+        position: absolute; top: 0; left: 0;
+        width: 1080px; height: 1920px; object-fit: cover;
+        transform-origin: center 42%;
+        filter: contrast(1.06) saturate(1.05) brightness(0.95);
+        z-index: 0;
+      }
+
+      /* ---------- global legibility / mood layers ---------- */
+      .layer { position: absolute; inset: 0; pointer-events: none; }
+      #scrim-top {
+        background: linear-gradient(180deg,
+          rgba(13,13,13,0.80) 0%, rgba(13,13,13,0.52) 13%, rgba(13,13,13,0.0) 28%);
+      }
+      #scrim-bottom {
+        background: linear-gradient(0deg,
+          rgba(13,13,13,0.92) 0%, rgba(13,13,13,0.58) 16%, rgba(13,13,13,0.0) 34%);
+      }
+      #vignette {
+        background: radial-gradient(ellipse 78% 64% at 50% 44%,
+          transparent 56%, rgba(13,13,13,0.44) 100%);
+      }
+      #grain {
+        opacity: 0.5; mix-blend-mode: overlay;
+        background-image:
+          radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+          radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+          radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+        background-size: 3px 3px, 5px 5px, 7px 7px;
+        background-position: 0 0, 1px 2px, 2px 1px;
+      }
+
+      /* ---------- reusable bits ---------- */
+      .scene { position: absolute; inset: 0; }
+      .glass {
+        position: absolute;
+        background: linear-gradient(135deg,
+            rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.05) 40%,
+            rgba(13,13,13,0.30) 100%),
+          rgba(20,21,23,0.52);
+        backdrop-filter: blur(16px) saturate(135%);
+        -webkit-backdrop-filter: blur(16px) saturate(135%);
+        border: 1.5px solid rgba(255,255,255,0.20);
+        border-radius: 30px;
+        box-shadow: 0 22px 60px rgba(0,0,0,0.45),
+          inset 0 1px 0 rgba(255,255,255,0.30), inset 0 -16px 30px rgba(0,0,0,0.22);
+      }
+      .pill {
+        display: inline-flex; align-items: center; gap: 14px;
+        padding: 16px 30px; border-radius: 999px;
+        background: rgba(13,13,13,0.6);
+        backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        border: 1.5px solid rgba(255,255,255,0.16);
+        box-shadow: 0 12px 34px rgba(0,0,0,0.4);
+        font-family: "Inter", sans-serif; font-weight: 800;
+        font-size: 36px; letter-spacing: 0.4px; white-space: nowrap;
+      }
+      .pill .dot { width: 14px; height: 14px; border-radius: 50%; }
+      .label-mono { font-family: "JetBrains Mono", monospace; font-weight: 700;
+        letter-spacing: 3px; text-transform: uppercase; }
+      .display { font-family: "Space Grotesk", sans-serif; font-weight: 700; }
+
+      /* ---------- S1 hook ---------- */
+      #s1-stamp { position: absolute; top: 150px; left: 50%; margin-left: -210px;
+        width: 420px; padding: 16px 0; text-align: center;
+        font-family: "Space Grotesk"; font-weight: 700; font-size: 58px; letter-spacing: 4px;
+        color: var(--alert); border: 5px solid var(--alert); border-radius: 18px;
+        transform: rotate(-8deg);
+        text-shadow: 0 3px 14px rgba(0,0,0,0.7); box-shadow: 0 0 34px rgba(228,87,46,0.35); }
+      #s1-strike { position: absolute; top: 196px; left: 50%; margin-left: -200px;
+        width: 400px; height: 8px; background: var(--alert); border-radius: 4px;
+        transform: rotate(-8deg); box-shadow: 0 0 16px var(--alert); }
+      #s1-title { position: absolute; top: 320px; left: 60px; width: 960px; text-align: center;
+        font-family: "Space Grotesk"; font-weight: 700; font-size: 70px; line-height: 1.02;
+        text-shadow: 0 4px 24px rgba(0,0,0,0.8); }
+      #s1-title .hl { color: var(--gold); }
+
+      /* ---------- S2 audience ---------- */
+      #s2-pills { position: absolute; top: 120px; left: 0; width: 1080px; text-align: center; }
+      #s2-pills .pill { margin: 0 8px 18px; }
+      #s2-p1 { border-color: rgba(239,192,30,0.5); background: rgba(34,28,8,0.6); }
+      #s2-p1 .dot { background: var(--gold); box-shadow: 0 0 14px var(--gold); }
+      #s2-p2 { border-color: rgba(95,162,46,0.5); background: rgba(14,30,10,0.6); }
+      #s2-p2 .dot { background: var(--green); box-shadow: 0 0 14px var(--green); }
+      #s2-hope { position: absolute; top: 318px; left: 50%; margin-left: -300px; width: 600px;
+        padding: 18px 28px; border-radius: 999px; text-align: center;
+        background: rgba(95,162,46,0.18); border: 2px solid var(--green);
+        font-family: "Inter"; font-weight: 800; font-size: 40px; color: #eafbe2;
+        box-shadow: 0 0 28px rgba(95,162,46,0.3); }
+      #s2-hope b { color: #bff29e; }
+
+      /* ---------- S3 revisar caso ---------- */
+      #s3-card { top: 96px; left: 130px; width: 820px; padding: 30px 34px 30px; text-align: center; }
+      #s3-card .ic { font-size: 76px; }
+      #s3-card .ttl { font-family: "Inter"; font-weight: 800; font-size: 44px; margin-top: 6px; }
+      #s3-card .ttl b { color: var(--gold); }
+      #s3-alert { position: absolute; top: 330px; left: 50%; margin-left: -290px; width: 580px;
+        padding: 16px 26px; border-radius: 18px; text-align: center;
+        background: rgba(40,16,10,0.66); border: 2px solid var(--alert);
+        font-family: "Inter"; font-weight: 800; font-size: 36px; color: #ffd9cd;
+        box-shadow: 0 0 26px rgba(228,87,46,0.3); }
+      #s3-alert b { color: #ff9f87; }
+
+      /* ---------- S4 analogy enfermo->medico ---------- */
+      #s4-row { position: absolute; top: 150px; left: 0; width: 1080px; text-align: center;
+        display: flex; align-items: center; justify-content: center; gap: 30px; }
+      #s4-row .ico { width: 200px; }
+      #s4-row .em { font-size: 120px; line-height: 1.1; }
+      #s4-row .lb { font-family: "Inter"; font-weight: 800; font-size: 34px; margin-top: 4px; }
+      #s4-arrow { font-size: 70px; color: var(--alert); position: relative; }
+      #s4-arrow .x { position: absolute; top: -34px; left: 50%; margin-left: -20px;
+        font-size: 50px; color: var(--alert); }
+      #s4-cap { position: absolute; top: 348px; left: 0; width: 1080px; text-align: center;
+        color: var(--soft); font-family: "Inter"; font-weight: 700; font-size: 36px; }
+
+      /* ---------- S5 sin diagnostico sin cura ---------- */
+      #s5-card { top: 120px; left: 130px; width: 820px; padding: 30px 34px; text-align: center; }
+      #s5-card .em { font-size: 86px; }
+      #s5-flow { font-family: "Space Grotesk"; font-weight: 700; font-size: 46px; margin-top: 12px;
+        display: flex; align-items: center; justify-content: center; gap: 20px; }
+      #s5-flow .a { color: var(--gray); }
+      #s5-flow .ar { color: var(--gold); font-size: 40px; }
+      #s5-flow .b { color: var(--alert); }
+
+      /* ---------- S6 doctor badge ---------- */
+      #s6-badge { position: absolute; top: 120px; left: 50%; margin-left: -330px; width: 660px;
+        padding: 22px 30px; border-radius: 22px; text-align: center;
+        background: linear-gradient(135deg, rgba(95,162,46,0.22), rgba(13,13,13,0.45)), rgba(16,20,16,0.7);
+        border: 2px solid rgba(95,162,46,0.6);
+        box-shadow: 0 18px 50px rgba(0,0,0,0.5), 0 0 30px rgba(95,162,46,0.3);
+        display: flex; align-items: center; justify-content: center; gap: 18px; }
+      #s6-badge .ic { font-size: 56px; }
+      #s6-badge .tx { font-family: "Space Grotesk"; font-weight: 700; font-size: 46px;
+        letter-spacing: 0.5px; color: #fff; line-height: 1.0; text-align: left; }
+      #s6-badge .tx small { display: block; font-family: "Inter"; font-weight: 700;
+        font-size: 26px; color: #bff29e; letter-spacing: 1px; }
+
+      /* ---------- S7 diagnosis chips (doctor) ---------- */
+      #s7-chips { position: absolute; top: 110px; left: 0; width: 1080px; text-align: center; }
+      #s7-chips .chip { display: inline-flex; align-items: center; gap: 12px; margin: 0 6px;
+        padding: 14px 24px; border-radius: 999px; opacity: 0;
+        background: rgba(13,13,13,0.62); border: 2px solid rgba(255,255,255,0.18);
+        backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.42);
+        font-family: "Inter"; font-weight: 800; font-size: 33px; white-space: nowrap; }
+      #s7-chips .chip .ck { color: var(--green); font-size: 30px; }
+      #s7-c2 { border-color: rgba(239,192,30,0.5) !important; }
+      #s7-c2 .ck { color: var(--gold) !important; }
+
+      /* ---------- S8 impact word ---------- */
+      #s8-word { position: absolute; top: 150px; left: 0; width: 1080px; text-align: center;
+        font-family: "Space Grotesk"; font-weight: 700; font-size: 132px; letter-spacing: -3px;
+        color: var(--gold); text-shadow: 0 0 56px rgba(239,192,30,0.55), 0 8px 30px rgba(0,0,0,0.6); }
+      #s8-sub { position: absolute; top: 320px; left: 0; width: 1080px; text-align: center;
+        font-family: "Inter"; font-weight: 800; font-size: 44px; color: #fff;
+        text-shadow: 0 3px 16px rgba(0,0,0,0.8); }
+      #s8-sub b { color: var(--green); }
+
+      /* ---------- S9 compare ---------- */
+      #s9-wrap { position: absolute; top: 110px; left: 0; width: 1080px; display: flex;
+        justify-content: center; gap: 24px; }
+      .cmp { width: 392px; padding: 28px 24px; border-radius: 26px; text-align: center; min-height: 250px; }
+      #s9-a { background: rgba(20,21,23,0.58); border: 2px solid rgba(156,161,166,0.45); }
+      #s9-b { background: linear-gradient(135deg, rgba(95,162,46,0.20), rgba(13,13,13,0.5));
+        border: 2px solid rgba(95,162,46,0.6); }
+      .cmp .em { font-size: 58px; }
+      .cmp .q { margin-top: 10px; font-family: "Space Grotesk"; font-weight: 700; font-size: 36px; line-height: 1.05; }
+      #s9-a .q { color: var(--gray); }
+      #s9-b .q { color: #d6f3c2; }
+      .cmp .s { margin-top: 10px; font-family: "Inter"; font-weight: 500; font-size: 27px; color: var(--soft); }
+
+      /* ---------- S10 tu decides ---------- */
+      #s10-em { position: absolute; top: 150px; left: 0; width: 1080px; text-align: center; font-size: 110px; }
+      #s10-word { position: absolute; top: 300px; left: 0; width: 1080px; text-align: center;
+        font-family: "Space Grotesk"; font-weight: 700; font-size: 96px; letter-spacing: 1px;
+        color: #fff; text-shadow: 0 0 44px rgba(239,192,30,0.45), 0 6px 24px rgba(0,0,0,0.7); }
+      #s10-word b { color: var(--gold); }
+
+      /* ---------- S11 te conviene ---------- */
+      #s11-q { position: absolute; top: 130px; left: 0; width: 1080px; text-align: center;
+        font-family: "Space Grotesk"; font-weight: 700; font-size: 72px; color: #fff;
+        text-shadow: 0 4px 20px rgba(0,0,0,0.7); }
+      #s11-q b { color: var(--gold); }
+      #s11-row { position: absolute; top: 270px; left: 0; width: 1080px; text-align: center; }
+      #s11-row .opt { display: inline-flex; align-items: center; gap: 12px; margin: 0 14px;
+        padding: 16px 38px; border-radius: 999px; font-family: "Inter"; font-weight: 800; font-size: 42px; }
+      #s11-yes { background: rgba(95,162,46,0.2); border: 2px solid var(--green); color: #d6f3c2; }
+      #s11-no { background: rgba(40,16,10,0.6); border: 2px solid var(--alert); color: #ffd9cd; }
+
+      /* ---------- S12 CTA ---------- */
+      #cta-dim { position: absolute; inset: 0; background: rgba(13,13,13,0.55); opacity: 0; }
+      #cta-card { top: 560px; left: 90px; width: 900px; padding: 54px 56px 58px; text-align: center; border-radius: 40px;
+        background: linear-gradient(135deg, rgba(255,255,255,0.10), rgba(13,13,13,0.40)), rgba(11,12,14,0.9); }
+      #cta-logo { width: 150px; height: 150px; object-fit: contain; margin: 0 auto 16px;
+        display: block; filter: drop-shadow(0 6px 20px rgba(0,0,0,0.5)); }
+      #cta-brand { font-family: "Space Grotesk"; font-weight: 700; font-size: 56px; letter-spacing: 0.5px; }
+      #cta-brand .ay { color: var(--green); }
+      #cta-head { margin-top: 12px; font-family: "Inter"; font-weight: 800; font-size: 40px; color: var(--gold); }
+      #cta-wa { margin: 30px auto 0; width: 720px; padding: 24px 30px; border-radius: 22px;
+        background: rgba(95,162,46,0.16); border: 2px solid var(--green);
+        display: flex; align-items: center; justify-content: center; gap: 18px; }
+      #cta-wa .ic { font-size: 44px; }
+      #cta-wa .num { font-family: "JetBrains Mono"; font-weight: 700; font-size: 46px; color: #fff; }
+      #cta-key { margin-top: 20px; font-family: "Inter"; font-weight: 700; font-size: 34px; }
+      #cta-key b { color: var(--gold); letter-spacing: 2px; }
+
+      /* ---------- captions (karaoke) ---------- */
+      #captions { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; }
+      .cap-block {
+        position: absolute; left: 50%; transform: translate(-50%, -50%);
+        max-width: 1000px; width: max-content; opacity: 0;
+        padding: 16px 32px; border-radius: 22px;
+        background: rgba(9,10,12,0.58);
+        backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+        box-shadow: 0 14px 40px rgba(0,0,0,0.5);
+        font-family: "Inter"; font-weight: 800; font-size: 52px; line-height: 1.12;
+        text-align: center; text-shadow: 0 3px 16px rgba(0,0,0,0.95);
+      }
+      .cap-block .w { color: rgba(255,255,255,0.6); margin: 0 5px; display: inline-block; transform: translateZ(0); }
+      .cap-block .w.past { color: #fff; opacity: 0.92; }
+      .cap-block .w.active { color: var(--gold); transform: scale(1.07);
+        text-shadow: 0 0 18px rgba(239,192,30,0.6), 0 3px 16px rgba(0,0,0,0.9); }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="root" id="root" data-composition-id="root" data-start="0" data-duration="36.7" data-width="1080" data-height="1920">
+
+      <!-- base video -->
+      <video data-hf-id="face-video" id="face-video" data-start="0" data-duration="36.7" data-track-index="0" src="assets/source.mp4" muted playsinline></video>
+
+      <!-- audio -->
+      <audio data-hf-id="face-audio" id="face-audio" data-start="0" data-duration="36.7" data-track-index="1" data-volume="1" src="assets/audio.mp3"></audio>
+
+      <!-- global mood / legibility -->
+      <div data-hf-id="scrim-top" id="scrim-top" class="layer clip" data-start="0" data-duration="36.7" data-track-index="2"></div>
+      <div data-hf-id="scrim-bottom" id="scrim-bottom" class="layer clip" data-start="0" data-duration="36.7" data-track-index="3"></div>
+      <div data-hf-id="vignette" id="vignette" class="layer clip" data-start="0" data-duration="36.7" data-track-index="4"></div>
+      <div data-hf-id="grain" id="grain" class="layer clip" data-start="0" data-duration="36.7" data-track-index="5"></div>
+
+      <!-- S1 hook -->
+      <div data-hf-id="s1" id="s1" class="scene clip" data-start="0.0" data-duration="1.7" data-track-index="10">
+        <div data-hf-id="s1-stamp" id="s1-stamp">RECHAZADO</div>
+        <div data-hf-id="s1-strike" id="s1-strike"></div>
+        <div data-hf-id="s1-title" id="s1-title">¿Crees que <span data-hf-id="s1hl" class="hl">ya nadie</span><br>te presta?</div>
+      </div>
+
+      <!-- S2 audience -->
+      <div data-hf-id="s2" id="s2" class="scene clip" data-start="1.6" data-duration="3.4" data-track-index="11">
+        <div data-hf-id="s2-pills" id="s2-pills">
+          <span data-hf-id="s2-p1" id="s2-p1" class="pill"><span data-hf-id="s2d1" class="dot"></span>PENSIONADO</span>
+          <span data-hf-id="s2-p2" id="s2-p2" class="pill"><span data-hf-id="s2d2" class="dot"></span>EMPLEADO DEL GOBIERNO</span>
+        </div>
+        <div data-hf-id="s2-hope" id="s2-hope">✅ <b data-hf-id="s2hb">no todo está perdido</b></div>
+      </div>
+
+      <!-- S3 revisar caso -->
+      <div data-hf-id="s3" id="s3" class="scene clip" data-start="4.98" data-duration="3.42" data-track-index="12">
+        <div data-hf-id="s3-card" id="s3-card" class="glass">
+          <div data-hf-id="s3ic" class="ic">🔍</div>
+          <div data-hf-id="s3tt" class="ttl">Revisamos <b data-hf-id="s3b">tu caso</b></div>
+        </div>
+        <div data-hf-id="s3-alert" id="s3-alert">⚠️ No hacerlo <b data-hf-id="s3ab">puede salir caro</b></div>
+      </div>
+
+      <!-- S4 analogy -->
+      <div data-hf-id="s4" id="s4" class="scene clip" data-start="8.54" data-duration="2.06" data-track-index="13">
+        <div data-hf-id="s4-row" id="s4-row">
+          <div data-hf-id="s4i1" class="ico"><div data-hf-id="s4e1" class="em">🤒</div><div data-hf-id="s4l1" class="lb">Enfermo</div></div>
+          <div data-hf-id="s4-arrow" id="s4-arrow">→<span data-hf-id="s4x" class="x">✕</span></div>
+          <div data-hf-id="s4i2" class="ico"><div data-hf-id="s4e2" class="em">🏥</div><div data-hf-id="s4l2" class="lb">Sin médico</div></div>
+        </div>
+        <div data-hf-id="s4-cap" id="s4-cap">ignorarlo no lo soluciona</div>
+      </div>
+
+      <!-- S5 sin diagnostico sin cura -->
+      <div data-hf-id="s5" id="s5" class="scene clip" data-start="10.66" data-duration="2.44" data-track-index="14">
+        <div data-hf-id="s5-card" id="s5-card" class="glass">
+          <div data-hf-id="s5e" class="em">🩺</div>
+          <div data-hf-id="s5-flow" id="s5-flow"><span data-hf-id="s5a" class="a">Sin diagnóstico</span><span data-hf-id="s5ar" class="ar">→</span><span data-hf-id="s5b" class="b">sin cura</span></div>
+        </div>
+      </div>
+
+      <!-- S6 doctor badge -->
+      <div data-hf-id="s6" id="s6" class="scene clip" data-start="13.22" data-duration="2.78" data-track-index="15">
+        <div data-hf-id="s6-badge" id="s6-badge">
+          <span data-hf-id="s6ic" class="ic">🩺</span>
+          <span data-hf-id="s6tx" class="tx">TU MÉDICO FINANCIERO<small data-hf-id="s6sm">un diagnóstico sincero</small></span>
+        </div>
+      </div>
+
+      <!-- S7 diagnosis chips -->
+      <div data-hf-id="s7" id="s7" class="scene clip" data-start="16.08" data-duration="4.4" data-track-index="16">
+        <div data-hf-id="s7-chips" id="s7-chips">
+          <span data-hf-id="s7-c1" id="s7-c1" class="chip"><span data-hf-id="s7k1" class="ck">✓</span>Diagnóstico</span>
+          <span data-hf-id="s7-c2" id="s7-c2" class="chip"><span data-hf-id="s7k2" class="ck">✓</span>Opciones reales</span>
+          <span data-hf-id="s7-c3" id="s7-c3" class="chip"><span data-hf-id="s7k3" class="ck">✓</span>Claridad</span>
+        </div>
+      </div>
+
+      <!-- S8 impact word -->
+      <div data-hf-id="s8" id="s8" class="scene clip" data-start="20.52" data-duration="2.3" data-track-index="17">
+        <div data-hf-id="s8-word" id="s8-word">DIAGNÓSTICO</div>
+        <div data-hf-id="s8-sub" id="s8-sub">acertado <b data-hf-id="s8b">puede sorprenderte</b></div>
+      </div>
+
+      <!-- S9 compare -->
+      <div data-hf-id="s9" id="s9" class="scene clip" data-start="23.04" data-duration="4.76" data-track-index="18">
+        <div data-hf-id="s9-wrap" id="s9-wrap">
+          <div data-hf-id="s9-a" id="s9-a" class="cmp"><div data-hf-id="s9ae" class="em">❌</div><div data-hf-id="s9aq" class="q">No es el problema<br>que creías</div></div>
+          <div data-hf-id="s9-b" id="s9-b" class="cmp"><div data-hf-id="s9be" class="em">🔓</div><div data-hf-id="s9bq" class="q">Una opción que<br>no habías visto</div></div>
+        </div>
+      </div>
+
+      <!-- S10 tu decides -->
+      <div data-hf-id="s10" id="s10" class="scene clip" data-start="27.84" data-duration="2.0" data-track-index="19">
+        <div data-hf-id="s10-em" id="s10-em">🫵</div>
+        <div data-hf-id="s10-word" id="s10-word"><b data-hf-id="s10b">TÚ</b> decides</div>
+      </div>
+
+      <!-- S11 te conviene -->
+      <div data-hf-id="s11" id="s11" class="scene clip" data-start="29.84" data-duration="3.76" data-track-index="20">
+        <div data-hf-id="s11-q" id="s11-q">¿Te <b data-hf-id="s11b">conviene</b>?</div>
+        <div data-hf-id="s11-row" id="s11-row">
+          <span data-hf-id="s11-yes" id="s11-yes" class="opt">✅ Sí</span>
+          <span data-hf-id="s11-no" id="s11-no" class="opt">⛔ No</span>
+        </div>
+      </div>
+
+      <!-- S12 CTA -->
+      <div data-hf-id="cta-dim" id="cta-dim" class="clip" data-start="33.5" data-duration="3.2" data-track-index="21"></div>
+      <div data-hf-id="s12" id="s12" class="scene clip" data-start="33.5" data-duration="3.2" data-track-index="22">
+        <div data-hf-id="cta-card" id="cta-card" class="glass">
+          <svg data-hf-id="cta-logo" id="cta-logo" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Credi Ayudarte">
+            <path d="M30,135 C30,115 75,111 120,111 C165,111 210,115 210,135" fill="none" stroke="#3C4043" stroke-width="8" stroke-linecap="round"/>
+            <path d="M120,155 C100,155 96,110 110,95 C116,88 124,88 130,95 C144,110 140,155 120,155 Z" fill="#9CA1A6"/>
+            <circle cx="120" cy="81" r="24" fill="#9CA1A6"/>
+            <path d="M74,101 C46,107 44,155 84,157 C108,158 112,135 100,119 C92,109 84,101 74,101 Z" fill="#EFC01E"/>
+            <circle cx="74" cy="73" r="27" fill="#EFC01E"/>
+            <path d="M166,101 C194,107 196,155 156,157 C132,158 128,135 140,119 C148,109 156,101 166,101 Z" fill="#5FA22E"/>
+            <circle cx="166" cy="73" r="27" fill="#5FA22E"/>
+            <path d="M30,135 C30,165 70,199 120,201 C170,199 210,165 210,135 C210,149 165,158 120,158 C75,158 30,149 30,135 Z" fill="#FFFFFF" stroke="#3C4043" stroke-width="8" stroke-linejoin="round"/>
+          </svg>
+          <div data-hf-id="cta-brand" id="cta-brand">Credi <span data-hf-id="ctaay" class="ay">Ayudarte</span></div>
+          <div data-hf-id="cta-head" id="cta-head">Atención inmediata</div>
+          <div data-hf-id="cta-wa" id="cta-wa"><span data-hf-id="ctaic" class="ic">💬</span><span data-hf-id="ctanum" class="num">315 247 4348</span></div>
+          <div data-hf-id="cta-key" id="cta-key">Escríbenos la palabra <b data-hf-id="ctak">CRÉDITO</b></div>
+        </div>
+      </div>
+
+      <!-- captions -->
+      <div data-hf-id="captions" id="captions" class="clip" data-start="0" data-duration="36.7" data-track-index="30"></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const DUR = 36.7;
+
+      tl.set("#cta-card", { y: 30, x: 0, data: "hf-hold" }, 0);
+
+      /* ============ base video: subtle Ken Burns ============ */
+      tl.fromTo("#face-video", { scale: 1.0 }, { scale: 1.05, duration: DUR, ease: "none" }, 0);
+
+      /* ============ helpers ============ */
+      function inn(sel, t, opt) {
+        opt = opt || {};
+        gsap.set(sel, { opacity: 0, y: opt.y != null ? opt.y : 24, filter: "blur(8px)" });
+        tl.to(sel, { opacity: 1, y: 0, filter: "blur(0px)", duration: opt.d || 0.4, ease: opt.e || "power3.out" }, t);
+      }
+      function out(sel, t) {
+        tl.to(sel, { opacity: 0, y: -16, filter: "blur(6px)", duration: 0.26, ease: "power2.in" }, t);
+        tl.set(sel, { opacity: 0 }, t + 0.26);
+      }
+      function pop(sel, t, from) {
+        gsap.set(sel, { opacity: 0, scale: from != null ? from : 0.7 });
+        tl.to(sel, { opacity: 1, scale: 1, duration: 0.42, ease: "back.out(1.8)" }, t);
+      }
+
+      /* ============ S1 hook ============ */
+      gsap.set("#s1-stamp", { opacity: 0, scale: 1.4, rotation: -8 });
+      tl.to("#s1-stamp", { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 0.12);
+      gsap.set("#s1-strike", { scaleX: 0, transformOrigin: "left center" });
+      tl.to("#s1-strike", { scaleX: 1, duration: 0.28, ease: "power2.in" }, 0.42);
+      inn("#s1-title", 0.5, { y: 18 });
+      out("#s1", 1.5);
+
+      /* ============ S2 audience ============ */
+      pop("#s2-p1", 1.94, 0.8);
+      pop("#s2-p2", 2.78, 0.8);
+      tl.to("#s2-p1 .dot", { opacity: 0.4, duration: 0.4, yoyo: true, repeat: 2, ease: "sine.inOut" }, 2.1);
+      gsap.set("#s2-hope", { opacity: 0, scale: 0.8 });
+      tl.to("#s2-hope", { opacity: 1, scale: 1, duration: 0.42, ease: "back.out(1.7)" }, 3.9);
+      tl.to("#s2-hope", { boxShadow: "0 0 44px rgba(95,162,46,0.55)", duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 4.3);
+      out("#s2", 4.74);
+
+      /* ============ S3 revisar caso ============ */
+      inn("#s3-card", 5.0, { y: 26 });
+      tl.to("#s3-card .ic", { rotation: -12, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 5.5);
+      gsap.set("#s3-alert", { opacity: 0, x: 30 });
+      tl.to("#s3-alert", { opacity: 1, x: 0, duration: 0.36, ease: "back.out(1.5)" }, 7.2);
+      tl.to("#s3-alert", { x: -8, duration: 0.07, yoyo: true, repeat: 5, ease: "none" }, 7.6);
+      out("#s3", 8.14);
+
+      /* ============ S4 analogy ============ */
+      pop("#s4i1", 8.58, 0.6);
+      gsap.set("#s4-arrow", { opacity: 0 });
+      tl.to("#s4-arrow", { opacity: 1, duration: 0.3 }, 9.0);
+      gsap.set("#s4x", { opacity: 0, scale: 1.6 });
+      tl.to("#s4x", { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, 9.9);
+      pop("#s4i2", 9.2, 0.6);
+      inn("#s4-cap", 9.5, { y: 12 });
+      out("#s4", 10.3);
+
+      /* ============ S5 sin diagnostico ============ */
+      inn("#s5-card", 10.7, { y: 24 });
+      tl.to("#s5-card .em", { scale: 1.08, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 11.1);
+      gsap.set(["#s5a","#s5ar","#s5b"], { opacity: 0, y: 14 });
+      tl.to("#s5a", { opacity: 1, y: 0, duration: 0.3 }, 11.3);
+      tl.to("#s5ar", { opacity: 1, y: 0, duration: 0.3 }, 12.0);
+      tl.to("#s5b", { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.6)" }, 12.4);
+      out("#s5", 12.84);
+
+      /* ============ S6 doctor badge ============ */
+      gsap.set("#s6-badge", { opacity: 0, y: -26, scale: 0.92 });
+      tl.to("#s6-badge", { opacity: 1, y: 0, scale: 1, duration: 0.42, ease: "back.out(1.6)" }, 13.26);
+      tl.to("#s6-badge", { boxShadow: "0 18px 50px rgba(0,0,0,0.5), 0 0 44px rgba(95,162,46,0.5)", duration: 0.6, yoyo: true, repeat: 1, ease: "sine.inOut" }, 14.0);
+      tl.to("#s6ic", { rotation: 14, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 14.2);
+      out("#s6", 15.74);
+
+      /* ============ S7 diagnosis chips ============ */
+      [["#s7-c1", 16.34], ["#s7-c2", 17.7], ["#s7-c3", 19.04]].forEach(([s, t]) => {
+        gsap.set(s, { opacity: 0, y: 18, scale: 0.85 });
+        tl.to(s, { opacity: 1, y: 0, scale: 1, duration: 0.36, ease: "back.out(1.8)" }, t);
+      });
+      out("#s7", 20.2);
+
+      /* ============ S8 impact word ============ */
+      gsap.set("#s8-word", { opacity: 0, scale: 0.65 });
+      tl.to("#s8-word", { opacity: 1, scale: 1, duration: 0.44, ease: "back.out(1.7)" }, 20.6);
+      tl.to("#s8-word", { scale: 1.04, duration: 0.6, yoyo: true, repeat: 1, ease: "sine.inOut" }, 21.1);
+      inn("#s8-sub", 21.7, { y: 14 });
+      out("#s8", 22.56);
+
+      /* ============ S9 compare ============ */
+      gsap.set("#s9-a", { opacity: 0, x: -40 });
+      gsap.set("#s9-b", { opacity: 0, x: 40 });
+      tl.to("#s9-a", { opacity: 1, x: 0, duration: 0.42, ease: "power3.out" }, 23.1);
+      tl.to("#s9-b", { opacity: 1, x: 0, duration: 0.42, ease: "power3.out" }, 25.4);
+      tl.to("#s9-b", { boxShadow: "0 0 40px rgba(95,162,46,0.5)", duration: 0.6, yoyo: true, repeat: 1, ease: "sine.inOut" }, 26.0);
+      out("#s9", 27.54);
+
+      /* ============ S10 tu decides ============ */
+      pop("#s10-em", 27.9, 0.5);
+      gsap.set("#s10-word", { opacity: 0, y: 20 });
+      tl.to("#s10-word", { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, 28.5);
+      tl.to("#s10b", { scale: 1.12, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut", transformOrigin: "center" }, 28.9);
+      out("#s10", 29.6);
+
+      /* ============ S11 te conviene ============ */
+      inn("#s11-q", 29.9, { y: 18 });
+      pop("#s11-yes", 31.5, 0.7);
+      pop("#s11-no", 31.9, 0.7);
+      out("#s11", 33.34);
+
+      /* ============ S12 CTA ============ */
+      tl.to("#cta-dim", { opacity: 1, duration: 0.45, ease: "power2.out" }, 33.5);
+      gsap.set("#cta-card", { opacity: 0, scale: 0.86, y: 30 });
+      gsap.set("#cta-logo", { opacity: 0, scale: 0.5, rotation: -10 });
+      tl.to("#cta-card", { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.5)" }, 33.66);
+      tl.to("#cta-logo", { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: "back.out(1.9)" }, 33.86);
+      tl.fromTo("#cta-wa", { boxShadow: "0 0 0 rgba(95,162,46,0)" },
+        { boxShadow: "0 0 30px rgba(95,162,46,0.55)", duration: 0.8, yoyo: true, repeat: 2, ease: "sine.inOut" }, 34.4);
+
+      /* ============ KARAOKE CAPTIONS ============ */
+      const WORDS = [["¿Crees",0.0,0.38],["que",0.38,0.56],["ya",0.56,0.78],["nadie",0.78,0.96],["te",0.96,1.22],["presta?",1.22,1.5],["Si",1.6,1.76],["eres",1.76,1.96],["pensionado",1.96,2.6],["o",2.6,2.8],["empleado",2.8,3.08],["del",3.08,3.26],["gobierno,",3.26,3.62],["no",3.96,4.1],["todo",4.1,4.28],["está",4.28,4.44],["perdido.",4.44,4.84],["Por",4.98,5.06],["eso",5.06,5.18],["queremos",5.18,5.46],["revisar",5.46,5.9],["tu",5.9,6.0],["caso,",6.0,6.26],["no",6.42,6.64],["hacerlo",6.64,6.94],["te",6.94,7.22],["puede",7.22,7.38],["salir",7.38,7.64],["muy",7.64,8.04],["caro.",8.04,8.34],["Es",8.54,8.66],["como",8.66,8.92],["estar",8.92,9.14],["enfermo",9.14,9.64],["y",9.64,9.88],["no",9.88,9.96],["ir",9.96,10.1],["al",10.1,10.2],["médico.",10.2,10.54],["Si",10.66,10.82],["no",10.82,10.9],["se",10.9,11.12],["conoce",11.12,11.36],["la",11.36,11.56],["enfermedad,",11.56,12.08],["no",12.2,12.36],["se",12.36,12.52],["conoce",12.52,12.74],["la",12.74,12.92],["cura.",12.92,13.1],["Credi",13.22,13.52],["Ayudarte",13.52,14.06],["actuará",14.22,14.66],["como",14.66,14.84],["ese",14.84,15.04],["médico",15.04,15.38],["sincero.",15.38,15.94],["Hará",16.08,16.18],["el",16.18,16.34],["diagnóstico",16.34,16.86],["de",16.86,17.0],["tu",17.0,17.08],["situación",17.08,17.6],["y",17.6,17.9],["te",17.9,18.22],["explicará",18.22,18.6],["con",18.6,19.04],["claridad",19.04,19.5],["tus",19.5,19.7],["opciones",19.7,20.02],["reales.",20.02,20.46],["Un",20.52,20.74],["diagnóstico",20.74,21.24],["acertado",21.24,21.78],["puede",21.78,22.1],["sorprenderte.",22.1,22.78],["De",23.04,23.18],["pronto",23.18,23.32],["el",23.32,23.42],["problema",23.42,23.84],["no",23.84,24.22],["es",24.22,24.4],["el",24.4,24.54],["que",24.54,24.62],["tú",24.62,24.8],["creías",24.8,25.12],["o",25.12,25.46],["existe",25.46,25.84],["una",25.84,26.16],["opción",26.16,26.6],["que",26.6,26.92],["no",26.92,27.12],["habías",27.12,27.34],["revisado.",27.34,27.76],["Al",27.84,28.04],["final,",28.04,28.28],["tú",28.52,28.68],["serás",28.68,28.96],["quien",28.96,29.1],["tome",29.1,29.28],["la",29.28,29.5],["decisión.",29.5,29.84],["Porque",29.84,30.12],["lo",30.12,30.3],["más",30.3,30.64],["importante",30.64,31.06],["aquí",31.06,31.42],["es",31.42,31.72],["saber",31.72,32.02],["si",32.02,32.32],["te",32.32,32.62],["conviene",32.62,33.06],["o",33.06,33.32],["no.",33.32,33.6],["Escribe",33.84,34.08],["crédito",34.08,34.48],["al",34.48,34.56],["WhatsApp",34.56,34.82],["y",34.82,35.18],["tendrás",35.18,35.64],["una",35.64,35.9],["atención",35.9,36.24],["inmediata.",36.24,36.66]];
+
+      // windows where a big graphic owns the screen -> no captions
+      const SUPPRESS = [[33.62, 36.7]];
+      const suppressed = (a, b) => SUPPRESS.some(([s, e]) => ((a + b) / 2) >= s && ((a + b) / 2) <= e);
+
+      // per-scene caption vertical center: doctor plane (13.1–20.46) sits higher
+      const DOC_IN = 13.1, DOC_OUT = 20.46;
+      const capY = (mid) => (mid >= DOC_IN && mid < DOC_OUT) ? 1055 : 1205;
+
+      // group words into readable blocks (<=4 words, <=2.0s, break after . ?)
+      const blocks = [];
+      let cur = [];
+      for (const w of WORDS) {
+        if (cur.length) {
+          const dur = w[2] - cur[0][1];
+          const prev = cur[cur.length - 1][0];
+          if (cur.length >= 4 || dur > 2.0 || /[.?]$/.test(prev)) { blocks.push(cur); cur = []; }
+        }
+        cur.push(w);
+      }
+      if (cur.length) blocks.push(cur);
+
+      const capRoot = document.getElementById("captions");
+      const vis = [];
+      blocks.forEach((blk) => {
+        const bStart = blk[0][1], bEnd = blk[blk.length - 1][2];
+        if (suppressed(bStart, bEnd)) return;
+        vis.push({ blk, bStart, bEnd });
+      });
+      vis.forEach((v, idx) => {
+        const el = document.createElement("div");
+        el.className = "cap-block";
+        el.style.top = capY((v.bStart + v.bEnd) / 2) + "px";
+        const spans = v.blk.map((w) => {
+          const s = document.createElement("span");
+          s.className = "w"; s.textContent = w[0];
+          el.appendChild(s); el.appendChild(document.createTextNode(" "));
+          return s;
+        });
+        capRoot.appendChild(el);
+        const show = Math.max(0, v.bStart - 0.06);
+        let hide = v.bEnd + 0.2;
+        const next = vis[idx + 1];
+        if (next) { const nextShow = Math.max(0, next.bStart - 0.06); if (nextShow < hide) hide = nextShow; }
+        tl.set(el, { opacity: 1 }, show);
+        tl.set(el, { opacity: 0 }, hide);
+        v.blk.forEach((w, i) => {
+          tl.set(spans[i], { className: "w active" }, w[1]);
+          tl.set(spans[i], { className: "w past" }, w[2]);
+        });
+      });
+
+      /* ============ duration anchor ============ */
+      tl.set({}, {}, DUR);
+      window.__timelines["root"] = tl;
+    </script>
+  </body>
+</html>

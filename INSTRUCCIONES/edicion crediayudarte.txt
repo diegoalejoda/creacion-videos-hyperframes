@@ -1,0 +1,268 @@
+# SESIÓN DE EDICIÓN PREMIUM — Credi Ayudarte
+
+## Directorio de trabajo
+`C:\Users\PC\Desktop\CLAUDE USOS\PROYECTOS VIDEO`
+
+## Video a editar
+`C:\Users\PC\Desktop\CONTENIDO\CONTENIDO MAMA\videos heygen\0622.mov`
+Formato de salida: **vertical 9:16 para Reels/TikTok/Shorts**
+
+---
+
+## PASO 0 — LECTURA OBLIGATORIA ANTES DE CUALQUIER ACCIÓN
+
+Antes de hacer NADA, lee en este orden exacto. No empieces a editar hasta completar esta lista:
+
+### Instrucciones maestras
+1. Lee `INSTRUCCIONES/instrucciones edicion.txt`
+2. Lee `INSTRUCCIONES/kit_info.txt`
+3. Lee `claude.md/CLAUDE_MASTER_VIDEO_PREMIUM.md`
+
+### Divisual Studio Kit
+4. Lee `DIVISUAL STUDIO/divisual-video-editor-kit 2/CLAUDE.md`
+5. Lee `DIVISUAL STUDIO/divisual-video-editor-kit 2/README.md`
+6. Lee `DIVISUAL STUDIO/divisual-video-editor-kit 2/styles/motion-philosophy.md`
+7. Lee `DIVISUAL STUDIO/divisual-video-editor-kit 2/styles/effects-catalog.md`
+8. Lee `DIVISUAL STUDIO/divisual-video-editor-kit 2/styles/triggers.md`
+9. Lee `DIVISUAL STUDIO/divisual-video-editor-kit 2/styles/video-profiles.md`
+10. Lee `DIVISUAL STUDIO/divisual-video-editor-kit 2/styles/default-style.md`
+11. Lee `DIVISUAL STUDIO/divisual-video-editor-kit 2/styles/aspect-ratios.md`
+
+### HyperFrames Student Kit
+12. Lee `hyperframes-student-kit/CLAUDE.md`
+13. Lee `hyperframes-student-kit/MOTION_PHILOSOPHY.md` (COMPLETO — es el gold standard estético)
+14. Lee `hyperframes-student-kit/AGENTS.md`
+15. Invoca el skill `/short-form-video` (NO usar `/embedded-captions`)
+16. Invoca el skill `/hyperframes`
+
+### Referencias de proyectos existentes
+17. Lee `hyperframes-student-kit/video-projects/may-shorts-19/index.html` (referencia canónica de short-form)
+18. Revisa `DIVISUAL STUDIO/divisual-video-editor-kit 2/projects/` si hay proyectos anteriores
+
+---
+
+## MENTALIDAD OBLIGATORIA — INTERIORIZA ESTO ANTES DE DISEÑAR
+
+> **Ver a una persona hablando sola, sin elementos visuales que acompañen lo que dice, aburre. Un video plano aburre. Una persona hablando + subtítulos y nada más NO es una edición premium — es un video sin editar.**
+
+Claude Code debe operar desde esta premisa en cada segundo del video:
+
+- **Nunca hay una escena donde solo exista la persona y los subtítulos.** Eso no existe en este proyecto.
+- Cada bloque de texto hablado debe tener un elemento visual que lo apoye, amplíe o refuerce: una tarjeta, un dato, una palabra gigante, un gráfico, una alerta, un checklist, un ícono animado, una barra. Lo que sea — pero algo.
+- El espectador en redes sociales decide en los primeros 2 segundos si sigue viendo. Un fondo limpio con persona y texto lo pierde. Un fondo con profundidad, movimiento y elementos contextuales lo retiene.
+- **Motion graphics no son decoración — son la edición.** Los subtítulos son el mínimo. Los motion graphics son lo que hace que el video valga.
+
+---
+
+## REGLAS DE SUBTÍTULOS — ABSOLUTAS
+
+### Posición
+- Los subtítulos van **siempre centrados horizontalmente**.
+- Posición vertical: zona baja-media del frame, debajo del mentón de la persona.
+- Nunca pegados al borde inferior. Nunca encima de la boca, ojos o nariz.
+- CSS de referencia para 1080×1920:
+```css
+.caption {
+  left: 72px;
+  right: 72px;
+  bottom: 280px;
+  text-align: center;
+  font-size: 78px;
+  font-weight: 900;
+  line-height: 1.0;
+}
+```
+
+### Los subtítulos SIEMPRE van acompañados de motion graphics
+- **Nunca un segmento con solo persona + subtítulos.** Es la regla más importante de esta sesión.
+- Si hay subtítulos en pantalla, debe haber simultáneamente al menos uno de estos elementos activo: una tarjeta, un dato, una palabra clave gigante, un gráfico, una alerta, un badge, un ícono, una barra animada, partículas, líneas, un dashboard, cualquier elemento visual de apoyo.
+- Los motion graphics y los subtítulos no compiten — se complementan. Los gráficos van en la zona media-alta o lateral; los subtítulos en la zona baja. Diseña la composición para que coexistan sin taparse.
+
+### Cuándo NO poner subtítulos
+- Si en una escena hay un **motion graphic grande, dinámico o de impacto** que ocupa el espacio central (una palabra gigante, un dashboard fullframe, una tarjeta que domina la pantalla), y poner subtítulos encima arruinaría la legibilidad de ese elemento: **no pongas los subtítulos en ese instante.**
+- Un video donde un elemento visual importante está mal compuesto con texto encima es peor que uno sin subtítulos en ese momento.
+- La prioridad es: **impacto visual primero, subtítulos cuando suman, nunca cuando estorban.**
+- Los segmentos sin subtítulos deben ser cortos (máximo 2-3 segundos) y justificados por un elemento visual de alto impacto que los reemplaza visualmente.
+
+### Estilo karaoke
+- Palabra activa: escala 1.08 + color de marca + glow suave.
+- Base: blanco con sombra de texto para legibilidad sobre cualquier fondo.
+- Máximo 2 líneas, máximo 7 palabras por bloque.
+- Ritmo sincronizado palabra a palabra con el audio.
+
+---
+
+## PASO 1 — INVENTARIO Y DIAGNÓSTICO
+
+Crea `DIVISUAL STUDIO/CREDI_AYUDARTE/PROJECT_SNAPSHOT.md` con:
+- Árbol de carpetas completo del workspace
+- Todos los kits, skills y recursos encontrados
+- Assets de marca disponibles
+- Video detectado con specs (resolución, duración, fps)
+
+---
+
+## PASO 2 — CONFIGURACIÓN DE MARCA
+
+El cliente es **Credi Ayudarte** — empresa financiera de créditos en Colombia.
+
+Crea `DIVISUAL STUDIO/CREDI_AYUDARTE/00_BRAND/BRAND_CONFIG.json`:
+
+```json
+{
+  "brandName": "Credi Ayudarte",
+  "industry": "financiera / créditos",
+  "audience": "personas que buscan crédito o refinanciación en Colombia",
+  "tone": "confiable, cercano, educativo, profesional",
+  "platform": "Instagram Reels / TikTok / YouTube Shorts",
+  "format": "vertical 9:16 — 1080x1920",
+  "editingStyle": "premium liquid glass + karaoke captions + motion graphics densos",
+  "cta": "Escríbenos — te revisamos tu caso sin compromiso"
+}
+```
+
+**Pregunta los colores de marca antes de continuar.** Si no los tiene disponibles, propón una paleta financiera premium (azul oscuro + blanco + acento dorado o verde esmeralda) y espera confirmación.
+
+---
+
+## PASO 3 — TRANSCRIPCIÓN Y ANÁLISIS DEL GUION
+
+1. Transcribe el audio en español con word-level timestamps
+2. Identifica en el transcript:
+   - Hook de apertura (primeros 3s) — debe tener el beat visual más fuerte
+   - Problema planteado (tasas que no bajan con el gobierno)
+   - Analogía clave de los mangos — **escena de impacto visual obligatoria**
+   - Conceptos financieros: capitales, tasas, confianza, inversión, entidades
+   - Solución / condiciones que deben darse
+   - CTA final (Credi Ayudarte)
+3. Mapea cada idea a un tipo de motion graphic según las instrucciones de edición
+
+---
+
+## PASO 4 — PLAN DE MOTION GRAPHICS
+
+Crea `DIVISUAL STUDIO/CREDI_AYUDARTE/02_PROJECTS/001_0622/MOTION_PLAN.md`
+
+Para industria financiera, usar según las instrucciones maestras:
+
+| Momento del guion | Motion graphic | Subtítulos |
+|---|---|---|
+| Hook — pregunta inicial | Palabra gigante animada / título impacto | Sí, centrados abajo |
+| "Es posible pero no de inmediato" | Alert pill + badge de advertencia | Sí, centrados abajo |
+| Analogía de los mangos | Palabra MANGOS gigante + infografía oferta/demanda | Solo si caben sin tapar — si no, omitir |
+| "Con el dinero ocurre algo parecido" | Mini dashboard / comparativa | Sí, centrados abajo |
+| Capitales al país / tasas suben | Barra animada o gráfico de tasas | Sí, centrados abajo |
+| Condiciones para que bajen (confianza, inversión, competencia) | Checklist animado punto a punto | Sí, centrados abajo |
+| CTA — Credi Ayudarte | Tarjeta liquid glass fullframe con marca | No — el gráfico domina |
+
+**Densidad mínima para 36 segundos:**
+- 1 hook fuerte
+- 8-10 bloques karaoke
+- 8-12 motion graphics diferentes (sin repetir el mismo dos veces seguidas)
+- 2-3 tarjetas liquid glass
+- 1-2 estadísticas o indicadores animados
+- 1 escena de impacto (la analogía de los mangos)
+- 1 CTA final con nombre de marca
+
+---
+
+## PASO 5 — CONSTRUCCIÓN DE LA COMPOSICIÓN
+
+Usa el skill `/short-form-video`. Proyecto en:
+`hyperframes-student-kit/video-projects/credi-ayudarte-0622/`
+
+### Estructura obligatoria de 4 capas:
+
+```
+index.html (root 1080x1920)
+├── compositions/ambient-bg.html         — fondo animado (gradiente + partículas + grid + viñeta)
+├── compositions/face-wrapper            — talking head con face-mode choreography
+├── compositions/seam-treatment.html     — feather en y=960
+├── compositions/scene1-hook.html        — apertura fuerte
+├── compositions/scene2-mangos.html      — analogía visual de los mangos (jaw-dropper)
+├── compositions/scene3-datos.html       — dashboard capitales/tasas
+├── compositions/scene4-condiciones.html — checklist de condiciones
+├── compositions/scene5-cta.html         — tarjeta Credi Ayudarte
+└── compositions/captions.html           — karaoke word-by-word
+```
+
+### Reglas de composición (de MOTION_PHILOSOPHY.md):
+- Canvas oscuro base con gradiente radial — NUNCA fondo plano ni color sólido
+- Face-mode: BOTTOM para escenas con gráficos, FULLSCREEN para hook y CTA
+- Transición de cara: 0.45s expo.inOut, 0.25s antes del nuevo beat
+- Liquid glass en todas las tarjetas: `backdrop-filter: blur(18px) saturate(145%)` + borde blanco translúcido + sombra interna + glow de marca
+- Bloques del catálogo disponibles (`npx hyperframes catalog --type block`): data-chart, flowchart, shader transitions, glassmorphism cards — úsalos
+
+### Escena de los mangos (PRIORITARIA):
+Cuando dice "Pasa como con los mangos": la palabra **MANGOS** debe aparecer grande, con tratamiento visual de impacto (escala dramática, glow, entrada percusiva). Acompañada de una micro-infografía visual simple que ilustre el concepto oferta/demanda. Esta es la escena más memorable del video y debe verse como la más trabajada.
+
+---
+
+## PASO 6 — PREVIEW OBLIGATORIO ANTES DE RENDERIZAR
+
+```bash
+cd hyperframes-student-kit/video-projects/credi-ayudarte-0622
+npx hyperframes preview
+```
+
+Abre `http://localhost:3002`. **Espera aprobación explícita.** Silencio no es aprobación.
+
+---
+
+## PASO 7 — VALIDACIÓN VISUAL
+
+Extrae frames en los momentos clave y léelos con `Read`:
+
+| Timestamp | Qué verificar |
+|---|---|
+| t=0.5s | Hook — ¿hay impacto visual? ¿no es solo persona + texto? |
+| t=5s | Analogía mangos — ¿es el jaw-dropper? ¿subtítulos o gráfico dominan limpiamente? |
+| t=10s | Dashboard / datos — ¿gráfico legible + subtítulos bien ubicados? |
+| t=18s | Checklist — ¿puntos entran uno a uno? ¿sin espacios muertos? |
+| t=28s | CTA — ¿tarjeta liquid glass de calidad? ¿sin subtítulos encima? |
+| t=34s | Cierre — ¿marca visible y clara? |
+
+**QA checklist antes de render final:**
+- [ ] Ningún segmento tiene solo persona + subtítulos
+- [ ] Subtítulos siempre centrados horizontalmente
+- [ ] Cara no tapada en ningún frame
+- [ ] Tarjetas con liquid glass real (blur + borde + sombra) — no cajas planas
+- [ ] Motion graphics variados — no se repite el mismo diseño dos veces seguidas
+- [ ] Escena de los mangos es visualmente impactante
+- [ ] CTA final tiene presencia visual fuerte
+- [ ] Sin espacios muertos de más de 3 segundos
+- [ ] El video se entiende sin audio
+
+---
+
+## PASO 8 — RENDER FINAL
+
+Solo después de aprobación del preview:
+
+```bash
+npx hyperframes render --quality standard --output renders/credi-ayudarte-0622-final.mp4
+```
+
+---
+
+## REGLAS ABSOLUTAS DE ESTA SESIÓN
+
+1. **NO uses `/embedded-captions`** — ese skill produce solo subtítulos básicos, no edición.
+2. **Lee MOTION_PHILOSOPHY.md completo** antes de proponer cualquier diseño.
+3. **No renderices sin preview aprobado** en Studio.
+4. **Subtítulos siempre centrados.** Sin excepciones.
+5. **Subtítulos nunca solos** — siempre con al menos un motion graphic activo simultáneamente.
+6. **Cuando un gráfico grande domina la pantalla, los subtítulos se omiten.** No fuerces ambos si compiten.
+7. **Usa los bloques del catálogo** — hay 38 disponibles. No inventes desde cero lo que ya existe.
+8. **La analogía de los mangos es el momento estrella del video.** Trátala como tal.
+9. **Un video donde la persona habla y solo hay subtítulos es un video sin editar.** Eso no es aceptable en este proyecto.
+
+---
+
+## CRITERIO DE ÉXITO
+
+El video terminado debe poder describirse así:
+
+> *"Video financiero premium vertical para Credi Ayudarte. Karaoke word-by-word centrado y sincronizado. Cada idea del guion tiene su propio elemento visual: dashboard de tasas, alerta de advertencia, checklist de condiciones que entran punto a punto, y una escena de impacto con la analogía de los mangos. Tarjetas liquid glass en los momentos clave. CTA final con la marca dominando la pantalla. Sin un solo segundo vacío."*
+
+Si el resultado se puede describir como *"subtítulos encima del video"*, la edición fracasó y debe rehacerse.

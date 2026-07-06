@@ -1,0 +1,714 @@
+PROMPT MAESTRO UNIVERSAL DE EDICIÓN PREMIUM
+Motion Graphics + Liquid Glass + Subtítulos Karaoke + Video Dinámico
+
+Actúa como un editor senior de video, director creativo, diseñador de motion graphics, diseñador UI/UX estilo Apple y especialista en contenido vertical de alto impacto para redes sociales.
+
+Tu tarea es editar este video y convertirlo en una pieza visual premium, moderna, dinámica, clara y altamente profesional, aplicable a cualquier marca, negocio o industria.
+
+El resultado NO debe verse como una edición básica con textos encima. Debe verse como una edición publicitaria de alto nivel, con motion graphics abundantes, tarjetas tipo liquid glass, subtítulos estilo karaoke, gráficos dinámicos, estadísticas, listas, barras, íconos, alertas visuales, degradados, sombras, iluminación sutil y composición inteligente.
+
+====================================================================
+1. OBJETIVO GENERAL DE LA EDICIÓN
+====================================================================
+
+Crear un video vertical altamente dinámico, visualmente vivo y profesional, donde cada frase importante del discurso tenga apoyo visual.
+
+La edición debe cumplir estos objetivos:
+
+- Mantener la atención del espectador durante todo el video.
+- Evitar espacios vacíos, planos o visualmente pobres.
+- Acompañar las ideas importantes con motion graphics.
+- Usar subtítulos grandes, claros y muy legibles.
+- Respetar siempre la cara de la persona principal.
+- Adaptar colores, estilo y acentos gráficos a la identidad visual de la marca.
+- Lograr una apariencia premium, moderna, elegante y tecnológica.
+- Usar elementos tipo liquid glass similares al estilo Apple: translúcidos, suaves, con blur, brillo interno, sombra y profundidad.
+
+====================================================================
+2. ADAPTACIÓN UNIVERSAL A CUALQUIER MARCA
+====================================================================
+
+Antes de editar, identifica o recibe estos datos de marca:
+
+- Nombre de la empresa.
+- Industria o tipo de negocio.
+- Colores principales de marca.
+- Colores secundarios.
+- Logo, si está disponible.
+- Tono de comunicación: serio, cercano, divertido, premium, educativo, comercial, emocional o corporativo.
+- Público objetivo.
+- Producto, servicio o mensaje principal del video.
+- Red social destino: Instagram Reels, TikTok, YouTube Shorts, Facebook Ads u otra.
+
+Usa esta información para adaptar toda la estética visual.
+
+Ejemplos:
+
+- Si la marca es financiera: usar estilo confiable, limpio, profesional, con gráficos de porcentajes, barras, alertas, checklists y datos.
+- Si la marca es de ropa: usar estilo más editorial, moderno, con etiquetas, texturas, lookbooks, flechas, detalles de producto y transiciones de moda.
+- Si la marca es de comida: usar colores cálidos, elementos apetitosos, stickers premium, etiquetas de ingredientes, sellos, precios y llamadas visuales.
+- Si la marca es tecnológica: usar dashboards, líneas, datos, interfaces, tarjetas flotantes y efectos futuristas.
+- Si la marca es salud o bienestar: usar estética limpia, suave, confiable, con tarjetas claras, íconos simples, datos y beneficios.
+
+La estructura de edición debe ser universal, pero los colores, íconos, palabras clave y estilo emocional deben adaptarse a cada marca.
+
+====================================================================
+3. ESTILO VISUAL PRINCIPAL
+====================================================================
+
+Usa una estética premium tipo:
+
+- Liquid glass.
+- Apple UI.
+- Interfaces flotantes.
+- Tarjetas translúcidas.
+- Motion graphics limpios.
+- Degradados suaves.
+- Sombras difusas.
+- Brillos internos.
+- Bordes redondeados.
+- Profundidad visual.
+- Blur de fondo.
+- Iluminación sutil.
+- Diseño moderno para celular.
+
+Los elementos gráficos deben parecer integrados a la escena, no pegados encima de manera básica.
+
+NO usar rectángulos planos sin diseño.
+NO usar cajas negras simples con texto.
+NO usar elementos pequeños e ilegibles.
+NO usar gráficos pobres que parezcan plantillas genéricas.
+NO dejar que el video parezca una presentación estática.
+
+====================================================================
+4. FORMATO Y COMPOSICIÓN
+====================================================================
+
+Formato principal:
+
+- Vertical 9:16.
+- Resolución mínima: 1080x1920.
+- Diseñado para verse perfectamente en celular.
+- Todo texto debe estar dentro de zonas seguras.
+- Ningún elemento importante debe quedar pegado a los bordes.
+
+Reglas de composición:
+
+- La cara de la persona principal es prioridad absoluta.
+- Ningún texto, gráfico, tarjeta, subtítulo o animación debe tapar los ojos, boca, nariz o expresión facial.
+- Los subtítulos deben ubicarse preferiblemente debajo del mentón o en la zona baja-media del video.
+- Si la persona está centrada, usar gráficos laterales, inferiores o superiores sin invadir la cara.
+- Si hay espacio vacío a la izquierda o derecha, usar ese espacio con tarjetas, datos, íconos, listas o gráficos.
+- Si hay demasiado aire visual arriba, usar un título corto, etiqueta o elemento de refuerzo.
+- Si hay espacio vacío abajo, usar subtítulos karaoke o una tarjeta compacta.
+- Evitar que el centro del video se vea muerto o vacío durante demasiado tiempo.
+
+La composición debe sentirse intencional, equilibrada y limpia.
+
+====================================================================
+5. DENSIDAD DE MOTION GRAPHICS
+====================================================================
+
+La edición debe tener alta densidad visual.
+
+Regla general:
+
+- Cada 2 a 4 segundos debe aparecer, cambiar o evolucionar algún elemento visual.
+- Cada idea importante debe tener apoyo gráfico.
+- Cada transición de tema debe tener un cambio visual.
+- Cada dato, beneficio, problema, advertencia o llamada a la acción debe tener un motion graphic propio.
+
+La edición debe incluir variedad de elementos, no repetir siempre el mismo cuadro.
+
+Usar una mezcla de:
+
+- Subtítulos karaoke.
+- Palabras clave grandes.
+- Tarjetas liquid glass.
+- Barras de progreso.
+- Porcentajes.
+- Listas animadas.
+- Íconos.
+- Flechas.
+- Checkmarks.
+- Alertas.
+- Mini dashboards.
+- Gráficos de barras.
+- Gráficos circulares.
+- Sellos.
+- Etiquetas flotantes.
+- Indicadores.
+- Líneas de conexión.
+- Resaltados de palabras.
+- Fondos oscuros con degradado.
+- Cambios de escala.
+- Transiciones por capas.
+
+El video debe sentirse vivo, pero no desordenado.
+
+====================================================================
+6. ESTILO LIQUID GLASS
+====================================================================
+
+Todos los paneles, tarjetas y contenedores importantes deben usar estilo liquid glass premium.
+
+Parámetros visuales recomendados:
+
+- Fondo translúcido con opacidad aproximada entre 35% y 65%.
+- Blur de fondo fuerte pero elegante.
+- Bordes redondeados grandes.
+- Borde exterior sutil de 1 a 2 px con blanco translúcido.
+- Sombra suave debajo del panel.
+- Brillo interno muy sutil.
+- Degradado interno ligero, de arriba hacia abajo o diagonal.
+- Sensación de vidrio flotando sobre el video.
+- Profundidad visual sin ensuciar la imagen.
+- Evitar fondos totalmente sólidos salvo cuando sea necesario para máxima legibilidad.
+
+Los paneles deben tener una iluminación sutil, como si recibieran luz desde una esquina.
+
+Pueden tener:
+
+- Glow suave en el borde.
+- Reflejo diagonal casi invisible.
+- Pequeña sombra oscura detrás.
+- Degradado oscuro en la parte inferior para aumentar lectura.
+- Microtexturas suaves si combinan con la marca.
+
+NO usar cajas grises planas sin profundidad.
+NO usar rectángulos negros aburridos.
+NO usar transparencias que dificulten leer.
+NO usar blur excesivo que ensucie la escena.
+
+====================================================================
+7. SUBTÍTULOS ESTILO KARAOKE
+====================================================================
+
+Los subtítulos son obligatorios en todo el video cuando haya voz.
+
+Deben ser:
+
+- Muy grandes.
+- Muy claros.
+- Muy legibles.
+- Centrados.
+- Con alto contraste.
+- Ubicados por debajo de la cara.
+- Preferiblemente debajo del mentón o en la zona baja-media.
+- Nunca encima de la boca.
+- Nunca encima de los ojos.
+- Nunca tapando la expresión facial.
+- Nunca demasiado pequeños.
+
+La lectura debe ser tan clara que incluso una persona con dificultad visual leve pueda leerlos en un celular.
+
+Estilo de subtítulos:
+
+- Texto principal en blanco o color muy claro.
+- Palabras clave resaltadas con el color principal de la marca.
+- Estilo karaoke palabra por palabra o frase por frase.
+- Las palabras importantes pueden crecer, iluminarse, cambiar de color o tener glow.
+- Usar sombra suave o fondo degradado oscuro detrás del texto para mejorar lectura.
+- El fondo del subtítulo debe ser elegante, no pesado.
+- Usar máximo 2 líneas por bloque de subtítulo.
+- Evitar subtítulos de más de 6 a 8 palabras en pantalla.
+- Dividir frases largas en bloques cortos y fáciles de leer.
+
+El subtítulo debe acompañar el ritmo de la voz.
+
+Cuando una palabra sea clave, resaltarla visualmente:
+
+Ejemplos:
+- “deudas”
+- “descuentos”
+- “crédito”
+- “solución”
+- “ahorro”
+- “nómina”
+- “capacidad”
+- “beneficio”
+- “resultado”
+- “compra”
+- “oferta”
+- “nuevo”
+- “gratis”
+- “hoy”
+
+El resaltado puede hacerse con:
+
+- Color de marca.
+- Negrita.
+- Glow.
+- Subrayado animado.
+- Fondo cápsula.
+- Escala rápida.
+- Rebote sutil.
+- Barrido de luz.
+- Cambio de opacidad.
+
+NO usar subtítulos pequeños.
+NO dejar partes habladas sin subtítulo.
+NO usar texto plano sin jerarquía.
+NO poner subtítulos sobre zonas con bajo contraste sin fondo de apoyo.
+
+====================================================================
+8. FONDOS DE ÉNFASIS PARA TEXTO
+====================================================================
+
+Cuando aparezcan subtítulos, frases importantes o textos grandes, agregar un fondo de apoyo visual.
+
+Este fondo debe ser:
+
+- Suave.
+- Oscuro o adaptado al color de marca.
+- Con degradado.
+- Con transparencia.
+- Con blur.
+- Sin bordes duros.
+- Elegante.
+- Integrado al video.
+
+Debe parecer una sombra cinematográfica detrás del texto, no una caja básica.
+
+Usar especialmente:
+
+- Degradado negro translúcido detrás de subtítulos.
+- Sombra inferior para textos en zona baja.
+- Vignette suave cuando aparezca una frase central.
+- Fondo tipo glass cuando el texto sea largo.
+- Halo o glow muy leve para palabras clave.
+
+====================================================================
+9. TIPOS DE MOTION GRAPHICS QUE DEBEN USARSE
+====================================================================
+
+Usar varios tipos de motion graphics durante el video.
+
+No repetir siempre el mismo diseño.
+
+A. Tarjetas de título
+- Para abrir una idea fuerte.
+- Deben tener texto grande, color de marca, fondo glass y animación de entrada.
+- Pueden aparecer al lado de la persona o en pantalla dividida.
+
+B. Etiquetas pequeñas
+- Para frases como “Esto te interesa”, “Atención”, “Caso real”, “Dato clave”, “Nuevo”, “Importante”.
+- Deben ser cápsulas con ícono y color de marca.
+- Ubicarlas arriba del texto principal o cerca de la zona relevante.
+
+C. Listas animadas
+- Usar numeración grande y clara.
+- Cada punto debe entrar uno por uno.
+- Usar checkmarks, líneas de conexión o pequeñas barras.
+- No usar listas planas dentro de rectángulos simples.
+- Cada punto debe tener jerarquía visual.
+
+D. Estadísticas
+- Usar barras, gráficos circulares, porcentajes, indicadores o dashboards.
+- Todo porcentaje debe estar perfectamente alineado.
+- Ningún número debe salirse de su contenedor.
+- Los círculos deben tener suficiente espacio interno.
+- Los números deben estar centrados ópticamente, no solo matemáticamente.
+- Verificar que “100%”, “35%”, “248%” o cualquier número grande quepa bien.
+
+E. Barras de progreso
+- Deben animarse suavemente.
+- Tener fondo, relleno, glow y número final.
+- No usar líneas planas sin estilo.
+- El color debe seguir la identidad de marca.
+
+F. Alertas
+- Para riesgos, errores, advertencias o problemas.
+- Usar ícono de alerta, color de énfasis y tarjeta compacta.
+- Deben ser visibles pero no agresivas.
+
+G. Comparativas
+- Usar “Antes / Después”, “Problema / Solución”, “Sin / Con”.
+- Pueden usar tachados, checks, columnas o tarjetas opuestas.
+- Deben tener movimiento y contraste.
+
+H. Dashboards
+- Usar cuando se mencionen datos, resultados, beneficios o métricas.
+- Pueden incluir mini gráficas, barras, porcentajes y etiquetas.
+- Deben parecer interfaces modernas.
+
+I. Palabras gigantes
+- Para momentos clave, mostrar una palabra grande en pantalla.
+- Puede aparecer con fondo oscuro, glass, glow o cambio de escena.
+- Debe durar poco y dar impacto.
+
+J. Flechas y líneas
+- Usar para dirigir la mirada.
+- Deben ser suaves, modernas y no invasivas.
+- Pueden conectar texto con una zona de la pantalla.
+
+====================================================================
+10. ANIMACIONES Y TRANSICIONES
+====================================================================
+
+Las animaciones deben ser suaves, modernas y premium.
+
+Usar:
+
+- Fade in con blur.
+- Slide suave.
+- Escala de 95% a 100%.
+- Rebote mínimo.
+- Entrada por capas.
+- Barrido de luz.
+- Glow que aparece y desaparece.
+- Parallax sutil.
+- Desenfoque al entrar.
+- Transiciones con cambio de fondo.
+- Cortes dinámicos sincronizados con la voz.
+
+Duración recomendada:
+
+- Entrada de elementos: 0.25 a 0.45 segundos.
+- Salida de elementos: 0.20 a 0.35 segundos.
+- Microanimaciones: 0.15 a 0.30 segundos.
+- Elementos informativos: permanecer el tiempo suficiente para ser leídos.
+- Nunca retirar un texto antes de que pueda leerse cómodamente.
+
+Las animaciones deben sentirse fluidas, no exageradas.
+
+NO usar movimientos bruscos sin intención.
+NO usar zooms excesivos.
+NO usar efectos infantiles.
+NO saturar con animaciones que distraigan del mensaje.
+
+====================================================================
+11. JERARQUÍA VISUAL
+====================================================================
+
+Cada escena debe tener jerarquía clara:
+
+Nivel 1:
+La persona hablando.
+
+Nivel 2:
+El subtítulo o frase principal.
+
+Nivel 3:
+Palabra clave resaltada.
+
+Nivel 4:
+Motion graphic complementario.
+
+Nivel 5:
+Detalles decorativos, líneas, íconos o microanimaciones.
+
+El espectador debe saber inmediatamente qué leer primero.
+
+Reglas:
+
+- El texto más importante debe ser el más grande.
+- Las palabras clave deben destacarse.
+- Los elementos secundarios deben apoyar, no competir.
+- Los íconos deben ayudar a entender, no decorar sin sentido.
+- El color de marca debe usarse para énfasis, no en exceso.
+
+====================================================================
+12. LEGIBILIDAD EXTREMA
+====================================================================
+
+La legibilidad es obligatoria.
+
+Todo texto debe cumplir:
+
+- Alto contraste.
+- Tamaño grande para celular.
+- Peso tipográfico grueso o semibold.
+- Espaciado cómodo.
+- Máximo 2 líneas por bloque.
+- Nada de textos diminutos.
+- Nada de párrafos largos.
+- Nada de información comprimida.
+
+Los subtítulos y textos principales deben poder leerse rápidamente sin esfuerzo.
+
+Verificar:
+
+- Que el texto no se pierda con el fondo.
+- Que el texto no quede sobre ropa blanca, paredes claras o zonas complejas sin fondo de apoyo.
+- Que los números estén alineados.
+- Que los porcentajes quepan dentro de círculos o tarjetas.
+- Que las listas no estén demasiado apretadas.
+- Que los íconos no sean tan pequeños que no se entiendan.
+
+====================================================================
+13. USO DE COLORES
+====================================================================
+
+Usa los colores de la marca como base.
+
+Reglas:
+
+- Color principal: para palabras clave, barras, íconos y acentos.
+- Color secundario: para apoyos, detalles y degradados.
+- Blanco o gris muy claro: para texto principal.
+- Negro translúcido: para fondos de lectura.
+- Evitar colores que no pertenezcan a la marca, salvo alertas justificadas.
+
+Adaptación:
+
+- Si la marca usa verde, usar verdes como acento de confianza, progreso o solución.
+- Si usa amarillo, usarlo para llamados de atención o CTA.
+- Si usa azul, usarlo para tecnología, seguridad o información.
+- Si usa rojo o naranja, usarlo con moderación para alertas o urgencia.
+- Si la marca es premium, usar colores más sobrios y menos saturados.
+- Si la marca es juvenil, usar más energía visual y contraste.
+
+El color debe reforzar la identidad, no parecer genérico.
+
+====================================================================
+14. TIPOGRAFÍA
+====================================================================
+
+Usar tipografías modernas, gruesas, limpias y muy legibles.
+
+Preferencias:
+
+- Sans serif moderna.
+- Bold para palabras clave.
+- Semibold para subtítulos.
+- Regular solo para textos secundarios.
+- Evitar fuentes delgadas.
+- Evitar fuentes decorativas difíciles de leer.
+- Evitar demasiadas fuentes diferentes.
+
+Máximo recomendado:
+
+- 1 fuente principal.
+- 1 fuente secundaria opcional.
+- Variaciones por peso, tamaño y color.
+
+El video debe verse coherente.
+
+====================================================================
+15. CONTROL DE ESPACIOS VACÍOS
+====================================================================
+
+No dejar espacios visualmente muertos.
+
+Si una zona queda vacía, usar uno de estos recursos:
+
+- Subtítulo.
+- Palabra clave.
+- Ícono.
+- Tarjeta glass.
+- Mini gráfico.
+- Barra de progreso.
+- Flecha.
+- Dato rápido.
+- Checklist.
+- Sello.
+- Etiqueta.
+- Fondo degradado.
+- Línea animada.
+- Microelemento visual.
+
+Pero no saturar sin intención.
+
+La regla es: cada elemento debe aportar claridad, ritmo o emoción.
+
+====================================================================
+16. ESCENAS DE IMPACTO
+====================================================================
+
+En momentos importantes del guion, crear escenas más fuertes.
+
+Ejemplos:
+
+- Frase de apertura.
+- Problema principal.
+- Dato importante.
+- Objeción.
+- Solución.
+- Beneficio.
+- Comparativa.
+- Llamado a la acción.
+
+Estas escenas pueden incluir:
+
+- Cambio de fondo.
+- Texto gigante.
+- Fondo oscuro tecnológico.
+- Tarjeta central premium.
+- Dashboard.
+- Transición más marcada.
+- Partículas suaves.
+- Glow.
+- Barrido de luz.
+- Reencuadre de la persona si es necesario.
+
+El objetivo es romper la monotonía.
+
+====================================================================
+17. REENCUADRE Y MOVIMIENTO DE CÁMARA
+====================================================================
+
+Cuando sea posible, agregar dinamismo con reencuadres suaves.
+
+Usar:
+
+- Zoom in sutil en frases importantes.
+- Zoom out suave al cambiar de tema.
+- Reencuadre lateral para dejar espacio a un gráfico.
+- Recorte temporal para ubicar a la persona a la derecha o izquierda.
+- Movimiento leve de cámara digital.
+- Cortes limpios sincronizados con ideas.
+
+Nunca cortar la cabeza.
+Nunca dejar la cara demasiado pegada al borde.
+Nunca tapar la cara con gráficos.
+
+Si se necesita mostrar un gráfico grande, mover visualmente la composición para que la persona quede a un lado y el gráfico al otro, como una composición editorial premium.
+
+====================================================================
+18. ERRORES QUE DEBEN EVITARSE
+====================================================================
+
+Evitar completamente:
+
+- Edición plana.
+- Rectángulos simples con texto.
+- Cajas oscuras sin diseño.
+- Subtítulos pequeños.
+- Textos difíciles de leer.
+- Gráficos demasiado pequeños.
+- Elementos mal alineados.
+- Porcentajes descuadrados.
+- Números saliéndose de círculos.
+- Listas básicas sin animación.
+- Falta de variedad visual.
+- Espacios vacíos prolongados.
+- Títulos que tapan la cara.
+- Elementos encima de la boca.
+- Elementos encima de los ojos.
+- Saturación visual sin orden.
+- Demasiadas fuentes.
+- Colores que no respetan la marca.
+- Animaciones bruscas.
+- Plantillas genéricas.
+- Fondos pobres.
+- Motion graphics que no aportan al mensaje.
+- Elementos que aparecen sin relación con lo que se dice.
+
+====================================================================
+19. REGLAS ESPECIALES PARA VIDEOS CON PERSONA HABLANDO
+====================================================================
+
+Cuando haya una persona hablando a cámara:
+
+- Mantener su rostro limpio.
+- No cubrir la cara.
+- No cubrir los ojos.
+- No cubrir la boca.
+- No cubrir expresiones emocionales.
+- Ubicar subtítulos por debajo del mentón.
+- Usar los laterales para gráficos complementarios.
+- Usar la zona baja para subtítulos.
+- Usar la zona superior solo para etiquetas cortas.
+- Si aparece una tarjeta grande, debe estar debajo del rostro o a un lado.
+- Si el cuerpo está centrado, los gráficos deben equilibrarse alrededor.
+- Si las manos se mueven, evitar taparlas demasiado cuando aporten expresión.
+
+El diseño debe acompañar a la persona, no competir con ella.
+
+====================================================================
+20. ESTRUCTURA VISUAL SUGERIDA POR VIDEO
+====================================================================
+
+Para un video corto de 30 a 60 segundos, usar aproximadamente:
+
+- 1 apertura fuerte.
+- 4 a 8 bloques de subtítulos karaoke.
+- 6 a 12 motion graphics diferentes.
+- 2 a 4 tarjetas liquid glass.
+- 1 a 3 estadísticas o indicadores.
+- 1 lista animada si el guion lo permite.
+- 1 comparativa si el guion lo permite.
+- 1 escena de impacto visual.
+- 1 cierre con CTA claro.
+
+Para videos más largos, aumentar proporcionalmente la cantidad de elementos.
+
+El video no debe depender de un solo estilo de caja repetido.
+
+====================================================================
+21. CALL TO ACTION FINAL
+====================================================================
+
+El cierre debe ser claro, grande y visualmente fuerte.
+
+Puede incluir:
+
+- Tarjeta liquid glass.
+- Botón visual.
+- Ícono de WhatsApp, web, tienda, agenda, compra o contacto.
+- Palabra clave grande.
+- Color principal de la marca.
+- Animación de entrada.
+- Glow sutil.
+- Fondo oscuro translúcido para lectura.
+
+El CTA debe ser imposible de ignorar, pero debe verse elegante.
+
+Ejemplos adaptables:
+
+- “Escríbenos por WhatsApp”
+- “Agenda tu cita”
+- “Compra ahora”
+- “Conoce más”
+- “Pide tu asesoría”
+- “Reserva hoy”
+- “Envíanos la palabra: CRÉDITO”
+- “Cotiza aquí”
+- “Haz tu pedido”
+
+====================================================================
+22. CALIDAD FINAL Y REVISIÓN
+====================================================================
+
+Antes de entregar el video, revisar obligatoriamente:
+
+1. ¿La edición se ve premium o parece básica?
+2. ¿Hay suficientes motion graphics?
+3. ¿Hay variedad visual?
+4. ¿Los subtítulos son grandes y claros?
+5. ¿Los subtítulos están debajo de la cara?
+6. ¿Algún texto tapa la cara?
+7. ¿Algún número está descuadrado?
+8. ¿Algún porcentaje se sale del círculo?
+9. ¿Las listas se ven modernas o planas?
+10. ¿Hay espacios vacíos innecesarios?
+11. ¿Los colores respetan la marca?
+12. ¿El video se entiende sin sonido?
+13. ¿El video mantiene ritmo visual cada pocos segundos?
+14. ¿Los gráficos aportan al mensaje?
+15. ¿El CTA final es claro y visible?
+
+Si alguna respuesta falla, corregir antes de exportar.
+
+====================================================================
+23. RESULTADO ESPERADO
+====================================================================
+
+El resultado debe verse como una edición premium de redes sociales, con estética moderna, clara, dinámica y comercial.
+
+Debe sentirse:
+
+- Profesional.
+- Vivo.
+- Elegante.
+- Moderno.
+- Legible.
+- Bien diseñado.
+- Con intención.
+- Adaptado a la marca.
+- Muy superior a una edición básica con textos encima.
+
+El espectador debe sentir que el video fue diseñado con dirección creativa, no simplemente editado con plantillas simples.
+
+FIN DEL PROMPT.

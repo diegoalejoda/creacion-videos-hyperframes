@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Beat 05 — Ordenar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: transparent !important; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #fff; }
+  .wrap { position: absolute; left: 50%; transform: translateX(-50%); top: 1250px; width: 92%; text-align: center; }
+  .eyebrow {
+    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 36px; color: #EDEDED;
+    text-shadow: 0 4px 22px rgba(0,0,0,0.9); opacity: 0;
+  }
+  .big {
+    margin-top: 12px; font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    font-size: 92px; line-height: 0.98; letter-spacing: -2px; color: #FAC51C;
+    text-shadow: 0 0 46px rgba(250,197,28,0.55), 0 6px 30px rgba(0,0,0,0.9); opacity: 0;
+  }
+  .foot {
+    margin-top: 18px; font-family: 'Inter', sans-serif; font-weight: 500; font-size: 38px;
+    color: #fff; text-shadow: 0 4px 22px rgba(0,0,0,0.9); opacity: 0;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow" id="eb">Existe una forma real de…</div>
+    <div class="big" id="big">ORDENAR TU<br>SITUACIÓN</div>
+    <div class="foot" id="foot">sin dejarte peor.</div>
+  </div>
+<script>
+  const tl = gsap.timeline({ paused: true });
+  tl.fromTo('#eb', { opacity:0, y:20 }, { opacity:1, y:0, duration:0.30, ease:'power2.out' }, 0.10);
+  tl.fromTo('#big', { opacity:0, scale:0.78 }, { opacity:1, scale:1, duration:0.42, ease:'back.out(2.2)' }, 1.06);
+  tl.fromTo('#foot', { opacity:0, y:16 }, { opacity:1, y:0, duration:0.28, ease:'power2.out' }, 1.55);
+  tl.to('.wrap', { opacity:0, y:-26, duration:0.42, ease:'power2.in' }, 3.15);
+  window.__timelines = { main: tl };
+  tl.play();
+</script>
+</body>
+</html>

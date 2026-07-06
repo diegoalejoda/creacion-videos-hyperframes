@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Anton&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<style>
+ *{box-sizing:border-box;margin:0;padding:0}
+ html,body{background:transparent!important;width:1080px;height:1920px;overflow:hidden;font-family:'Poppins',sans-serif;color:#fff}
+ .stage{position:absolute;left:50%;top:1180px;transform:translate(-50%,-50%);width:78%}
+ .panel{padding:32px 36px;border-radius:28px;
+   background:rgba(13,15,20,0.50);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);
+   border:1.5px solid rgba(45,212,191,0.30);box-shadow:0 22px 64px rgba(0,0,0,0.55);opacity:0}
+ .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:700;
+   font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#2DD4BF;margin-bottom:22px}
+ .eyebrow .dot{width:11px;height:11px;border-radius:50%;background:#2DD4BF;box-shadow:0 0 14px #2DD4BF}
+ .item{display:flex;align-items:center;gap:18px;margin:16px 0;opacity:0}
+ .num{flex:0 0 auto;width:58px;height:58px;border-radius:14px;background:rgba(45,212,191,0.14);border:2px solid #2DD4BF;
+   display:flex;align-items:center;justify-content:center;font-family:'Anton',sans-serif;font-size:30px;color:#2DD4BF}
+ .txt{font-weight:700;font-size:38px;color:#fff;line-height:1.05}
+</style></head><body>
+ <div class="stage"><div class="panel" id="panel">
+  <div class="eyebrow"><span class="dot"></span>El plan que sí funciona</div>
+  <div class="item" id="i1"><div class="num">1</div><div class="txt">Revisar tu nómina</div></div>
+  <div class="item" id="i2"><div class="num">2</div><div class="txt">Negociar tus deudas</div></div>
+  <div class="item" id="i3"><div class="num">3</div><div class="txt">Recuperar tu capacidad</div></div>
+ </div></div>
+<script>
+ const tl=gsap.timeline({paused:true});
+ tl.fromTo('#panel',{opacity:0,y:50,scale:0.97},{opacity:1,y:0,scale:1,duration:0.38,ease:'power3.out'},0.10);
+ const rev=(s,t)=>{tl.fromTo(s,{opacity:0,x:-22},{opacity:1,x:0,duration:0.3,ease:'power2.out'},t);tl.fromTo(s+' .num',{scale:0.5},{scale:1,duration:0.34,ease:'back.out(2.4)'},t);};
+ rev('#i1',0.40);rev('#i2',1.34);rev('#i3',3.58);
+ tl.to('.stage',{opacity:0,y:-26,duration:0.45,ease:'power2.in'},6.10);
+ window.__timelines={main:tl};tl.play();
+</script></body></html>

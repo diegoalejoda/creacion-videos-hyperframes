@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Anton&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<style>
+ *{box-sizing:border-box;margin:0;padding:0}
+ html,body{background:transparent!important;width:1080px;height:1920px;overflow:hidden;font-family:'Poppins',sans-serif}
+ .assist{position:absolute;left:50%;top:1050px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:12px;
+   padding:11px 24px;border-radius:999px;background:rgba(13,15,20,0.42);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+   border:1.5px solid rgba(250,197,28,0.35);box-shadow:0 10px 30px rgba(0,0,0,0.4);opacity:0;white-space:nowrap}
+ .assist svg{width:30px;height:30px;flex:0 0 auto}
+ .assist span{font-family:'Poppins',sans-serif;font-weight:700;font-size:28px;letter-spacing:1px;color:#FAC51C;text-transform:uppercase}
+ .stage{position:absolute;left:50%;top:1170px;transform:translateX(-50%);width:92%;height:0}
+ .chunk{position:absolute;left:50%;top:0;transform:translateX(-50%);max-width:840px;text-align:center;padding:24px 40px;border-radius:26px;
+   background:rgba(15,17,23,0.50);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+   border:1.5px solid rgba(255,255,255,0.12);box-shadow:0 20px 60px rgba(0,0,0,0.45);opacity:0}
+ .w{display:inline-block;margin:2px 0.12em;font-family:'Poppins',sans-serif;font-weight:700;font-size:52px;line-height:1.32;
+   color:#7a7a82;text-shadow:0 2px 10px rgba(0,0,0,0.5);transform-origin:center}
+ .kw{display:inline-block;margin:2px 0.12em;font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:60px;
+   line-height:1.25;letter-spacing:1px;vertical-align:-2px;opacity:0.35;transform-origin:center;
+   background:linear-gradient(180deg,#FFF6C8 0%,#FBD24E 40%,#F5A623 75%,#E08600 100%);
+   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+   -webkit-text-stroke:1px rgba(120,70,0,0.25);
+   filter:drop-shadow(0 0 16px rgba(250,197,28,0.6)) drop-shadow(0 2px 2px rgba(0,0,0,0.45))}
+</style></head><body>
+<div class="assist" id="assist"><svg viewBox="0 0 24 24" fill="none" stroke="#FAC51C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg><span>Te hablamos claro</span></div>
+<div class="stage"><div class="chunk" id="ch0"><span class="w" id="c0w0">no</span><span class="w" id="c0w1">te</span><span class="w" id="c0w2">prometemos</span><span class="kw" id="c0w3">milagros,</span></div><div class="chunk" id="ch1"><span class="w" id="c1w0">no</span><span class="kw" id="c1w1">todos</span><span class="w" id="c1w2">los</span><span class="kw" id="c1w3">casos</span><span class="kw" id="c1w4">aplican,</span></div><div class="chunk" id="ch2"><span class="w" id="c2w0">pero</span><span class="w" id="c2w1">si</span><span class="w" id="c2w2">sientes</span><span class="w" id="c2w3">que</span><span class="kw" id="c2w4">trabajas</span><span class="w" id="c2w5">todo</span></div><div class="chunk" id="ch3"><span class="w" id="c3w0">el</span><span class="kw" id="c3w1">mes</span><span class="w" id="c3w2">y</span><span class="w" id="c3w3">aún</span><span class="w" id="c3w4">así</span><span class="w" id="c3w5">no</span><span class="w" id="c3w6">te</span><span class="w" id="c3w7">queda</span></div></div>
+<script>const tl=gsap.timeline({paused:true});
+tl.fromTo('#assist',{opacity:0,y:14,scale:0.9},{opacity:1,y:0,scale:1,duration:0.34,ease:'back.out(2)'},0.15);
+tl.to('#assist',{y:-8,duration:1.6,ease:'sine.inOut',yoyo:true,repeat:4},0.6);
+tl.to('#assist',{opacity:0,duration:0.3,ease:'power2.in'},6.34);
+tl.fromTo('#ch0',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.26,ease:'power3.out'},0.00);tl.to('#c0w0',{color:'#ffffff',duration:0.12},0.00);tl.to('#c0w1',{color:'#ffffff',duration:0.12},0.16);tl.to('#c0w2',{color:'#ffffff',duration:0.12},0.36);tl.to('#c0w3',{opacity:1,duration:0.14},0.76);tl.fromTo('#c0w3',{scale:1.16},{scale:1,duration:0.22,ease:'back.out(2)'},0.76);tl.to('#ch0',{opacity:0,y:-16,duration:0.22,ease:'power2.in'},1.36);tl.fromTo('#ch1',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.26,ease:'power3.out'},1.48);tl.to('#c1w0',{color:'#ffffff',duration:0.12},1.48);tl.to('#c1w1',{opacity:1,duration:0.14},1.60);tl.fromTo('#c1w1',{scale:1.16},{scale:1,duration:0.22,ease:'back.out(2)'},1.60);tl.to('#c1w2',{color:'#ffffff',duration:0.12},1.80);tl.to('#c1w3',{opacity:1,duration:0.14},1.96);tl.fromTo('#c1w3',{scale:1.16},{scale:1,duration:0.22,ease:'back.out(2)'},1.96);tl.to('#c1w4',{opacity:1,duration:0.14},2.14);tl.fromTo('#c1w4',{scale:1.16},{scale:1,duration:0.22,ease:'back.out(2)'},2.14);tl.to('#ch1',{opacity:0,y:-16,duration:0.22,ease:'power2.in'},2.76);tl.fromTo('#ch2',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.26,ease:'power3.out'},2.88);tl.to('#c2w0',{color:'#ffffff',duration:0.12},2.88);tl.to('#c2w1',{color:'#ffffff',duration:0.12},3.08);tl.to('#c2w2',{color:'#ffffff',duration:0.12},3.22);tl.to('#c2w3',{color:'#ffffff',duration:0.12},3.58);tl.to('#c2w4',{opacity:1,duration:0.14},3.76);tl.fromTo('#c2w4',{scale:1.16},{scale:1,duration:0.22,ease:'back.out(2)'},3.76);tl.to('#c2w5',{color:'#ffffff',duration:0.12},4.26);tl.to('#ch2',{opacity:0,y:-16,duration:0.22,ease:'power2.in'},4.32);tl.fromTo('#ch3',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.26,ease:'power3.out'},4.44);tl.to('#c3w0',{color:'#ffffff',duration:0.12},4.44);tl.to('#c3w1',{opacity:1,duration:0.14},4.62);tl.fromTo('#c3w1',{scale:1.16},{scale:1,duration:0.22,ease:'back.out(2)'},4.62);tl.to('#c3w2',{color:'#ffffff',duration:0.12},4.86);tl.to('#c3w3',{color:'#ffffff',duration:0.12},5.10);tl.to('#c3w4',{color:'#ffffff',duration:0.12},5.30);tl.to('#c3w5',{color:'#ffffff',duration:0.12},5.68);tl.to('#c3w6',{color:'#ffffff',duration:0.12},5.88);tl.to('#c3w7',{color:'#ffffff',duration:0.12},6.00);tl.to('#ch3',{opacity:0,y:-16,duration:0.22,ease:'power2.in'},6.57);window.__timelines={main:tl};tl.play();</script>
+</body></html>

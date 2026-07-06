@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Anton&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<style>
+ *{box-sizing:border-box;margin:0;padding:0}
+ html,body{background:transparent!important;width:1080px;height:1920px;overflow:hidden;font-family:'Poppins',sans-serif;color:#fff}
+ .stage{position:absolute;left:50%;top:1170px;transform:translate(-50%,-50%);width:74%;text-align:center}
+ .panel{padding:32px 36px 36px;border-radius:28px;
+   background:rgba(13,15,20,0.48);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);
+   border:1.5px solid rgba(74,222,128,0.30);box-shadow:0 22px 64px rgba(0,0,0,0.55);opacity:0}
+ .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:700;
+   font-size:24px;letter-spacing:2px;text-transform:uppercase;color:#4ADE80;margin-bottom:14px}
+ .eyebrow .dot{width:11px;height:11px;border-radius:50%;background:#4ADE80;box-shadow:0 0 14px #4ADE80}
+ .ringwrap{position:relative;width:240px;height:240px;margin:4px auto 8px}
+ .ringwrap svg{transform:rotate(-90deg)}
+ .ctr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+ .num{font-family:'Anton',sans-serif;font-size:90px;line-height:1;color:#4ADE80;text-shadow:0 0 34px rgba(74,222,128,0.5)}
+ .lab{font-family:'Poppins',sans-serif;font-weight:700;font-size:20px;letter-spacing:3px;color:#9aa;margin-top:4px}
+ .cap{font-family:'Poppins',sans-serif;font-weight:800;font-size:42px;color:#fff;opacity:0}
+ .cap b{color:#4ADE80}
+</style></head><body>
+ <div class="stage"><div class="panel" id="panel">
+  <div class="eyebrow"><span class="dot"></span>El objetivo</div>
+  <div class="ringwrap">
+   <svg width="240" height="240"><circle cx="120" cy="120" r="100" stroke="rgba(255,255,255,0.10)" stroke-width="18" fill="none"/>
+   <circle id="rc" cx="120" cy="120" r="100" stroke="#4ADE80" stroke-width="18" fill="none" stroke-linecap="round" stroke-dasharray="628" stroke-dashoffset="628"/></svg>
+   <div class="ctr"><div class="num" id="num">0%</div><div class="lab">CAPACIDAD</div></div>
+  </div>
+  <div class="cap" id="cap">Ordenar tu situación <b>sin dejarte peor</b></div>
+ </div></div>
+<script>
+ const tl=gsap.timeline({paused:true});const C=628,pct=100;
+ tl.fromTo('#panel',{opacity:0,y:50,scale:0.97},{opacity:1,y:0,scale:1,duration:0.38,ease:'power3.out'},0.10);
+ tl.to('#rc',{strokeDashoffset:C*(1-pct/100),duration:1.3,ease:'power2.out'},0.6);
+ const o={v:0};tl.to(o,{v:pct,duration:1.3,ease:'power2.out',onUpdate:()=>document.getElementById('num').textContent=Math.round(o.v)+'%'},0.6);
+ tl.fromTo('#cap',{opacity:0,y:16},{opacity:1,y:0,duration:0.32,ease:'power2.out'},1.3);
+ tl.to('.stage',{opacity:0,y:-24,duration:0.42,ease:'power2.in'},3.1);
+ window.__timelines={main:tl};tl.play();
+</script></body></html>

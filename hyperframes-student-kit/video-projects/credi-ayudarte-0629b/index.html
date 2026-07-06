@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>Credi Ayudarte — Puntaje y huellas 0629b</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:block;src:url('assets/fonts/Inter-500.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:block;src:url('assets/fonts/Inter-700.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:800;font-display:block;src:url('assets/fonts/Inter-800.woff2') format('woff2');}
+      @font-face{font-family:'Inter';font-style:normal;font-weight:900;font-display:block;src:url('assets/fonts/Inter-900.woff2') format('woff2');}
+      @font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:700;font-display:block;src:url('assets/fonts/JetBrainsMono-700.woff2') format('woff2');}
+      @font-face{font-family:'Space Grotesk';font-style:normal;font-weight:700;font-display:block;src:url('assets/fonts/SpaceGrotesk-700.woff2') format('woff2');}
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden;
+        background: #0d0d0d; font-family: "Inter", sans-serif; color: #fff; }
+      :root { --gold:#efc01e; --green:#5fa22e; --gray:#9ca1a6; --charcoal:#3c4043;
+        --alert:#e4572e; --ink:#0d0d0d; --soft:#c9cdd2; }
+
+      #face-video { position:absolute; top:0; left:0; width:1080px; height:1920px;
+        object-fit:cover; transform-origin:center 40%;
+        filter:contrast(1.05) saturate(1.05) brightness(0.96); z-index:0; }
+
+      .layer { position:absolute; inset:0; pointer-events:none; }
+      #scrim-top { background:linear-gradient(180deg, rgba(13,13,13,0.80) 0%, rgba(13,13,13,0.5) 13%, rgba(13,13,13,0) 28%); }
+      #scrim-bottom { background:linear-gradient(0deg, rgba(13,13,13,0.9) 0%, rgba(13,13,13,0.5) 15%, rgba(13,13,13,0) 32%); }
+      #vignette { background:radial-gradient(ellipse 78% 64% at 50% 44%, transparent 56%, rgba(13,13,13,0.44) 100%); }
+      #grain { opacity:0.5; mix-blend-mode:overlay;
+        background-image:radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+          radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+          radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+        background-size:3px 3px,5px 5px,7px 7px; background-position:0 0,1px 2px,2px 1px; }
+
+      .scene { position:absolute; inset:0; }
+      .glass { position:absolute;
+        background:linear-gradient(135deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.05) 40%, rgba(13,13,13,0.30) 100%), rgba(20,21,23,0.52);
+        backdrop-filter:blur(16px) saturate(135%); -webkit-backdrop-filter:blur(16px) saturate(135%);
+        border:1.5px solid rgba(255,255,255,0.20); border-radius:30px;
+        box-shadow:0 22px 60px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.30), inset 0 -16px 30px rgba(0,0,0,0.22); }
+      .pill { display:inline-flex; align-items:center; gap:14px; padding:16px 30px; border-radius:999px;
+        background:rgba(13,13,13,0.6); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+        border:1.5px solid rgba(255,255,255,0.16); box-shadow:0 12px 34px rgba(0,0,0,0.4);
+        font-family:"Inter"; font-weight:800; font-size:36px; letter-spacing:0.4px; white-space:nowrap; }
+      .pill .dot { width:14px; height:14px; border-radius:50%; }
+      .label-mono { font-family:"JetBrains Mono"; font-weight:700; letter-spacing:3px; text-transform:uppercase; }
+
+      /* S1 hook: inequality */
+      #s1-row { position:absolute; top:160px; left:0; width:1080px; text-align:center;
+        display:flex; align-items:center; justify-content:center; gap:22px; }
+      #s1-row .chip { padding:22px 26px; border-radius:24px; min-width:300px;
+        font-family:"Space Grotesk"; font-weight:700; font-size:40px; line-height:1.05; }
+      #s1-a { background:linear-gradient(135deg, rgba(239,192,30,0.2), rgba(13,13,13,0.5)); border:2px solid rgba(239,192,30,0.6); color:#fff; }
+      #s1-a .em { font-size:54px; }
+      #s1-b { background:rgba(20,21,23,0.55); border:2px solid rgba(156,161,166,0.4); color:var(--soft); }
+      #s1-b .em { font-size:54px; }
+      #s1-ne { font-family:"Space Grotesk"; font-weight:700; font-size:96px; color:var(--alert);
+        text-shadow:0 0 30px rgba(228,87,46,0.5); }
+      #s1-cap { position:absolute; top:392px; left:0; width:1080px; text-align:center;
+        font-family:"Inter"; font-weight:800; font-size:38px; color:#fff; text-shadow:0 3px 14px rgba(0,0,0,0.8); }
+
+      /* S2 score gauge */
+      #s2-card { top:120px; left:170px; width:740px; padding:30px 36px 34px; text-align:center; }
+      #s2-card .ttl { font-family:"Inter"; font-weight:800; font-size:36px; margin-bottom:22px; }
+      #s2-card .ttl b { color:var(--gold); }
+      .gauge { height:34px; border-radius:17px; position:relative;
+        background:linear-gradient(90deg, #b6431f, #efc01e 55%, #5fa22e); overflow:visible; }
+      .gauge .needle { position:absolute; top:-12px; width:8px; height:58px; border-radius:4px;
+        background:#fff; box-shadow:0 0 14px rgba(255,255,255,0.8); left:0; transform:translateX(-50%); }
+      #s2-note { margin-top:20px; font-family:"Inter"; font-weight:700; font-size:30px; color:var(--soft); }
+
+      /* S3 consultas registradas */
+      #s3-card { top:96px; left:120px; width:840px; padding:28px 32px 30px; }
+      #s3-card .hd { font-family:"Inter"; font-weight:800; font-size:34px; margin-bottom:18px; text-align:center; }
+      #s3-card .hd b { color:var(--gold); }
+      .ent { display:flex; align-items:center; gap:18px; margin:12px 0; opacity:0;
+        background:rgba(255,255,255,0.06); border-radius:16px; padding:12px 18px; }
+      .ent .ic { width:54px; height:54px; border-radius:12px; display:grid; place-items:center;
+        background:rgba(239,192,30,0.16); border:1.5px solid rgba(239,192,30,0.5); font-size:30px; flex:none; }
+      .ent .tx { font-family:"Inter"; font-weight:700; font-size:32px; flex:1; }
+      .ent .stamp { font-family:"JetBrains Mono"; font-weight:700; font-size:22px; letter-spacing:1px;
+        color:var(--alert); border:2px solid var(--alert); border-radius:8px; padding:4px 10px; }
+
+      /* S4 score no baja */
+      #s4-card { top:140px; left:170px; width:740px; padding:28px 34px; text-align:center; }
+      #s4-card .em { font-size:64px; }
+      #s4-card .tx { font-family:"Space Grotesk"; font-weight:700; font-size:42px; margin-top:8px; }
+      #s4-card .tx b { color:var(--green); }
+      #s4-card .sub { font-family:"Inter"; font-weight:600; font-size:28px; color:var(--soft); margin-top:8px; }
+
+      /* S5 lupa / huellas */
+      #s5-lupa { position:absolute; top:120px; left:50%; margin-left:-90px; font-size:150px; }
+      #s5-prints { position:absolute; top:300px; left:0; width:1080px; text-align:center; font-size:54px; letter-spacing:10px; }
+      #s5-prints span { display:inline-block; opacity:0; }
+      #s5-tag { position:absolute; top:392px; left:50%; margin-left:-330px; width:660px; padding:16px 26px;
+        border-radius:18px; text-align:center; background:rgba(40,16,10,0.62); border:2px solid var(--alert);
+        font-family:"Inter"; font-weight:800; font-size:36px; color:#ffd9cd; }
+      #s5-tag b { color:#ff9f87; }
+
+      /* S6 varios lugares */
+      #s6-wrap { position:absolute; top:140px; left:0; width:1080px; text-align:center; }
+      #s6-title { font-family:"Space Grotesk"; font-weight:700; font-size:46px; color:#fff;
+        text-shadow:0 3px 16px rgba(0,0,0,0.7); margin-bottom:22px; }
+      #s6-title b { color:var(--gold); }
+      #s6-icons { display:flex; align-items:center; justify-content:center; gap:18px; }
+      #s6-icons .b { width:118px; height:118px; border-radius:22px; display:grid; place-items:center; opacity:0;
+        background:rgba(13,13,13,0.6); border:2px solid rgba(255,255,255,0.18); font-size:56px;
+        box-shadow:0 12px 30px rgba(0,0,0,0.4); }
+
+      /* S7 alert no pidas */
+      #s7-badge { top:150px; left:90px; width:900px; padding:30px 34px; text-align:center;
+        background:linear-gradient(135deg, rgba(228,87,46,0.22), rgba(13,13,13,0.5)), rgba(28,14,10,0.7);
+        border:2px solid rgba(228,87,46,0.6); box-shadow:0 18px 50px rgba(0,0,0,0.5), 0 0 34px rgba(228,87,46,0.3); }
+      #s7-badge .ic { font-size:60px; }
+      #s7-badge .tx { font-family:"Space Grotesk"; font-weight:700; font-size:46px; margin-top:6px; color:#fff; line-height:1.05; }
+      #s7-badge .tx b { color:#ff9f87; }
+
+      /* S8 step motivo */
+      #s8-step { position:absolute; top:180px; left:0; width:1080px; text-align:center;
+        display:flex; align-items:center; justify-content:center; gap:24px; }
+      #s8-step .n { width:96px; height:96px; border-radius:50%; display:grid; place-items:center;
+        background:linear-gradient(135deg, var(--gold), #c79a14); color:#1a1304;
+        font-family:"Space Grotesk"; font-weight:700; font-size:56px; box-shadow:0 0 30px rgba(239,192,30,0.5); }
+      #s8-step .t { font-family:"Space Grotesk"; font-weight:700; font-size:56px; color:#fff;
+        text-shadow:0 4px 18px rgba(0,0,0,0.7); }
+      #s8-step .t b { color:var(--gold); }
+
+      /* S9 reasons checklist */
+      #s9-card { top:80px; left:110px; width:860px; padding:26px 32px 28px; }
+      #s9-card .hd { font-family:"Inter"; font-weight:800; font-size:32px; margin-bottom:16px; text-align:center; }
+      #s9-card .hd b { color:var(--gold); }
+      .rsn { display:flex; align-items:center; gap:18px; margin:14px 0; opacity:0; }
+      .rsn .ic { width:60px; height:60px; border-radius:14px; display:grid; place-items:center;
+        background:rgba(228,87,46,0.14); border:2px solid var(--alert); font-size:32px; flex:none; }
+      .rsn .tx { font-family:"Inter"; font-weight:700; font-size:36px; }
+      .rsn .tx small { display:block; font-weight:500; font-size:25px; color:var(--gray); }
+
+      /* S10 two steps */
+      #s10-wrap { position:absolute; top:150px; left:0; width:1080px; text-align:center; }
+      #s10-wrap .step { display:inline-flex; align-items:center; gap:16px; margin:10px;
+        padding:18px 30px; border-radius:20px; opacity:0;
+        font-family:"Space Grotesk"; font-weight:700; font-size:40px; }
+      #s10-1 { background:rgba(20,21,23,0.6); border:2px solid rgba(156,161,166,0.45); color:#fff; }
+      #s10-2 { background:linear-gradient(135deg, rgba(95,162,46,0.22), rgba(13,13,13,0.5)); border:2px solid var(--green); color:#d6f3c2; }
+      #s10-wrap .step .n { width:60px; height:60px; border-radius:50%; display:grid; place-items:center;
+        font-size:34px; flex:none; }
+      #s10-1 .n { background:rgba(156,161,166,0.3); }
+      #s10-2 .n { background:rgba(95,162,46,0.35); }
+      #s10-arrow { display:block; font-size:50px; color:var(--gold); margin:6px 0; opacity:0; }
+
+      /* CTA */
+      #cta-dim { position:absolute; inset:0; background:rgba(13,13,13,0.55); opacity:0; }
+      #cta-card { top:470px; left:80px; width:920px; padding:48px 50px 52px; text-align:center; border-radius:40px;
+        background:linear-gradient(135deg, rgba(255,255,255,0.10), rgba(13,13,13,0.40)), rgba(11,12,14,0.9); }
+      #cta-logo { width:140px; height:140px; object-fit:contain; margin:0 auto 14px; display:block;
+        filter:drop-shadow(0 6px 20px rgba(0,0,0,0.5)); }
+      #cta-aud { display:flex; justify-content:center; gap:12px; margin-bottom:18px; flex-wrap:wrap; }
+      #cta-aud .p { padding:12px 22px; border-radius:999px; font-family:"Inter"; font-weight:800; font-size:30px; }
+      #cta-p1 { background:rgba(239,192,30,0.18); border:2px solid rgba(239,192,30,0.6); color:#ffe9a8; }
+      #cta-p2 { background:rgba(95,162,46,0.18); border:2px solid rgba(95,162,46,0.6); color:#cdebb6; }
+      #cta-brand { font-family:"Space Grotesk"; font-weight:700; font-size:52px; }
+      #cta-brand .ay { color:var(--green); }
+      #cta-head { margin-top:10px; font-family:"Inter"; font-weight:800; font-size:36px; color:var(--gold); }
+      #cta-wa { margin:26px auto 0; width:720px; padding:24px 30px; border-radius:22px;
+        background:rgba(95,162,46,0.16); border:2px solid var(--green);
+        display:flex; align-items:center; justify-content:center; gap:18px; }
+      #cta-wa .ic { font-size:44px; }
+      #cta-wa .num { font-family:"JetBrains Mono"; font-weight:700; font-size:44px; color:#fff; }
+      #cta-key { margin-top:18px; font-family:"Inter"; font-weight:700; font-size:33px; }
+      #cta-key b { color:var(--gold); letter-spacing:2px; }
+
+      /* captions */
+      #captions { position:absolute; left:0; top:0; width:1080px; height:1920px; }
+      .cap-block { position:absolute; left:50%; transform:translate(-50%,-50%);
+        max-width:1000px; width:max-content; opacity:0; padding:16px 32px; border-radius:22px;
+        background:rgba(9,10,12,0.58); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+        box-shadow:0 14px 40px rgba(0,0,0,0.5);
+        font-family:"Inter"; font-weight:800; font-size:52px; line-height:1.12;
+        text-align:center; text-shadow:0 3px 16px rgba(0,0,0,0.95); }
+      .cap-block .w { color:rgba(255,255,255,0.6); margin:0 5px; display:inline-block; transform:translateZ(0); }
+      .cap-block .w.past { color:#fff; opacity:0.92; }
+      .cap-block .w.active { color:var(--gold); transform:scale(1.07);
+        text-shadow:0 0 18px rgba(239,192,30,0.6), 0 3px 16px rgba(0,0,0,0.9); }
+    </style>
+  </head>
+  <body>
+    <div data-hf-id="root" id="root" data-composition-id="root" data-start="0" data-duration="38.0" data-width="1080" data-height="1920">
+
+      <video data-hf-id="face-video" id="face-video" data-start="0" data-duration="38.0" data-track-index="0" src="assets/source.mp4" muted playsinline></video>
+      <audio data-hf-id="face-audio" id="face-audio" data-start="0" data-duration="38.0" data-track-index="1" data-volume="1" src="assets/audio.mp3"></audio>
+
+      <div data-hf-id="scrim-top" id="scrim-top" class="layer clip" data-start="0" data-duration="38.0" data-track-index="2"></div>
+      <div data-hf-id="scrim-bottom" id="scrim-bottom" class="layer clip" data-start="0" data-duration="38.0" data-track-index="3"></div>
+      <div data-hf-id="vignette" id="vignette" class="layer clip" data-start="0" data-duration="38.0" data-track-index="4"></div>
+      <div data-hf-id="grain" id="grain" class="layer clip" data-start="0" data-duration="38.0" data-track-index="5"></div>
+
+      <!-- S1 hook -->
+      <div data-hf-id="s1" id="s1" class="scene clip" data-start="0.0" data-duration="2.84" data-track-index="10">
+        <div data-hf-id="s1-row" id="s1-row">
+          <div data-hf-id="s1-a" id="s1-a" class="chip"><div data-hf-id="s1ae" class="em">📈</div>Buen<br>puntaje</div>
+          <div data-hf-id="s1-ne" id="s1-ne">≠</div>
+          <div data-hf-id="s1-b" id="s1-b" class="chip"><div data-hf-id="s1be" class="em">✅</div>Crédito<br>aprobado</div>
+        </div>
+        <div data-hf-id="s1-cap" id="s1-cap">no significan lo mismo</div>
+      </div>
+
+      <!-- S2 gauge -->
+      <div data-hf-id="s2" id="s2" class="scene clip" data-start="2.84" data-duration="2.02" data-track-index="11">
+        <div data-hf-id="s2-card" id="s2-card" class="glass">
+          <div data-hf-id="s2tt" class="ttl">No todo depende del <b data-hf-id="s2b">puntaje</b></div>
+          <div data-hf-id="s2-gauge" class="gauge"><div data-hf-id="s2-needle" id="s2-needle" class="needle"></div></div>
+          <div data-hf-id="s2-note" id="s2-note">es solo una parte</div>
+        </div>
+      </div>
+
+      <!-- S3 consultas registradas -->
+      <div data-hf-id="s3" id="s3" class="scene clip" data-start="4.86" data-duration="4.58" data-track-index="12">
+        <div data-hf-id="s3-card" id="s3-card" class="glass">
+          <div data-hf-id="s3hd" class="hd">Cada estudio queda <b data-hf-id="s3b">registrado</b></div>
+          <div data-hf-id="s3-e1" id="s3-e1" class="ent"><div data-hf-id="s3i1" class="ic">🏦</div><div data-hf-id="s3t1" class="tx">Entidad 1</div><div data-hf-id="s3s1" class="stamp">CONSULTA</div></div>
+          <div data-hf-id="s3-e2" id="s3-e2" class="ent"><div data-hf-id="s3i2" class="ic">🏦</div><div data-hf-id="s3t2" class="tx">Entidad 2</div><div data-hf-id="s3s2" class="stamp">CONSULTA</div></div>
+          <div data-hf-id="s3-e3" id="s3-e3" class="ent"><div data-hf-id="s3i3" class="ic">🏦</div><div data-hf-id="s3t3" class="tx">Entidad 3</div><div data-hf-id="s3s3" class="stamp">CONSULTA</div></div>
+        </div>
+      </div>
+
+      <!-- S4 score no baja directo -->
+      <div data-hf-id="s4" id="s4" class="scene clip" data-start="9.44" data-duration="2.62" data-track-index="13">
+        <div data-hf-id="s4-card" id="s4-card" class="glass">
+          <div data-hf-id="s4e" class="em">📊</div>
+          <div data-hf-id="s4tx" class="tx">No baja tu puntaje <b data-hf-id="s4b">de inmediato</b></div>
+          <div data-hf-id="s4sub" class="sub">pero deja rastro</div>
+        </div>
+      </div>
+
+      <!-- S5 lupa / huellas -->
+      <div data-hf-id="s5" id="s5" class="scene clip" data-start="12.06" data-duration="4.98" data-track-index="14">
+        <div data-hf-id="s5-lupa" id="s5-lupa">🔍</div>
+        <div data-hf-id="s5-prints" id="s5-prints"><span data-hf-id="s5p1">👣</span><span data-hf-id="s5p2">👣</span><span data-hf-id="s5p3">👣</span><span data-hf-id="s5p4">👣</span></div>
+        <div data-hf-id="s5-tag" id="s5-tag">Tu solicitud, <b data-hf-id="s5tb">bajo la lupa</b></div>
+      </div>
+
+      <!-- S6 varios lugares -->
+      <div data-hf-id="s6" id="s6" class="scene clip" data-start="17.04" data-duration="3.74" data-track-index="15">
+        <div data-hf-id="s6-wrap" id="s6-wrap">
+          <div data-hf-id="s6-title" id="s6-title">Crédito en <b data-hf-id="s6b">varios lugares</b><br>al mismo tiempo</div>
+          <div data-hf-id="s6-icons" id="s6-icons">
+            <div data-hf-id="s6c1" class="b">🏦</div><div data-hf-id="s6c2" class="b">🏦</div><div data-hf-id="s6c3" class="b">🏦</div><div data-hf-id="s6c4" class="b">🏦</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S7 alert no pidas -->
+      <div data-hf-id="s7" id="s7" class="scene clip" data-start="20.78" data-duration="3.58" data-track-index="16">
+        <div data-hf-id="s7-badge" id="s7-badge" class="glass">
+          <div data-hf-id="s7ic" class="ic">🚫</div>
+          <div data-hf-id="s7tx" class="tx">Si ya te dijeron que no,<br><b data-hf-id="s7b">no pidas en todos lados</b></div>
+        </div>
+      </div>
+
+      <!-- S8 step motivo -->
+      <div data-hf-id="s8" id="s8" class="scene clip" data-start="24.36" data-duration="1.28" data-track-index="17">
+        <div data-hf-id="s8-step" id="s8-step">
+          <div data-hf-id="s8n" class="n">1</div>
+          <div data-hf-id="s8t" class="t">Entiende el <b data-hf-id="s8b">motivo</b></div>
+        </div>
+      </div>
+
+      <!-- S9 reasons -->
+      <div data-hf-id="s9" id="s9" class="scene clip" data-start="25.64" data-duration="5.72" data-track-index="18">
+        <div data-hf-id="s9-card" id="s9-card" class="glass">
+          <div data-hf-id="s9hd" class="hd">Posibles <b data-hf-id="s9b">motivos</b></div>
+          <div data-hf-id="s9-r1" id="s9-r1" class="rsn"><div data-hf-id="s9i1" class="ic">💳</div><div data-hf-id="s9x1" class="tx">Cuotas comprometidas<small data-hf-id="s9m1">mucha plata en deudas</small></div></div>
+          <div data-hf-id="s9-r2" id="s9-r2" class="rsn"><div data-hf-id="s9i2" class="ic">📋</div><div data-hf-id="s9x2" class="tx">Un reporte oculto<small data-hf-id="s9m2">que no conocías</small></div></div>
+          <div data-hf-id="s9-r3" id="s9-r3" class="rsn"><div data-hf-id="s9i3" class="ic">🌱</div><div data-hf-id="s9x3" class="tx">Poca vida crediticia<small data-hf-id="s9m3">historial muy corto</small></div></div>
+        </div>
+      </div>
+
+      <!-- S10 two steps -->
+      <div data-hf-id="s10" id="s10" class="scene clip" data-start="31.36" data-duration="2.68" data-track-index="19">
+        <div data-hf-id="s10-wrap" id="s10-wrap">
+          <div data-hf-id="s10-1" id="s10-1" class="step"><div data-hf-id="s10n1" class="n">1</div>Entiende el <b data-hf-id="s10b1" style="color:#fff">NO</b></div>
+          <span data-hf-id="s10-arrow" id="s10-arrow">↓</span>
+          <div data-hf-id="s10-2" id="s10-2" class="step"><div data-hf-id="s10n2" class="n">2</div>Búsca corregirlo</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div data-hf-id="cta-dim" id="cta-dim" class="clip" data-start="34.04" data-duration="3.96" data-track-index="20"></div>
+      <div data-hf-id="s11" id="s11" class="scene clip" data-start="34.04" data-duration="3.96" data-track-index="21">
+        <div data-hf-id="cta-card" id="cta-card" class="glass">
+          <svg data-hf-id="cta-logo" id="cta-logo" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Credi Ayudarte">
+            <path d="M30,135 C30,115 75,111 120,111 C165,111 210,115 210,135" fill="none" stroke="#3C4043" stroke-width="8" stroke-linecap="round"/>
+            <path d="M120,155 C100,155 96,110 110,95 C116,88 124,88 130,95 C144,110 140,155 120,155 Z" fill="#9CA1A6"/>
+            <circle cx="120" cy="81" r="24" fill="#9CA1A6"/>
+            <path d="M74,101 C46,107 44,155 84,157 C108,158 112,135 100,119 C92,109 84,101 74,101 Z" fill="#EFC01E"/>
+            <circle cx="74" cy="73" r="27" fill="#EFC01E"/>
+            <path d="M166,101 C194,107 196,155 156,157 C132,158 128,135 140,119 C148,109 156,101 166,101 Z" fill="#5FA22E"/>
+            <circle cx="166" cy="73" r="27" fill="#5FA22E"/>
+            <path d="M30,135 C30,165 70,199 120,201 C170,199 210,165 210,135 C210,149 165,158 120,158 C75,158 30,149 30,135 Z" fill="#FFFFFF" stroke="#3C4043" stroke-width="8" stroke-linejoin="round"/>
+          </svg>
+          <div data-hf-id="cta-aud" id="cta-aud">
+            <span data-hf-id="cta-p1" id="cta-p1" class="p">👴 Pensionado</span>
+            <span data-hf-id="cta-p2" id="cta-p2" class="p">🏛️ Empleado del gobierno</span>
+          </div>
+          <div data-hf-id="cta-brand" id="cta-brand">Credi <span data-hf-id="ctaay" class="ay">Ayudarte</span></div>
+          <div data-hf-id="cta-head" id="cta-head">Revisamos tu caso</div>
+          <div data-hf-id="cta-wa" id="cta-wa"><span data-hf-id="ctaic" class="ic">💬</span><span data-hf-id="ctanum" class="num">315 247 4348</span></div>
+          <div data-hf-id="cta-key" id="cta-key">Escríbenos la palabra <b data-hf-id="ctak">CRÉDITO</b></div>
+        </div>
+      </div>
+
+      <div data-hf-id="captions" id="captions" class="clip" data-start="0" data-duration="38.0" data-track-index="30"></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const DUR = 38.0;
+      tl.set("#cta-card", { y: 30, x: 0, data: "hf-hold" }, 0);
+
+      tl.fromTo("#face-video", { scale: 1.0 }, { scale: 1.05, duration: DUR, ease: "none" }, 0);
+
+      function inn(sel, t, opt) { opt = opt || {};
+        gsap.set(sel, { opacity: 0, y: opt.y != null ? opt.y : 24, filter: "blur(8px)" });
+        tl.to(sel, { opacity: 1, y: 0, filter: "blur(0px)", duration: opt.d || 0.4, ease: opt.e || "power3.out" }, t); }
+      function out(sel, t) {
+        tl.to(sel, { opacity: 0, y: -16, filter: "blur(6px)", duration: 0.26, ease: "power2.in" }, t);
+        tl.set(sel, { opacity: 0 }, t + 0.26); }
+      function pop(sel, t, from) { gsap.set(sel, { opacity: 0, scale: from != null ? from : 0.7 });
+        tl.to(sel, { opacity: 1, scale: 1, duration: 0.42, ease: "back.out(1.8)" }, t); }
+
+      /* S1 */
+      pop("#s1-a", 0.15, 0.7);
+      gsap.set("#s1-ne", { opacity: 0, scale: 1.6 });
+      tl.to("#s1-ne", { opacity: 1, scale: 1, duration: 0.34, ease: "back.out(2)" }, 1.1);
+      pop("#s1-b", 0.55, 0.7);
+      tl.to("#s1-ne", { scale: 1.12, duration: 0.4, yoyo: true, repeat: 1, ease: "sine.inOut" }, 2.1);
+      inn("#s1-cap", 0.7, { y: 12 });
+      out("#s1", 2.5);
+
+      /* S2 */
+      inn("#s2-card", 2.88, { y: 24 });
+      gsap.set("#s2-needle", { left: "85%" });
+      tl.to("#s2-needle", { left: "48%", duration: 0.9, ease: "power2.inOut" }, 3.2);
+      out("#s2", 4.56);
+
+      /* S3 */
+      inn("#s3-card", 4.9, { y: 26 });
+      [["#s3-e1", 5.7], ["#s3-e2", 6.5], ["#s3-e3", 7.6]].forEach(([s, t]) => {
+        gsap.set(s, { opacity: 0, x: -26 });
+        tl.to(s, { opacity: 1, x: 0, duration: 0.34, ease: "power3.out" }, t);
+        gsap.set(s + " .stamp", { opacity: 0, scale: 1.4, rotation: -8 });
+        tl.to(s + " .stamp", { opacity: 1, scale: 1, rotation: -6, duration: 0.3, ease: "back.out(1.8)" }, t + 0.2);
+      });
+      out("#s3", 9.14);
+
+      /* S4 */
+      inn("#s4-card", 9.48, { y: 24 });
+      tl.to("#s4-card .em", { scale: 1.1, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 9.9);
+      out("#s4", 11.76);
+
+      /* S5 lupa */
+      gsap.set("#s5-lupa", { opacity: 0, scale: 0.5, rotation: -20 });
+      tl.to("#s5-lupa", { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: "back.out(1.8)" }, 12.1);
+      tl.to("#s5-lupa", { x: 60, y: 20, duration: 0.9, yoyo: true, repeat: 1, ease: "sine.inOut" }, 12.8);
+      ["#s5p1", "#s5p2", "#s5p3", "#s5p4"].forEach((s, i) => {
+        tl.to(s, { opacity: 1, duration: 0.25, ease: "power2.out" }, 12.4 + i * 0.3); });
+      gsap.set("#s5-tag", { opacity: 0, y: 16 });
+      tl.to("#s5-tag", { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.6)" }, 15.4);
+      out("#s5", 16.74);
+
+      /* S6 */
+      inn("#s6-title", 17.1, { y: 16 });
+      ["#s6c1", "#s6c2", "#s6c3", "#s6c4"].forEach((s, i) => {
+        gsap.set(s, { opacity: 0, scale: 0.6, y: 14 });
+        tl.to(s, { opacity: 1, scale: 1, y: 0, duration: 0.32, ease: "back.out(1.9)" }, 17.7 + i * 0.28); });
+      out("#s6", 20.48);
+
+      /* S7 */
+      gsap.set("#s7-badge", { opacity: 0, scale: 0.9, y: 20 });
+      tl.to("#s7-badge", { opacity: 1, scale: 1, y: 0, duration: 0.42, ease: "back.out(1.6)" }, 20.84);
+      tl.to("#s7-badge", { x: -8, duration: 0.07, yoyo: true, repeat: 5, ease: "none" }, 21.4);
+      tl.to("#s7ic", { scale: 1.12, duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 21.6);
+      out("#s7", 24.06);
+
+      /* S8 */
+      pop("#s8n", 24.4, 0.5);
+      inn("#s8t", 24.6, { y: 14 });
+      out("#s8", 25.38);
+
+      /* S9 */
+      inn("#s9-card", 25.7, { y: 24 });
+      [["#s9-r1", 26.4], ["#s9-r2", 28.2], ["#s9-r3", 29.9]].forEach(([s, t]) => {
+        gsap.set(s, { opacity: 0, x: -24 });
+        tl.to(s, { opacity: 1, x: 0, duration: 0.34, ease: "power3.out" }, t);
+        gsap.set(s + " .ic", { scale: 0.5 });
+        tl.to(s + " .ic", { scale: 1, duration: 0.4, ease: "back.out(2)" }, t + 0.06); });
+      out("#s9", 31.14);
+
+      /* S10 */
+      pop("#s10-1", 31.5, 0.8);
+      tl.to("#s10-arrow", { opacity: 1, duration: 0.3 }, 32.3);
+      pop("#s10-2", 32.6, 0.8);
+      tl.to("#s10-2", { boxShadow: "0 0 36px rgba(95,162,46,0.5)", duration: 0.5, yoyo: true, repeat: 1, ease: "sine.inOut" }, 33.0);
+      out("#s10", 33.78);
+
+      /* CTA */
+      tl.to("#cta-dim", { opacity: 1, duration: 0.45, ease: "power2.out" }, 34.04);
+      gsap.set("#cta-card", { opacity: 0, scale: 0.86, y: 30 });
+      gsap.set("#cta-logo", { opacity: 0, scale: 0.5, rotation: -10 });
+      tl.to("#cta-card", { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.5)" }, 34.2);
+      tl.to("#cta-logo", { opacity: 1, scale: 1, rotation: 0, duration: 0.5, ease: "back.out(1.9)" }, 34.4);
+      gsap.set(["#cta-p1", "#cta-p2"], { opacity: 0, y: 14 });
+      tl.to("#cta-p1", { opacity: 1, y: 0, duration: 0.34, ease: "back.out(1.6)" }, 34.7);
+      tl.to("#cta-p2", { opacity: 1, y: 0, duration: 0.34, ease: "back.out(1.6)" }, 34.9);
+      tl.fromTo("#cta-wa", { boxShadow: "0 0 0 rgba(95,162,46,0)" },
+        { boxShadow: "0 0 30px rgba(95,162,46,0.55)", duration: 0.8, yoyo: true, repeat: 2, ease: "sine.inOut" }, 35.4);
+
+      /* ===== KARAOKE CAPTIONS ===== */
+      const WORDS = [["Mejor",0.0,0.44],["puntaje",0.44,1.12],["no",1.12,1.32],["es",1.32,1.58],["igual",1.58,1.9],["a",1.9,2.12],["crédito",2.12,2.4],["aprobado,",2.4,2.78],["porque",2.84,3.14],["no",3.14,3.44],["todo",3.44,3.72],["depende",3.72,4.16],["del",4.16,4.36],["puntaje.",4.36,4.8],["Cuando",4.86,5.04],["autorizas",5.04,5.72],["estudios",5.72,6.24],["en",6.24,6.44],["varias",6.44,6.72],["entidades,",6.72,7.26],["esas",7.62,7.72],["consultas",7.72,8.44],["quedan",8.44,8.8],["registradas.",8.8,9.3],["Y",9.44,9.6],["aunque",9.6,9.82],["no",9.82,10.04],["bajen",10.04,10.28],["automáticamente",10.28,11.02],["tu",11.02,11.2],["puntaje,",11.2,11.8],["muchas",12.06,12.22],["huellas",12.22,12.62],["en",12.62,12.82],["poco",12.82,13.04],["tiempo",13.04,13.52],["pueden",13.52,13.84],["hacer",13.84,14.22],["que",14.22,14.42],["una",14.42,14.58],["entidad",14.58,14.96],["analice",14.96,15.34],["tu",15.34,15.5],["solicitud",15.5,16.02],["con",16.02,16.46],["más",16.46,16.68],["lupa.",16.68,16.94],["Puede",17.04,17.26],["interpretar",17.26,17.72],["que",17.72,17.86],["estás",17.86,18.0],["buscando",18.0,18.42],["crédito",18.42,18.88],["en",18.88,19.08],["varios",19.08,19.3],["lugares",19.3,19.62],["al",19.62,20.0],["mismo",20.0,20.3],["tiempo.",20.3,20.64],["Por",20.78,21.0],["eso,",21.0,21.2],["si",21.2,21.4],["ya",21.4,21.56],["te",21.56,21.68],["dijeron",21.68,22.0],["que",22.0,22.22],["no,",22.22,22.42],["no",22.52,22.7],["salgas",22.7,22.94],["a",22.94,23.04],["pedir",23.04,23.2],["crédito",23.2,23.52],["por",23.52,23.74],["todos",23.74,23.92],["lados.",23.92,24.2],["Primero,",24.36,24.76],["entiende",24.9,25.12],["el",25.12,25.3],["motivo.",25.3,25.56],["Puede",25.64,25.84],["ser",25.84,26.04],["que",26.04,26.14],["ya",26.14,26.28],["tengas",26.28,26.52],["mucha",26.52,26.76],["plata",26.76,27.02],["comprometida",27.02,27.6],["en",27.6,27.78],["cuotas,",27.78,28.12],["un",28.16,28.34],["reporte",28.34,28.66],["que",28.66,28.86],["no",28.86,29.18],["conocías",29.18,29.56],["o",29.56,29.92],["poca",29.92,30.42],["vida",30.42,30.64],["crediticia.",30.64,31.14],["Primero,",31.36,31.7],["entiende",31.8,32.1],["el",32.1,32.28],["no.",32.28,32.44],["Después,",32.7,32.94],["busca",33.18,33.36],["corregirlo.",33.36,33.94],["Si",34.04,34.18],["eres",34.18,34.36],["pensionado",34.36,34.98],["o",34.98,35.16],["empleado",35.16,35.5],["del",35.5,35.64],["gobierno,",35.64,36.06],["escribe",36.4,36.58],["crédito",36.58,37.0],["y",37.0,37.26],["revisamos",37.26,37.64],["tu",37.64,37.8],["caso.",37.8,37.98]];
+
+      const SUPPRESS = [[34.04, 38.0]];
+      const suppressed = (a, b) => SUPPRESS.some(([s, e]) => ((a + b) / 2) >= s && ((a + b) / 2) <= e);
+      const CAP_Y = 1280; // un solo plano: debajo de la cara, sobre el top
+
+      const blocks = [];
+      let cur = [];
+      for (const w of WORDS) {
+        if (cur.length) {
+          const dur = w[2] - cur[0][1];
+          const prev = cur[cur.length - 1][0];
+          if (cur.length >= 4 || dur > 2.0 || /[.?]$/.test(prev)) { blocks.push(cur); cur = []; }
+        }
+        cur.push(w);
+      }
+      if (cur.length) blocks.push(cur);
+
+      const capRoot = document.getElementById("captions");
+      const vis = [];
+      blocks.forEach((blk) => {
+        const bStart = blk[0][1], bEnd = blk[blk.length - 1][2];
+        if (suppressed(bStart, bEnd)) return;
+        vis.push({ blk, bStart, bEnd });
+      });
+      vis.forEach((v, idx) => {
+        const el = document.createElement("div");
+        el.className = "cap-block";
+        el.style.top = CAP_Y + "px";
+        const spans = v.blk.map((w) => {
+          const s = document.createElement("span");
+          s.className = "w"; s.textContent = w[0];
+          el.appendChild(s); el.appendChild(document.createTextNode(" "));
+          return s;
+        });
+        capRoot.appendChild(el);
+        const show = Math.max(0, v.bStart - 0.06);
+        let hide = v.bEnd + 0.2;
+        const next = vis[idx + 1];
+        if (next) { const nextShow = Math.max(0, next.bStart - 0.06); if (nextShow < hide) hide = nextShow; }
+        tl.set(el, { opacity: 1 }, show);
+        tl.set(el, { opacity: 0 }, hide);
+        v.blk.forEach((w, i) => {
+          tl.set(spans[i], { className: "w active" }, w[1]);
+          tl.set(spans[i], { className: "w past" }, w[2]);
+        });
+      });
+
+      tl.set({}, {}, DUR);
+      window.__timelines["root"] = tl;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+{
+  "brandName": "Credi Ayudarte",
+  "industry": "financiera / créditos / reorganización de deudas — Colombia",
+  "audience": "personas que buscan crédito o refinanciación y siguen noticias de tasas de interés",
+  "tone": "confiable, cercano, educativo, honesto (sin promesas de milagros)",
+  "platform": "Instagram Reels / TikTok / YouTube Shorts",
+  "format": "vertical 9:16 — 1080x1920",
+  "fps": 30,
+  "durationSec": 35.87,
+  "editingStyle": "fondo original + overlays premium: liquid glass + karaoke + motion graphics densos",
+  "visualDirection": "keep-original-background",
+  "palette": {
+    "_source": "Logo Credi Ayudarte (tres figuras en cuenco) — valores aproximados, refinar a hex exacto cuando llegue el PNG a color",
+    "gold":      "#EFC01E",
+    "green":     "#5FA22E",
+    "gray":      "#9CA1A6",
+    "charcoal":  "#3C4043",
+    "bone":      "#F4F4F2",
+    "white":     "#FFFFFF",
+    "softText":  "#C9CDD2",
+    "alert":     "#E4572E"
+  },
+  "colorMeaning": {
+    "gold": "acento héroe / palabra karaoke activa / énfasis (tasas, crédito)",
+    "green": "positivo / solución / 'sí te conviene' / checks buenos",
+    "gray": "datos neutros, labels, secundario",
+    "charcoal": "base de tarjetas, trazos, scrims de legibilidad",
+    "alert": "solo para 'las tasas suben' / advertencia, con moderación"
+  },
+  "fonts": {
+    "display": "Space Grotesk",
+    "body": "Inter",
+    "mono": "JetBrains Mono"
+  },
+  "logo": {
+    "white": "assets/logo-white.png",
+    "color": "assets/logo-credi-color.png (pendiente: lo envía la usuaria)"
+  },
+  "cta": {
+    "headline": "Revisamos tu caso, sin compromiso",
+    "whatsapp": "315 247 4348",
+    "keyword": "CRÉDITO",
+    "line": "Escríbenos por WhatsApp la palabra CRÉDITO"
+  },
+  "avoid": [
+    "prometer resultados garantizados",
+    "inventar porcentajes o cifras de éxito",
+    "tapar la cara de la hablante (ojos, boca, nariz)",
+    "afirmaciones financieras sin soporte"
+  ]
+}

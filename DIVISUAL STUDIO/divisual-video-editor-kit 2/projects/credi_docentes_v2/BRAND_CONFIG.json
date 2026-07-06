@@ -1,0 +1,31 @@
+{
+  "brandName": "Credi Ayudarte",
+  "industry": "finanzas / reorganización de deudas para docentes del gobierno",
+  "products": [
+    "diagnóstico de nómina y descuentos",
+    "negociación y reorganización de deudas",
+    "asesoría financiera para docentes"
+  ],
+  "audience": "docentes del gobierno con buen salario pero sobreendeudados (cooperativas, embargos, tarjetas en mora)",
+  "primaryColor": "#FAC51C",
+  "secondaryColor": "#0D0D0D",
+  "accentColor": "#FAC51C",
+  "darkColor": "#0D0D0D",
+  "lightColor": "#FFFFFF",
+  "fontPrimary": "Space Grotesk, system-ui, sans-serif",
+  "fontSecondary": "Inter, system-ui, sans-serif",
+  "fontMono": "JetBrains Mono, monospace",
+  "tone": "confiable, claro, cercano, honesto (sin promesas de milagros)",
+  "cta": "Escríbenos por WhatsApp la palabra CRÉDITO — 315 247 4348",
+  "whatsapp": "315 247 4348",
+  "logoPath": "./brand/logo/logo-white.png",
+  "platform": "Instagram Reels / TikTok / YouTube Shorts",
+  "format": "vertical 9:16",
+  "editingStyle": "premium liquid glass + karaoke captions + dense motion graphics (modo video monstruo)",
+  "avoid": [
+    "prometer resultados garantizados",
+    "inventar porcentajes o cifras de éxito",
+    "tapar la cara del hablante",
+    "afirmaciones financieras sin soporte"
+  ]
+}

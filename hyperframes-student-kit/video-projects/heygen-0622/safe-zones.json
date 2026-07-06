@@ -1,0 +1,1114 @@
+{
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "grid": {
+    "cols": 27,
+    "rows": 48
+  },
+  "coverage": 60.6,
+  "subject": {
+    "colMinPct": 0,
+    "colMaxPct": 100,
+    "clearerSide": "left"
+  },
+  "zones": {
+    "largest": {
+      "xPct": 0,
+      "yPct": 0,
+      "wPct": 100,
+      "hPct": 20.8,
+      "areaPct": 20.8,
+      "px": {
+        "x": 0,
+        "y": 0,
+        "w": 1080,
+        "h": 400
+      },
+      "meanLuma": 215,
+      "bright": true,
+      "peakLuma": 215
+    },
+    "left": {
+      "xPct": 0,
+      "yPct": 0,
+      "wPct": 48.1,
+      "hPct": 22.9,
+      "areaPct": 11,
+      "px": {
+        "x": 0,
+        "y": 0,
+        "w": 520,
+        "h": 440
+      },
+      "meanLuma": 207,
+      "bright": true,
+      "peakLuma": 208
+    },
+    "right": {
+      "xPct": 51.9,
+      "yPct": 0,
+      "wPct": 48.1,
+      "hPct": 20.8,
+      "areaPct": 10,
+      "px": {
+        "x": 560,
+        "y": 0,
+        "w": 520,
+        "h": 400
+      },
+      "meanLuma": 223,
+      "bright": true,
+      "peakLuma": 223
+    },
+    "top": {
+      "xPct": 0,
+      "yPct": 0,
+      "wPct": 100,
+      "hPct": 20.8,
+      "areaPct": 20.8,
+      "px": {
+        "x": 0,
+        "y": 0,
+        "w": 1080,
+        "h": 400
+      },
+      "meanLuma": 215,
+      "bright": true,
+      "peakLuma": 215
+    },
+    "hugLeft": null,
+    "hugRight": null
+  },
+  "heroAnchor": {
+    "centerXPct": 50,
+    "plane": {
+      "xPct": 4,
+      "yPct": 32,
+      "wPct": 92,
+      "align": "center"
+    },
+    "bandLuma": 223,
+    "washoutRisk": true,
+    "note": "Place the ONE big hero here (centered on the subject); the head/torso occludes its middle (~30-55%) — that is the embed. Do NOT put the hero in a clean zone. ⚠ BAND IS BRIGHT (luma 223): cream/screen text will wash out — lower the hero onto the darker subject body, or use a template/mode with opaque text."
+  },
+  "heroBands": {
+    "feasible": true,
+    "best": {
+      "topPct": 22.9,
+      "occPct": 40,
+      "bgLuma": 203
+    },
+    "profile": [
+      {
+        "topPct": 0,
+        "occPct": 0,
+        "bgLuma": 214
+      },
+      {
+        "topPct": 2.1,
+        "occPct": 0,
+        "bgLuma": 214
+      },
+      {
+        "topPct": 4.2,
+        "occPct": 0,
+        "bgLuma": 214
+      },
+      {
+        "topPct": 6.3,
+        "occPct": 0,
+        "bgLuma": 215
+      },
+      {
+        "topPct": 8.3,
+        "occPct": 0,
+        "bgLuma": 216
+      },
+      {
+        "topPct": 10.4,
+        "occPct": 0,
+        "bgLuma": 217
+      },
+      {
+        "topPct": 12.5,
+        "occPct": 0.7,
+        "bgLuma": 218
+      },
+      {
+        "topPct": 14.6,
+        "occPct": 6,
+        "bgLuma": 219
+      },
+      {
+        "topPct": 16.7,
+        "occPct": 13.3,
+        "bgLuma": 215
+      },
+      {
+        "topPct": 18.8,
+        "occPct": 22,
+        "bgLuma": 211
+      },
+      {
+        "topPct": 20.8,
+        "occPct": 30.7,
+        "bgLuma": 207
+      },
+      {
+        "topPct": 22.9,
+        "occPct": 40,
+        "bgLuma": 203
+      },
+      {
+        "topPct": 25,
+        "occPct": 49.3,
+        "bgLuma": 197
+      },
+      {
+        "topPct": 27.1,
+        "occPct": 54,
+        "bgLuma": 191
+      },
+      {
+        "topPct": 29.2,
+        "occPct": 57.3,
+        "bgLuma": 189
+      },
+      {
+        "topPct": 31.3,
+        "occPct": 60,
+        "bgLuma": 187
+      },
+      {
+        "topPct": 33.3,
+        "occPct": 62.7,
+        "bgLuma": 184
+      },
+      {
+        "topPct": 35.4,
+        "occPct": 64,
+        "bgLuma": 181
+      },
+      {
+        "topPct": 37.5,
+        "occPct": 65.3,
+        "bgLuma": 178
+      },
+      {
+        "topPct": 39.6,
+        "occPct": 66.7,
+        "bgLuma": 174
+      },
+      {
+        "topPct": 41.7,
+        "occPct": 68.7,
+        "bgLuma": 169
+      },
+      {
+        "topPct": 43.8,
+        "occPct": 70,
+        "bgLuma": 164
+      },
+      {
+        "topPct": 45.8,
+        "occPct": 74,
+        "bgLuma": 158
+      },
+      {
+        "topPct": 47.9,
+        "occPct": 79.3,
+        "bgLuma": 150
+      },
+      {
+        "topPct": 50,
+        "occPct": 84,
+        "bgLuma": 143
+      },
+      {
+        "topPct": 52.1,
+        "occPct": 89.3,
+        "bgLuma": 138
+      },
+      {
+        "topPct": 54.2,
+        "occPct": 93.3,
+        "bgLuma": 132
+      },
+      {
+        "topPct": 56.3,
+        "occPct": 97.3,
+        "bgLuma": 124
+      },
+      {
+        "topPct": 58.3,
+        "occPct": 98.7,
+        "bgLuma": 112
+      },
+      {
+        "topPct": 60.4,
+        "occPct": 99.3,
+        "bgLuma": 102
+      },
+      {
+        "topPct": 62.5,
+        "occPct": 100,
+        "bgLuma": 94
+      },
+      {
+        "topPct": 64.6,
+        "occPct": 100,
+        "bgLuma": 86
+      },
+      {
+        "topPct": 66.7,
+        "occPct": 100,
+        "bgLuma": 77
+      },
+      {
+        "topPct": 68.8,
+        "occPct": 100,
+        "bgLuma": 72
+      },
+      {
+        "topPct": 70.8,
+        "occPct": 100,
+        "bgLuma": 72
+      },
+      {
+        "topPct": 72.9,
+        "occPct": 100,
+        "bgLuma": 75
+      },
+      {
+        "topPct": 75,
+        "occPct": 100,
+        "bgLuma": 78
+      },
+      {
+        "topPct": 77.1,
+        "occPct": 100,
+        "bgLuma": 81
+      },
+      {
+        "topPct": 79.2,
+        "occPct": 100,
+        "bgLuma": 83
+      },
+      {
+        "topPct": 81.3,
+        "occPct": 100,
+        "bgLuma": 85
+      },
+      {
+        "topPct": 83.3,
+        "occPct": 100,
+        "bgLuma": 86
+      },
+      {
+        "topPct": 85.4,
+        "occPct": 100,
+        "bgLuma": 85
+      },
+      {
+        "topPct": 87.5,
+        "occPct": 100,
+        "bgLuma": 82
+      }
+    ]
+  },
+  "recommendation": "embed",
+  "palette": {
+    "dominant": [
+      {
+        "hex": "#eae5d2",
+        "sharePct": 33.7
+      },
+      {
+        "hex": "#d7cfb6",
+        "sharePct": 33.1
+      },
+      {
+        "hex": "#e3dcc5",
+        "sharePct": 22.1
+      }
+    ],
+    "accentSuggestion": null,
+    "temperature": "warm"
+  },
+  "optics": {
+    "bgSharpness": 8.35,
+    "subjSharpness": 78.9,
+    "sharpnessRatio": 0.106,
+    "suggestedTextBlurPx": 1.6
+  },
+  "lighting": {
+    "lightFrom": "upper-right",
+    "shadow": {
+      "dx": -3,
+      "dy": 4
+    }
+  },
+  "windows": [
+    {
+      "in": 0.03,
+      "out": 2.51,
+      "text": "¿Con el nuevo gobierno van a bajar las tasas de ",
+      "coverage": 51,
+      "recommendation": "embed",
+      "clearerSide": "left",
+      "zones": {
+        "largest": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 215,
+          "bright": true,
+          "peakLuma": 216
+        },
+        "left": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 51.9,
+          "hPct": 22.9,
+          "areaPct": 11.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 560,
+            "h": 440
+          },
+          "meanLuma": 208,
+          "bright": true,
+          "peakLuma": 208
+        },
+        "right": {
+          "xPct": 51.9,
+          "yPct": 0,
+          "wPct": 48.1,
+          "hPct": 22.9,
+          "areaPct": 11,
+          "px": {
+            "x": 560,
+            "y": 0,
+            "w": 520,
+            "h": 440
+          },
+          "meanLuma": 223,
+          "bright": true,
+          "peakLuma": 223
+        },
+        "top": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 215,
+          "bright": true,
+          "peakLuma": 216
+        },
+        "hugLeft": null,
+        "hugRight": null
+      }
+    },
+    {
+      "in": 2.69,
+      "out": 4.19,
+      "text": "Es posible, pero no de inmediato.",
+      "coverage": 49.4,
+      "recommendation": "embed",
+      "clearerSide": "left",
+      "zones": {
+        "largest": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 215,
+          "bright": true,
+          "peakLuma": 216
+        },
+        "left": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 51.9,
+          "hPct": 22.9,
+          "areaPct": 11.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 560,
+            "h": 440
+          },
+          "meanLuma": 208,
+          "bright": true,
+          "peakLuma": 209
+        },
+        "right": {
+          "xPct": 51.9,
+          "yPct": 0,
+          "wPct": 48.1,
+          "hPct": 22.9,
+          "areaPct": 11,
+          "px": {
+            "x": 560,
+            "y": 0,
+            "w": 520,
+            "h": 440
+          },
+          "meanLuma": 223,
+          "bright": true,
+          "peakLuma": 223
+        },
+        "top": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 215,
+          "bright": true,
+          "peakLuma": 216
+        },
+        "hugLeft": null,
+        "hugRight": null
+      }
+    },
+    {
+      "in": 4.27,
+      "out": 5.61,
+      "text": "Pasa como con los mangos.",
+      "coverage": 49,
+      "recommendation": "embed",
+      "clearerSide": "left",
+      "zones": {
+        "largest": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 216,
+          "bright": true,
+          "peakLuma": 216
+        },
+        "left": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 51.9,
+          "hPct": 22.9,
+          "areaPct": 11.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 560,
+            "h": 440
+          },
+          "meanLuma": 208,
+          "bright": true,
+          "peakLuma": 209
+        },
+        "right": {
+          "xPct": 51.9,
+          "yPct": 0,
+          "wPct": 48.1,
+          "hPct": 22.9,
+          "areaPct": 11,
+          "px": {
+            "x": 560,
+            "y": 0,
+            "w": 520,
+            "h": 440
+          },
+          "meanLuma": 223,
+          "bright": true,
+          "peakLuma": 223
+        },
+        "top": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 216,
+          "bright": true,
+          "peakLuma": 216
+        },
+        "hugLeft": null,
+        "hugRight": null
+      }
+    },
+    {
+      "in": 5.89,
+      "out": 8.77,
+      "text": "Cuando no hay cosecha hay menos mangos y se pone",
+      "coverage": 51.9,
+      "recommendation": "embed",
+      "clearerSide": "left",
+      "zones": {
+        "largest": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 216,
+          "bright": true,
+          "peakLuma": 216
+        },
+        "left": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 51.9,
+          "hPct": 22.9,
+          "areaPct": 11.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 560,
+            "h": 440
+          },
+          "meanLuma": 208,
+          "bright": true,
+          "peakLuma": 209
+        },
+        "right": {
+          "xPct": 51.9,
+          "yPct": 0,
+          "wPct": 48.1,
+          "hPct": 22.9,
+          "areaPct": 11,
+          "px": {
+            "x": 560,
+            "y": 0,
+            "w": 520,
+            "h": 440
+          },
+          "meanLuma": 223,
+          "bright": true,
+          "peakLuma": 223
+        },
+        "top": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 216,
+          "bright": true,
+          "peakLuma": 216
+        },
+        "hugLeft": null,
+        "hugRight": null
+      }
+    },
+    {
+      "in": 8.93,
+      "out": 10.49,
+      "text": "Con el dinero ocurre algo parecido.",
+      "coverage": 49.5,
+      "recommendation": "embed",
+      "clearerSide": "left",
+      "zones": {
+        "largest": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 20.8,
+          "areaPct": 20.8,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 400
+          },
+          "meanLuma": 215,
+          "bright": true,
+          "peakLuma": 215
+        },
+        "left": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 48.1,
+          "hPct": 22.9,
+          "areaPct": 11,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 520,
+            "h": 440
+          },
+          "meanLuma": 208,
+          "bright": true,
+          "peakLuma": 208
+        },
+        "right": {
+          "xPct": 51.9,
+          "yPct": 0,
+          "wPct": 48.1,
+          "hPct": 20.8,
+          "areaPct": 10,
+          "px": {
+            "x": 560,
+            "y": 0,
+            "w": 520,
+            "h": 400
+          },
+          "meanLuma": 223,
+          "bright": true,
+          "peakLuma": 223
+        },
+        "top": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 20.8,
+          "areaPct": 20.8,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 400
+          },
+          "meanLuma": 215,
+          "bright": true,
+          "peakLuma": 215
+        },
+        "hugLeft": null,
+        "hugRight": null
+      }
+    },
+    {
+      "in": 10.65,
+      "out": 15.95,
+      "text": "Cuando entran menos capitales al país hay menos ",
+      "coverage": 54.3,
+      "recommendation": "embed",
+      "clearerSide": "left",
+      "zones": {
+        "largest": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 216,
+          "bright": true,
+          "peakLuma": 216
+        },
+        "left": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 51.9,
+          "hPct": 22.9,
+          "areaPct": 11.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 560,
+            "h": 440
+          },
+          "meanLuma": 208,
+          "bright": true,
+          "peakLuma": 209
+        },
+        "right": {
+          "xPct": 51.9,
+          "yPct": 0,
+          "wPct": 48.1,
+          "hPct": 22.9,
+          "areaPct": 11,
+          "px": {
+            "x": 560,
+            "y": 0,
+            "w": 520,
+            "h": 440
+          },
+          "meanLuma": 223,
+          "bright": true,
+          "peakLuma": 224
+        },
+        "top": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 216,
+          "bright": true,
+          "peakLuma": 216
+        },
+        "hugLeft": null,
+        "hugRight": null
+      }
+    },
+    {
+      "in": 16.03,
+      "out": 19.25,
+      "text": "Por eso para que las tasas bajen no basta con un",
+      "coverage": 54,
+      "recommendation": "embed",
+      "clearerSide": "left",
+      "zones": {
+        "largest": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 215,
+          "bright": true,
+          "peakLuma": 216
+        },
+        "left": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 51.9,
+          "hPct": 22.9,
+          "areaPct": 11.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 560,
+            "h": 440
+          },
+          "meanLuma": 208,
+          "bright": true,
+          "peakLuma": 209
+        },
+        "right": {
+          "xPct": 51.9,
+          "yPct": 0,
+          "wPct": 48.1,
+          "hPct": 22.9,
+          "areaPct": 11,
+          "px": {
+            "x": 560,
+            "y": 0,
+            "w": 520,
+            "h": 440
+          },
+          "meanLuma": 223,
+          "bright": true,
+          "peakLuma": 224
+        },
+        "top": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 215,
+          "bright": true,
+          "peakLuma": 216
+        },
+        "hugLeft": null,
+        "hugRight": null
+      }
+    },
+    {
+      "in": 19.43,
+      "out": 24.68,
+      "text": "También debe mejorar la confianza, llegar a inve",
+      "coverage": 51.5,
+      "recommendation": "embed",
+      "clearerSide": "left",
+      "zones": {
+        "largest": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 215,
+          "bright": true,
+          "peakLuma": 215
+        },
+        "left": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 51.9,
+          "hPct": 22.9,
+          "areaPct": 11.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 560,
+            "h": 440
+          },
+          "meanLuma": 208,
+          "bright": true,
+          "peakLuma": 208
+        },
+        "right": {
+          "xPct": 51.9,
+          "yPct": 0,
+          "wPct": 48.1,
+          "hPct": 22.9,
+          "areaPct": 11,
+          "px": {
+            "x": 560,
+            "y": 0,
+            "w": 520,
+            "h": 440
+          },
+          "meanLuma": 223,
+          "bright": true,
+          "peakLuma": 223
+        },
+        "top": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 215,
+          "bright": true,
+          "peakLuma": 215
+        },
+        "hugLeft": null,
+        "hugRight": null
+      }
+    },
+    {
+      "in": 24.91,
+      "out": 31.25,
+      "text": "Antes de esperar un crédito porque de pronto baj",
+      "coverage": 58.3,
+      "recommendation": "embed",
+      "clearerSide": "left",
+      "zones": {
+        "largest": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 215,
+          "bright": true,
+          "peakLuma": 215
+        },
+        "left": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 51.9,
+          "hPct": 22.9,
+          "areaPct": 11.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 560,
+            "h": 440
+          },
+          "meanLuma": 208,
+          "bright": true,
+          "peakLuma": 208
+        },
+        "right": {
+          "xPct": 51.9,
+          "yPct": 0,
+          "wPct": 48.1,
+          "hPct": 22.9,
+          "areaPct": 11,
+          "px": {
+            "x": 560,
+            "y": 0,
+            "w": 520,
+            "h": 440
+          },
+          "meanLuma": 223,
+          "bright": true,
+          "peakLuma": 223
+        },
+        "top": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 215,
+          "bright": true,
+          "peakLuma": 215
+        },
+        "hugLeft": null,
+        "hugRight": null
+      }
+    },
+    {
+      "in": 31.47,
+      "out": 35.81,
+      "text": "En Credi Ayudarte revisamos tu caso y si no te c",
+      "coverage": 52.8,
+      "recommendation": "embed",
+      "clearerSide": "left",
+      "zones": {
+        "largest": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 215,
+          "bright": true,
+          "peakLuma": 216
+        },
+        "left": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 51.9,
+          "hPct": 22.9,
+          "areaPct": 11.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 560,
+            "h": 440
+          },
+          "meanLuma": 208,
+          "bright": true,
+          "peakLuma": 208
+        },
+        "right": {
+          "xPct": 51.9,
+          "yPct": 0,
+          "wPct": 48.1,
+          "hPct": 22.9,
+          "areaPct": 11,
+          "px": {
+            "x": 560,
+            "y": 0,
+            "w": 520,
+            "h": 440
+          },
+          "meanLuma": 223,
+          "bright": true,
+          "peakLuma": 223
+        },
+        "top": {
+          "xPct": 0,
+          "yPct": 0,
+          "wPct": 100,
+          "hPct": 22.9,
+          "areaPct": 22.9,
+          "px": {
+            "x": 0,
+            "y": 0,
+            "w": 1080,
+            "h": 440
+          },
+          "meanLuma": 215,
+          "bright": true,
+          "peakLuma": 216
+        },
+        "hugLeft": null,
+        "hugRight": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Anton&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<style>
+ *{box-sizing:border-box;margin:0;padding:0}
+ html,body{background:transparent!important;width:1080px;height:1920px;overflow:hidden;font-family:'Poppins',sans-serif;color:#fff}
+ .stage{position:absolute;left:50%;top:1180px;transform:translate(-50%,-50%);width:86%;text-align:center}
+ .badge{display:inline-flex;align-items:center;gap:12px;padding:10px 22px;border-radius:999px;
+   background:rgba(13,15,20,0.5);border:1.5px solid rgba(250,197,28,0.4);backdrop-filter:blur(10px);opacity:0}
+ .badge svg{width:30px;height:30px}
+ .badge span{font-family:'Poppins',sans-serif;font-weight:700;font-size:30px;color:#fff}
+ .big{margin-top:20px;font-family:'Poppins',sans-serif;font-weight:800;font-size:60px;line-height:1.05;
+   color:#fff;text-shadow:0 4px 22px rgba(0,0,0,0.85)}
+ .no{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:120px;display:block;line-height:0.9;margin-bottom:6px;
+   background:linear-gradient(180deg,#FFF6C8,#FBD24E 45%,#F5A623 78%,#E08600);-webkit-background-clip:text;background-clip:text;
+   -webkit-text-fill-color:transparent;-webkit-text-stroke:1.5px rgba(120,70,0,0.22);
+   filter:drop-shadow(0 0 26px rgba(250,197,28,0.7)) drop-shadow(0 4px 4px rgba(0,0,0,0.5));opacity:0}
+ .w{display:inline-block;opacity:0}
+</style></head><body>
+ <div class="stage">
+  <div class="badge" id="badge"><svg viewBox="0 0 24 24" fill="none" stroke="#FAC51C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><span>Otro crédito a ciegas…</span></div>
+  <div class="big"><span class="no" id="no">NO</span><span class="w" id="w2">es la </span><span class="w" id="w3">solución</span></div>
+ </div>
+<script>
+ const tl=gsap.timeline({paused:true});
+ tl.fromTo('#badge',{opacity:0,y:20,scale:0.92},{opacity:1,y:0,scale:1,duration:0.32,ease:'back.out(2)'},0.10);
+ tl.fromTo('#no',{opacity:0,scale:1.7,filter:'brightness(2.4) drop-shadow(0 0 40px rgba(250,197,28,1))'},{opacity:1,scale:1,filter:'brightness(1) drop-shadow(0 0 26px rgba(250,197,28,0.7)) drop-shadow(0 4px 4px rgba(0,0,0,0.5))',duration:0.42,ease:'back.out(2.4)'},1.66);
+ tl.fromTo('#w2',{opacity:0,y:14},{opacity:1,y:0,duration:0.22},2.0);
+ tl.fromTo('#w3',{opacity:0,y:14},{opacity:1,y:0,duration:0.24},2.14);
+ tl.to('.stage',{opacity:0,y:-24,duration:0.4,ease:'power2.in'},2.8);
+ window.__timelines={main:tl};tl.play();
+</script></body></html>

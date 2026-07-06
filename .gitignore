@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Extracted video frame caches (regenerable, very heavy)
+frames_fg/
+frames_bg/
+__hyperframes_video_frames/
+
+# Heavy video renders / archives (excluded to stay within GitHub limits)
+*.mov
+*.mp4
+*.mkv
+*.avi
+*.zip
+
+# Backed-up nested git histories from vendored tools
+.git.bak-vendor/
+
+# OS junk
+.DS_Store
+Thumbs.db

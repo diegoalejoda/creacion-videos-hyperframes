@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Anton&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<style>
+ *{box-sizing:border-box;margin:0;padding:0}
+ html,body{background:transparent!important;width:1080px;height:1920px;overflow:hidden;font-family:'Poppins',sans-serif;color:#fff}
+ .stage{position:absolute;left:50%;top:1150px;transform:translate(-50%,-50%);width:70%}
+ .chip{display:flex;align-items:center;gap:20px;padding:22px 30px;border-radius:22px;
+   background:rgba(13,15,20,0.50);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);
+   border:1.5px solid rgba(250,197,28,0.30);box-shadow:0 18px 50px rgba(0,0,0,0.5);opacity:0}
+ .icon{flex:0 0 auto;width:78px;height:78px;border-radius:18px;background:rgba(250,197,28,0.14);
+   border:2px solid rgba(250,197,28,0.5);display:flex;align-items:center;justify-content:center}
+ .icon svg{width:44px;height:44px}
+ .body{flex:1}
+ .body .t{font-family:'Poppins',sans-serif;font-weight:800;font-size:40px;color:#fff;line-height:1}
+ .bar{margin-top:12px;height:16px;border-radius:8px;background:rgba(255,255,255,0.10);overflow:hidden}
+ .fill{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,#FFD84D,#FAC51C);box-shadow:0 0 18px rgba(250,197,28,0.5)}
+ .pc{flex:0 0 auto;font-family:'Anton',sans-serif;font-size:56px;
+   background:linear-gradient(180deg,#FFF6C8,#FBD24E 50%,#F5A623);-webkit-background-clip:text;background-clip:text;
+   -webkit-text-fill-color:transparent;filter:drop-shadow(0 0 14px rgba(250,197,28,0.55))}
+</style></head><body>
+ <div class="stage">
+  <div class="chip" id="chip">
+   <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#FAC51C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+   <div class="body"><div class="t">Buen salario</div><div class="bar"><div class="fill" id="fill"></div></div></div>
+   <div class="pc" id="pc">100%</div>
+  </div>
+ </div>
+<script>
+ const tl=gsap.timeline({paused:true});
+ tl.fromTo('#chip',{opacity:0,x:-50},{opacity:1,x:0,duration:0.4,ease:'power3.out'},0.10);
+ tl.to('#fill',{width:'100%',duration:0.9,ease:'power2.out'},0.5);
+ const o={v:0};tl.to(o,{v:100,duration:0.9,ease:'power2.out',onUpdate:()=>document.getElementById('pc').textContent=Math.round(o.v)+'%'},0.5);
+ tl.to('.stage',{opacity:0,y:-24,duration:0.4,ease:'power2.in'},3.05);
+ window.__timelines={main:tl};tl.play();
+</script></body></html>

@@ -1,0 +1,1214 @@
+DIRECTIVA TÉCNICA PARA CLAUDE CODE + HYPERFRAMES
+Edición premium universal con Liquid Glass, motion graphics densos y subtítulos karaoke
+
+====================================================================
+0. MISIÓN DEL PROYECTO
+====================================================================
+
+Este proyecto debe usar HyperFrames como sistema principal de composición visual para crear videos verticales premium, dinámicos y adaptables a cualquier marca.
+
+No edites como si esto fuera una plantilla básica de texto sobre video.
+
+Debes construir una composición profesional en HTML, CSS y JavaScript, usando HyperFrames para renderizar el resultado final como video.
+
+El objetivo es lograr una edición estilo:
+
+- Apple UI
+- Liquid Glass
+- motion graphics premium
+- subtítulos karaoke grandes
+- dashboards visuales
+- tarjetas translúcidas
+- estadísticas animadas
+- listas vivas
+- alertas visuales
+- gráficos laterales
+- microanimaciones constantes
+- cero espacios visualmente muertos
+
+La edición debe funcionar para cualquier empresa: financiera, ropa, comida, salud, tecnología, educación, inmobiliaria, servicios, belleza, turismo o cualquier otro negocio.
+
+La identidad visual debe adaptarse automáticamente a la marca del cliente.
+
+====================================================================
+1. USO OBLIGATORIO DE HYPERFRAMES
+====================================================================
+
+Antes de construir o modificar el video, verifica que el proyecto esté preparado para HyperFrames.
+
+Si las skills no están instaladas, instalarlas:
+
+npx skills add heygen-com/hyperframes
+
+Después, dentro de Claude Code, consultar primero:
+
+/hyperframes
+/hyperframes-core
+/hyperframes-animation
+/hyperframes-registry
+
+Usar estas skills para entender:
+
+- estructura válida de composición
+- reglas de clips
+- data attributes
+- timelines GSAP
+- catálogo de bloques
+- subtítulos
+- overlays
+- data visualizations
+- liquid glass
+- shader transitions
+- errores comunes
+- render final
+
+No improvisar una estructura incompatible.
+
+====================================================================
+2. ESTRUCTURA BASE DEL PROYECTO
+====================================================================
+
+El proyecto debe tener una organización clara:
+
+/assets
+  video-principal.mp4
+  logo.png o logo.svg
+  musica.mp3 si aplica
+  sfx/ si aplica
+  brand/ si aplica
+
+/compositions
+  captions-karaoke.html
+  liquid-glass-card.html
+  stat-bar.html
+  percent-ring.html
+  checklist-panel.html
+  alert-pill.html
+  comparison-panel.html
+  dashboard-mini.html
+  cta-card.html
+  impact-title.html
+
+/index.html
+/DESIGN.md
+/STORYBOARD.md
+/MOTION_PLAN.md
+/QA_CHECKLIST.md
+/BRAND_CONFIG.json
+
+Crear estos archivos si no existen.
+
+====================================================================
+3. CONFIGURACIÓN UNIVERSAL DE MARCA
+====================================================================
+
+Crear o leer un archivo BRAND_CONFIG.json con esta estructura:
+
+{
+  "brandName": "Nombre de la marca",
+  "industry": "industria o tipo de negocio",
+  "primaryColor": "#HEX",
+  "secondaryColor": "#HEX",
+  "accentColor": "#HEX",
+  "darkColor": "#0B0D10",
+  "lightColor": "#FFFFFF",
+  "fontPrimary": "Inter, system-ui, sans-serif",
+  "fontSecondary": "Inter Tight, system-ui, sans-serif",
+  "tone": "premium, cercano, comercial, educativo",
+  "cta": "acción final",
+  "logoPath": "./assets/logo.png",
+  "platform": "Instagram Reels / TikTok / YouTube Shorts",
+  "format": "vertical 9:16"
+}
+
+Si no hay BRAND_CONFIG.json, inferir temporalmente la marca desde:
+
+- logo
+- colores del video
+- colores del sitio web
+- instrucciones del usuario
+- archivos adjuntos
+- guion
+- contexto de negocio
+
+Pero no usar colores genéricos al azar.
+
+Toda la edición debe alimentarse desde variables CSS:
+
+:root {
+  --brand-primary: #COLOR;
+  --brand-secondary: #COLOR;
+  --brand-accent: #COLOR;
+  --brand-dark: #0B0D10;
+  --brand-light: #FFFFFF;
+
+  --glass-bg: rgba(18, 22, 26, 0.46);
+  --glass-border: rgba(255, 255, 255, 0.22);
+  --glass-highlight: rgba(255, 255, 255, 0.34);
+  --glass-shadow: rgba(0, 0, 0, 0.38);
+
+  --safe-x: 64px;
+  --safe-top: 96px;
+  --safe-bottom: 180px;
+
+  --caption-font-size: 78px;
+  --caption-line-height: 0.96;
+  --caption-weight: 850;
+}
+
+Para marcas más juveniles se permite más saturación.
+Para marcas corporativas se debe usar una estética más limpia.
+Para marcas premium se debe usar menos color, más contraste, más aire y más precisión.
+
+====================================================================
+4. FORMATO TÉCNICO DE LA COMPOSICIÓN
+====================================================================
+
+Formato principal:
+
+- vertical 9:16
+- 1080 x 1920 px
+- 30 fps por defecto
+- MP4 final
+- alta legibilidad en celular
+- todos los textos dentro de zona segura
+
+El root debe ser una composición válida:
+
+<div id="root"
+     data-composition-id="root"
+     data-start="0"
+     data-width="1080"
+     data-height="1920">
+
+Todo elemento temporizado debe tener:
+
+- class="clip"
+- data-start
+- data-duration
+- data-track-index
+
+Ejemplo:
+
+<section class="clip glass-card"
+         data-start="3.2"
+         data-duration="2.8"
+         data-track-index="5">
+</section>
+
+Distribución recomendada de tracks:
+
+track 0: video principal / A-roll
+track 1: fondos suaves, vignette, gradientes globales
+track 2: efectos persistentes sutiles: grain, glow, light leaks
+track 3: subtítulos karaoke
+track 4: tarjetas informativas pequeñas
+track 5: motion graphics principales
+track 6: estadísticas, dashboards, listas
+track 7: transiciones, flashes, overlays de impacto
+track 8: CTA final o elementos prioritarios
+
+Los tracks más altos deben quedar visualmente por encima de los inferiores.
+
+====================================================================
+5. VIDEO PRINCIPAL Y REENCUADRE
+====================================================================
+
+El video principal debe ir dentro de un wrapper.
+
+Nunca animar directamente width, height, top o left del elemento <video>.
+
+Correcto:
+
+<div id="video-wrapper" class="clip"
+     data-start="0"
+     data-duration="DURACION_TOTAL"
+     data-track-index="0">
+  <video id="main-video"
+         src="./assets/video-principal.mp4"
+         data-start="0"
+         data-duration="DURACION_TOTAL"
+         data-track-index="0"
+         data-has-audio="true"
+         style="width:100%; height:100%; object-fit:cover;">
+  </video>
+</div>
+
+Las animaciones de cámara digital deben aplicarse al wrapper:
+
+- scale
+- x
+- y
+- opacity
+- filter
+- transform
+
+Ejemplos permitidos:
+
+- zoom in sutil al decir una frase clave
+- reencuadre lateral cuando aparece una tarjeta grande
+- leve push-in en el CTA
+- zoom out al cambiar de bloque
+- parallax mínimo con overlays
+
+Nunca cortar la cabeza.
+Nunca sacar la cara de zona segura.
+Nunca tapar ojos, boca o expresión facial.
+
+====================================================================
+6. PROTECCIÓN DE CARA Y ZONAS SEGURAS
+====================================================================
+
+Antes de ubicar gráficos, estimar la zona de la cara de la persona.
+
+Regla crítica:
+
+NINGÚN texto, subtítulo, tarjeta, gráfico, porcentaje, dashboard, ícono o animación puede tapar:
+
+- ojos
+- cejas
+- nariz
+- boca
+- mentón cuando esté hablando
+- expresión facial
+
+Si el video tiene una persona centrada, usar esta protección por defecto:
+
+FACE_SAFE_ZONE aproximada en video vertical 1080x1920:
+
+x: 260px a 820px
+y: 280px a 980px
+
+Esta zona puede ajustarse si la cara está en otra posición.
+
+Ubicación preferida de elementos:
+
+- subtítulos: debajo del mentón, zona baja-media
+- gráficos grandes: laterales o debajo del torso
+- etiquetas pequeñas: zona superior segura
+- estadísticas: laterales o media-baja
+- CTA: zona baja, grande y claro
+- tarjetas largas: debajo de la cara, nunca sobre la cara
+
+Si una tarjeta invade la cara, reposicionarla automáticamente.
+
+====================================================================
+7. SUBTÍTULOS KARAOKE PREMIUM
+====================================================================
+
+Los subtítulos son obligatorios durante toda la voz hablada.
+
+No dejar frases habladas sin subtítulo.
+
+Parámetros técnicos:
+
+- font-size mínimo: 68px en 1080x1920
+- recomendado: 74px a 88px
+- peso: 800 a 900
+- máximo 2 líneas
+- máximo 6 a 8 palabras por bloque
+- line-height: 0.92 a 1.05
+- text-align: center
+- color base: blanco o muy claro
+- palabras clave: color de marca
+- sombra suave obligatoria
+- fondo degradado o glass suave obligatorio si el fondo reduce legibilidad
+
+Ejemplo CSS:
+
+.karaoke-caption {
+  position: absolute;
+  left: 72px;
+  right: 72px;
+  bottom: 300px;
+  text-align: center;
+  font-family: var(--font-primary);
+  font-size: var(--caption-font-size);
+  line-height: var(--caption-line-height);
+  font-weight: var(--caption-weight);
+  color: var(--brand-light);
+  letter-spacing: -1.8px;
+  text-wrap: balance;
+  text-shadow:
+    0 4px 18px rgba(0,0,0,0.72),
+    0 0 34px rgba(0,0,0,0.48);
+  z-index: 30;
+}
+
+.caption-backplate {
+  position: absolute;
+  left: 52px;
+  right: 52px;
+  bottom: 250px;
+  min-height: 210px;
+  border-radius: 36px;
+  background:
+    radial-gradient(circle at 50% 100%, rgba(0,0,0,0.62), rgba(0,0,0,0.18) 58%, rgba(0,0,0,0) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.42));
+  backdrop-filter: blur(10px) saturate(120%);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  opacity: 0.92;
+}
+
+.karaoke-word {
+  display: inline-block;
+  opacity: 0.48;
+  transform-origin: center bottom;
+  transition: none;
+}
+
+.karaoke-word.active {
+  opacity: 1;
+  color: var(--brand-primary);
+  text-shadow:
+    0 0 16px color-mix(in srgb, var(--brand-primary) 70%, transparent),
+    0 4px 18px rgba(0,0,0,0.72);
+}
+
+Cada palabra o frase importante debe activarse con GSAP usando timestamps.
+
+Efectos permitidos por palabra:
+
+- cambio de color
+- glow sutil
+- escala 1.00 a 1.08
+- opacidad 0.48 a 1
+- pequeño y positivo
+- subrayado animado
+- cápsula de énfasis
+- barrido de luz
+
+No usar subtítulos diminutos.
+No usar subtítulos pegados al borde.
+No usar subtítulos sobre la boca.
+No usar bloques de texto largos.
+No usar 3 o 4 líneas de subtítulo.
+
+====================================================================
+8. TIMING DE SUBTÍTULOS
+====================================================================
+
+Crear un transcript con tiempos por palabra o por frase.
+
+Formato recomendado:
+
+const captionBlocks = [
+  {
+    start: 0.40,
+    end: 2.10,
+    text: "¿Eres docente del gobierno?",
+    words: [
+      { text: "¿Eres", start: 0.40, end: 0.72 },
+      { text: "docente", start: 0.72, end: 1.20, key: true },
+      { text: "del", start: 1.20, end: 1.38 },
+      { text: "gobierno?", start: 1.38, end: 2.10, key: true }
+    ]
+  }
+];
+
+Cada caption block debe:
+
+- aparecer 0.06s antes de la voz si se siente natural
+- desaparecer después de que termine la frase
+- tener duración suficiente para lectura cómoda
+- evitar saltos bruscos
+- sincronizarse con cortes, gestos o cambios de tema
+
+Si no existen timestamps, generar estimación inicial y luego ajustar revisando preview.
+
+====================================================================
+9. LIQUID GLASS SYSTEM
+====================================================================
+
+Todos los paneles premium deben usar sistema liquid glass.
+
+No usar cajas grises planas.
+
+Crear una clase base:
+
+.liquid-glass {
+  position: absolute;
+  border-radius: 34px;
+  background:
+    linear-gradient(135deg,
+      rgba(255,255,255,0.16) 0%,
+      rgba(255,255,255,0.06) 38%,
+      rgba(0,0,0,0.20) 100%),
+    rgba(18, 22, 26, 0.46);
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+  border: 1.5px solid rgba(255,255,255,0.22);
+  box-shadow:
+    0 24px 70px rgba(0,0,0,0.38),
+    inset 0 1px 0 rgba(255,255,255,0.35),
+    inset 0 -18px 34px rgba(0,0,0,0.20);
+  overflow: hidden;
+}
+
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg,
+      rgba(255,255,255,0.26) 0%,
+      rgba(255,255,255,0.06) 22%,
+      rgba(255,255,255,0.00) 48%);
+  opacity: 0.68;
+  pointer-events: none;
+}
+
+.liquid-glass::after {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 120%;
+  left: -70%;
+  top: -10%;
+  transform: rotate(18deg);
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(255,255,255,0.16),
+    transparent);
+  opacity: 0;
+  pointer-events: none;
+}
+
+Cuando una tarjeta entra, puede animarse el ::after como shimmer.
+
+Parámetros de estilo:
+
+- border-radius: 28px a 44px
+- blur: 10px a 22px
+- saturate: 120% a 160%
+- opacidad del fondo: 35% a 65%
+- sombra externa suave
+- brillo interno suave
+- borde blanco translúcido
+- degradado interno
+- glow con color de marca muy sutil
+
+Cuidado de performance:
+
+- no usar más de 2 o 3 capas activas con backdrop-filter grande al mismo tiempo
+- evitar blur de 64px o 128px en áreas grandes
+- evitar docenas de sombras animadas
+- si un glass estático pesa mucho, rasterizar como PNG y usarlo como overlay
+- mantener glass premium, pero optimizado
+
+====================================================================
+10. COMPONENTES VISUALES OBLIGATORIOS
+====================================================================
+
+Construir o reutilizar componentes para evitar repetir siempre el mismo rectángulo.
+
+Crear mínimo estos componentes:
+
+1. KaraokeCaption
+Uso: subtítulos principales.
+Debe tener backplate degradado o liquid glass suave.
+
+2. LiquidGlassCard
+Uso: frases importantes, conceptos, beneficios.
+Debe tener título, icono, contenido y shimmer opcional.
+
+3. StatBar
+Uso: porcentajes, progreso, indicadores.
+Debe animar barra de 0 al valor final.
+
+4. PercentRing
+Uso: porcentajes circulares.
+Debe tener el número perfectamente centrado.
+Debe reservar espacio para 100%, 248%, 35%, etc.
+El texto jamás debe salirse del círculo.
+
+5. ChecklistPanel
+Uso: pasos, beneficios, requisitos.
+Cada punto entra uno por uno.
+Debe usar número o check grande, no mini íconos ilegibles.
+
+6. AlertPill
+Uso: advertencia, problema, error, riesgo.
+Debe ser compacto, visible y elegante.
+
+7. ComparisonPanel
+Uso: antes/después, sin/con, problema/solución.
+Puede usar tachado, check, columnas o tarjetas opuestas.
+
+8. MiniDashboard
+Uso: datos, barras, mini gráficas, resultados.
+Debe parecer una interfaz moderna.
+
+9. ImpactTitle
+Uso: frases de alto impacto.
+Puede cambiar temporalmente el fondo, oscurecer la escena o dividir pantalla.
+
+10. CTAFinalCard
+Uso: cierre del video.
+Debe tener acción clara, botón visual y color de marca.
+
+====================================================================
+11. USO DEL CATÁLOGO DE HYPERFRAMES
+====================================================================
+
+Antes de crear desde cero, revisar el registry/catálogo.
+
+Usar /hyperframes-registry para buscar componentes relacionados con:
+
+- captions
+- karaoke captions
+- caption highlight
+- kinetic text
+- lower thirds
+- liquid glass
+- glass UI
+- iOS glass
+- data chart
+- bar chart
+- dashboard
+- shimmer
+- grain
+- vignette
+- shader transition
+- light leak
+- blur transition
+- social overlays
+
+Si existe un bloque o componente adecuado, instalarlo con:
+
+npx hyperframes add NOMBRE_DEL_ITEM
+
+Después adaptarlo a la marca, no dejarlo genérico.
+
+Si no existe, construir el componente manualmente en /compositions.
+
+Los bloques completos deben importarse con data-composition-src.
+Los componentes/snippets deben integrarse en HTML, CSS y JS del host.
+
+====================================================================
+12. PLAN DE MOTION GRAPHICS
+====================================================================
+
+Crear MOTION_PLAN.md antes de editar.
+
+Debe contener una tabla así:
+
+| Tiempo | Frase del video | Elemento visual | Posición | Animación | Propósito |
+|-------|-----------------|----------------|----------|-----------|-----------|
+
+Reglas:
+
+- cada 2 a 4 segundos debe pasar algo visual
+- cada idea importante debe tener apoyo gráfico
+- cada problema debe tener alerta o énfasis
+- cada beneficio debe tener gráfico positivo
+- cada dato debe tener visualización
+- cada CTA debe tener tarjeta fuerte
+- no repetir más de 2 veces el mismo tipo de gráfico de forma consecutiva
+
+Para un video de 30 a 60 segundos usar aproximadamente:
+
+- 1 apertura fuerte
+- 6 a 12 bloques de subtítulos karaoke
+- 8 a 16 motion graphics
+- 2 a 5 tarjetas liquid glass
+- 1 a 3 estadísticas
+- 1 checklist si aplica
+- 1 comparación si aplica
+- 1 escena de impacto
+- 1 CTA final
+
+Si el video queda plano, aumentar variedad.
+
+====================================================================
+13. ANIMACIONES GSAP
+====================================================================
+
+Usar GSAP como runtime principal.
+
+Reglas obligatorias:
+
+- crear timeline con { paused: true }
+- registrar timeline en window.__timelines usando el mismo id de data-composition-id
+- usar tiempos absolutos con el tercer parámetro de GSAP
+- no controlar reproducción de video/audio desde JS
+- usar JS solo para animaciones visuales
+
+Estructura base:
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script>
+  const tl = gsap.timeline({ paused: true });
+
+  window.__timelines = window.__timelines || {};
+  window.__timelines["root"] = tl;
+</script>
+
+Funciones recomendadas:
+
+function enterGlass(selector, time) {
+  tl.fromTo(selector,
+    {
+      opacity: 0,
+      y: 34,
+      scale: 0.96,
+      filter: "blur(14px)"
+    },
+    {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      filter: "blur(0px)",
+      duration: 0.42,
+      ease: "power3.out"
+    },
+    time
+  );
+}
+
+function exitGlass(selector, time) {
+  tl.to(selector,
+    {
+      opacity: 0,
+      y: -18,
+      scale: 0.98,
+      filter: "blur(10px)",
+      duration: 0.26,
+      ease: "power2.in"
+    },
+    time
+  );
+}
+
+function popWord(selector, time) {
+  tl.fromTo(selector,
+    {
+      opacity: 0.48,
+      scale: 1,
+      color: "var(--brand-light)"
+    },
+    {
+      opacity: 1,
+      scale: 1.08,
+      color: "var(--brand-primary)",
+      duration: 0.16,
+      ease: "back.out(2)"
+    },
+    time
+  );
+}
+
+function drawProgress(selector, time, valuePercent) {
+  tl.fromTo(selector,
+    { width: "0%" },
+    {
+      width: valuePercent + "%",
+      duration: 0.72,
+      ease: "power3.out"
+    },
+    time
+  );
+}
+
+Al final, extender la duración de la timeline para que coincida con el video:
+
+tl.set({}, {}, DURACION_TOTAL_VIDEO);
+
+Esto evita que la composición se corte antes de terminar el video.
+
+====================================================================
+14. ANIMACIONES PERMITIDAS
+====================================================================
+
+Usar animaciones premium:
+
+- fade + blur
+- slide corto
+- scale 0.96 a 1
+- shimmer
+- glow suave
+- draw line
+- counter up
+- progress fill
+- ring draw
+- word pop
+- stagger en listas
+- parallax leve
+- soft wipe
+- light leak controlado
+- shader transition en cambios fuertes
+
+Duraciones recomendadas:
+
+- entrada rápida: 0.25s a 0.45s
+- salida: 0.18s a 0.35s
+- stagger de lista: 0.12s a 0.20s por item
+- barra de progreso: 0.55s a 0.85s
+- contador: 0.60s a 1.10s
+- transición fuerte: 0.30s a 0.70s
+
+No usar:
+
+- animaciones infantiles
+- rebotes exagerados
+- zooms agresivos
+- efectos aleatorios sin intención
+- glitch excesivo
+- textos que entran demasiado lento
+- elementos que desaparecen antes de poder leerse
+
+====================================================================
+15. ESTADÍSTICAS Y PORCENTAJES
+====================================================================
+
+Los gráficos numéricos deben estar perfectamente alineados.
+
+Para PercentRing:
+
+- círculo mínimo: 230px x 230px
+- para “100%” usar font-size máximo 78px dentro de círculo de 230px
+- para “248%” usar font-size máximo 70px o círculo mayor
+- usar display flex center
+- usar align-items center
+- usar justify-content center
+- usar text-align center
+- usar line-height 0.9
+- jamás permitir overflow visible del número
+- verificar visualmente que el número no se salga
+
+CSS recomendado:
+
+.percent-ring {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.percent-ring-number {
+  font-size: clamp(62px, 7vw, 78px);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -3px;
+  text-align: center;
+  max-width: 86%;
+  white-space: nowrap;
+  transform: translateY(2px);
+}
+
+Si el número se sale, reducir font-size o aumentar círculo.
+Nunca entregar un porcentaje descuadrado.
+
+====================================================================
+16. LISTAS PREMIUM
+====================================================================
+
+No usar listas como simple rectángulo transparente con texto.
+
+ChecklistPanel debe tener:
+
+- fondo liquid glass
+- título pequeño con color de marca
+- números o checks grandes
+- cada ítem con entrada individual
+- líneas de conexión opcionales
+- íconos legibles
+- buen espaciado
+- jerarquía clara
+
+CSS sugerido:
+
+.checklist-panel {
+  width: 880px;
+  padding: 34px 38px;
+  border-radius: 34px;
+}
+
+.check-item {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 22px;
+  align-items: center;
+  margin-top: 22px;
+  font-size: 46px;
+  font-weight: 800;
+  color: white;
+}
+
+.check-index {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--brand-primary) 22%, transparent);
+  border: 1.5px solid color-mix(in srgb, var(--brand-primary) 70%, white);
+  color: var(--brand-primary);
+  font-size: 30px;
+  font-weight: 900;
+}
+
+====================================================================
+17. DASHBOARDS Y DATA VISUALIZATION
+====================================================================
+
+Cuando el guion mencione datos, resultados, porcentajes, beneficios, crecimiento, ahorro, capacidad, ventas, descuentos, problemas o comparación, usar gráficos visuales.
+
+Opciones:
+
+- barras horizontales
+- barras verticales
+- línea curva
+- tarjeta de métrica
+- contador numérico
+- gráfico circular
+- mini dashboard
+- ranking
+- tabla visual simplificada
+
+Reglas:
+
+- datos grandes
+- números legibles
+- animación de entrada
+- no saturar de texto pequeño
+- máximo 5 datos visibles a la vez
+- usar color de marca
+- usar glow muy sutil
+- usar glass como contenedor
+
+====================================================================
+18. IMPACT TITLES Y CAMBIOS DE ESCENA
+====================================================================
+
+Para momentos importantes, crear escenas de impacto.
+
+Ejemplos:
+
+- hook inicial
+- revelación del problema
+- “esto no es la solución”
+- “la solución real”
+- “no necesitas X”
+- “sí puedes lograr Y”
+- CTA final
+
+ImpactTitle puede:
+
+- oscurecer el fondo con degradado
+- mover la persona ligeramente a un lado
+- poner texto grande a la izquierda o derecha
+- usar palabra gigante
+- usar tachado animado
+- usar check animado
+- usar transición con light leak o blur
+- usar shader transition máximo 2 a 3 veces por video
+
+No abusar de transiciones fuertes.
+Deben marcar cambios reales de tema.
+
+====================================================================
+19. FONDOS DE ÉNFASIS
+====================================================================
+
+Para textos importantes usar backplates elegantes.
+
+Opciones:
+
+1. caption-backplate
+Degradado oscuro detrás del subtítulo.
+
+2. glass-backplate
+Tarjeta liquid glass para frases más largas.
+
+3. spotlight-backplate
+Radial gradient oscuro para texto central.
+
+4. brand-glow
+Halo con color de marca detrás de palabra clave.
+
+No usar cajas negras duras.
+No usar rectángulos opacos sin diseño.
+No usar fondos que ensucien el rostro.
+
+====================================================================
+20. DENSIDAD VISUAL Y RITMO
+====================================================================
+
+El video debe sentirse vivo.
+
+Reglas:
+
+- máximo 3 segundos sin subtítulo, gráfico o cambio visual
+- máximo 4 segundos sin microanimación
+- cada bloque hablado debe tener al menos subtítulo
+- cada idea fuerte debe tener gráfico adicional
+- cada cambio de tema debe tener transición
+- no repetir siempre el mismo panel
+- combinar texto, tarjetas, estadísticas, alertas y listas
+
+Si el video se ve como “un cuadro semitransparente con texto”, está mal.
+
+Debe verse como una pieza publicitaria dinámica.
+
+====================================================================
+21. LEGIBILIDAD EXTREMA
+====================================================================
+
+Todo texto debe poder leerse en celular por una persona con dificultad visual leve.
+
+Reglas:
+
+- nada menor a 34px para texto secundario
+- nada menor a 64px para subtítulos principales
+- texto principal entre 70px y 96px
+- alto contraste
+- sombra o fondo obligatorio si el fondo es complejo
+- máximo 2 líneas
+- evitar párrafos
+- evitar textos finos
+- evitar íconos miniatura
+
+Si no se puede leer en 1 segundo, rediseñarlo.
+
+====================================================================
+22. ADAPTACIÓN A CUALQUIER INDUSTRIA
+====================================================================
+
+El sistema visual debe cambiar según la industria.
+
+Finanzas:
+- barras de progreso
+- porcentajes
+- alertas
+- capacidad
+- descuentos
+- checklists
+- dashboards sobrios
+
+Ropa:
+- etiquetas
+- lookbook cards
+- flechas hacia prendas
+- zooms de detalle
+- texturas editoriales
+- comparativas de outfits
+
+Comida:
+- sellos
+- precios
+- ingredientes
+- calor visual
+- stickers premium
+- humo/vapor sutil si aplica
+- CTA de pedido
+
+Tecnología:
+- dashboards
+- grids
+- líneas
+- datos
+- interfaces
+- glass azul/neón moderado
+
+Salud/bienestar:
+- estética limpia
+- colores suaves
+- datos simples
+- checks
+- tranquilidad visual
+
+Educación:
+- bullets claros
+- pasos
+- conceptos
+- pizarras digitales
+- highlights
+
+Belleza:
+- glow
+- antes/después
+- etiquetas de beneficio
+- texturas suaves
+- lujo visual
+
+La estructura es universal.
+La estética se adapta a la marca.
+
+====================================================================
+23. VARIABLES PARA MULTIMARCA
+====================================================================
+
+Usar variables HyperFrames para que el mismo sistema se pueda reutilizar con varias marcas.
+
+Declarar variables como:
+
+- brandName
+- primaryColor
+- secondaryColor
+- accentColor
+- logoPath
+- industry
+- ctaText
+- whatsappText
+- headline
+- offer
+- tone
+
+Cuando sea posible, usar data-composition-variables en composiciones reutilizables.
+
+Ejemplo conceptual:
+
+<html data-composition-variables='[
+  {"id":"brandName","type":"string","label":"Brand name","default":"Marca"},
+  {"id":"primaryColor","type":"color","label":"Primary color","default":"#22C55E"},
+  {"id":"accentColor","type":"color","label":"Accent color","default":"#FACC15"},
+  {"id":"ctaText","type":"string","label":"CTA","default":"Escríbenos hoy"}
+]'>
+
+Así se puede reutilizar el mismo sistema visual para varios clientes sin duplicar toda la estructura.
+
+====================================================================
+24. RENDER BATCH PARA VARIAS MARCAS
+====================================================================
+
+Si se necesita producir el mismo formato para varias marcas, preparar un archivo rows.json o brands.json.
+
+Ejemplo:
+
+[
+  {
+    "brandName": "Marca A",
+    "primaryColor": "#26A641",
+    "accentColor": "#FFC400",
+    "ctaText": "Escríbenos por WhatsApp"
+  },
+  {
+    "brandName": "Marca B",
+    "primaryColor": "#7C3AED",
+    "accentColor": "#F97316",
+    "ctaText": "Compra ahora"
+  }
+]
+
+Renderizar con batch cuando aplique:
+
+npx hyperframes render --batch brands.json --output "renders/{brandName}.mp4" --strict-variables
+
+====================================================================
+25. PREVIEW Y LOOP DE TRABAJO
+====================================================================
+
+Durante edición:
+
+1. Mantener preview abierto:
+
+npx hyperframes preview
+
+2. Editar index.html y composiciones.
+3. Revisar hot reload.
+4. Ajustar timing y posiciones.
+5. Verificar que no se tape la cara.
+6. Verificar lectura de subtítulos.
+7. Verificar que no haya espacios vacíos.
+8. Validar.
+9. Renderizar draft.
+10. Revisar.
+11. Renderizar final.
+
+Comandos:
+
+npx hyperframes lint
+npx hyperframes validate
+npx hyperframes render --quality draft --output draft.mp4
+npx hyperframes render --quality high --fps 30 --output final.mp4
+
+Para producción o render reproducible:
+
+npx hyperframes render --docker --quality high --fps 30 --output final.mp4
+
+Para overlays transparentes destinados a otros editores:
+
+npx hyperframes render --format mov --output overlay.mov
+
+No entregar sin lint y validate.
+
+====================================================================
+26. VALIDACIÓN OBLIGATORIA
+====================================================================
+
+Antes de render final, crear QA_CHECKLIST.md con esta revisión:
+
+[ ] HyperFrames lint pasa sin errores.
+[ ] HyperFrames validate pasa sin errores.
+[ ] El video no se corta antes de tiempo.
+[ ] La duración GSAP coincide con la duración total.
+[ ] Ningún gráfico tapa ojos, boca o rostro.
+[ ] Los subtítulos están debajo del mentón o en zona segura.
+[ ] Los subtítulos son grandes y legibles.
+[ ] No hay frases habladas sin subtítulo.
+[ ] No hay textos diminutos.
+[ ] No hay porcentajes descuadrados.
+[ ] El 100% cabe dentro del círculo.
+[ ] Las listas no son rectángulos planos.
+[ ] Hay variedad de motion graphics.
+[ ] Hay motion cada 2 a 4 segundos.
+[ ] No hay espacios muertos prolongados.
+[ ] El color respeta la marca.
+[ ] El CTA final es claro.
+[ ] El video se entiende sin audio.
+[ ] El resultado se ve premium, no básico.
+
+Si algo falla, corregir antes de exportar.
+
+====================================================================
+27. ERRORES PROHIBIDOS
+====================================================================
+
+No entregar videos con:
+
+- edición plana
+- pocos motion graphics
+- cajas grises básicas
+- rectángulos negros aburridos
+- subtítulos pequeños
+- subtítulos sobre la boca
+- cara tapada
+- números descuadrados
+- 100% saliéndose del círculo
+- listas pobres
+- íconos ilegibles
+- mucho espacio vacío
+- gráficos sin relación con el mensaje
+- colores fuera de marca
+- animaciones sin intención
+- performance destruida por demasiados blur
+- video cortado por timeline corta
+- reproducción de media controlada manualmente por JS
+- animación directa de width/height/top/left sobre <video>
+
+====================================================================
+28. RESULTADO FINAL ESPERADO
+====================================================================
+
+El resultado debe parecer una edición profesional de alto nivel, no una plantilla básica.
+
+Debe sentirse:
+
+- premium
+- moderna
+- clara
+- dinámica
+- viva
+- altamente legible
+- adaptable a cualquier marca
+- coherente con la identidad visual
+- rica en motion graphics
+- diseñada con intención
+- lista para redes sociales
+
+El video debe verse más cercano a una pieza publicitaria tecnológica con UI premium que a un reel básico con textos encima.
+
+FIN DE LA DIRECTIVA TÉCNICA.

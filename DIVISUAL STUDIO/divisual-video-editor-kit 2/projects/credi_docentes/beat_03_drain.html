@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Beat 03 — Nómina drenada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@500;600;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: transparent !important; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #fff; }
+  .wrap { position: absolute; left: 50%; transform: translateX(-50%); top: 1280px; width: 92%; }
+  .card {
+    padding: 36px 40px 42px; background: rgba(13,13,13,0.66);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border: 2px solid rgba(255,90,90,0.30); border-radius: 34px;
+    box-shadow: 0 30px 90px rgba(0,0,0,0.65), 0 0 70px rgba(255,80,80,0.10); opacity: 0;
+  }
+  .title { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:34px; letter-spacing:3px;
+           color:#FF6B6B; text-transform:uppercase; text-align:center; margin-bottom:22px; }
+  .barwrap { position:relative; height:54px; border-radius:14px; background:rgba(255,255,255,0.08);
+             border:2px solid rgba(255,255,255,0.16); overflow:hidden; margin-bottom:8px; }
+  .fill { position:absolute; left:0; top:0; bottom:0; width:100%;
+          background:linear-gradient(90deg,#FAC51C,#FFD84D); box-shadow:0 0 24px rgba(250,197,28,0.5); }
+  .pct { text-align:right; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:30px; color:#FAC51C; margin-bottom:22px; }
+  .chips { display:flex; flex-wrap:wrap; justify-content:center; gap:14px; }
+  .chip { font-family:'Inter',sans-serif; font-weight:600; font-size:36px; color:#FFD7D7;
+          background:rgba(255,80,80,0.12); border:2px solid rgba(255,90,90,0.5); border-radius:16px;
+          padding:12px 22px; opacity:0; white-space:nowrap; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" id="card">
+      <div class="title">▾ ¿A dónde va tu nómina?</div>
+      <div class="barwrap"><div class="fill" id="fill"></div></div>
+      <div class="pct" id="pct">100%</div>
+      <div class="chips">
+        <span class="chip" id="c1">Descuentos</span>
+        <span class="chip" id="c2">Cooperativas</span>
+        <span class="chip" id="c3">Embargos</span>
+        <span class="chip" id="c4">Tarjetas en mora</span>
+        <span class="chip" id="c5">Por fuera</span>
+      </div>
+    </div>
+  </div>
+<script>
+  const tl = gsap.timeline({ paused: true });
+  const pctEl = document.getElementById('pct');
+  function drain(to, t){
+    const o = { v: parseFloat(pctEl.textContent) };
+    tl.to('#fill', { width: to+'%', duration:0.45, ease:'power2.out' }, t);
+    tl.to(o, { v: to, duration:0.45, ease:'power2.out', onUpdate:()=>{ pctEl.textContent = Math.round(o.v)+'%'; } }, t);
+  }
+  function pop(sel,t){ tl.fromTo(sel,{opacity:0,scale:0.6,y:14},{opacity:1,scale:1,y:0,duration:0.34,ease:'back.out(2.2)'},t); }
+  tl.fromTo('#card', { opacity:0, y:60 }, { opacity:1, y:0, duration:0.34, ease:'power3.out' }, 0.10);
+  pop('#c1',1.14); drain(82,1.14);
+  pop('#c2',1.88); drain(66,1.88);
+  pop('#c3',2.98); drain(48,2.98);
+  pop('#c4',3.68); drain(30,3.68);
+  pop('#c5',5.70); drain(12,5.70);
+  tl.to('#pct',{ color:'#FF6B6B', duration:0.3 }, 5.70);
+  tl.to('.wrap', { opacity:0, y:-30, duration:0.45, ease:'power2.in' }, 6.55);
+  window.__timelines = { main: tl };
+  tl.play();
+</script>
+</body>
+</html>

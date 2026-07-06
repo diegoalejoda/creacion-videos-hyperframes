@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Beat 03 — Reframe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: transparent !important; width: 1080px; height: 1920px; overflow: hidden; font-family: 'Inter', sans-serif; color: #fff; }
+  .wrap { position: absolute; left: 50%; transform: translateX(-50%); top: 1240px; width: 92%; text-align: center; }
+  .line1 {
+    font-family: 'Inter', sans-serif; font-weight: 600; font-size: 44px; color: #fff;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.9); opacity: 0;
+  }
+  .big {
+    margin-top: 14px; font-family: 'Space Grotesk', sans-serif; font-weight: 700;
+    font-size: 96px; line-height: 1.0; letter-spacing: -2px; color: #fff;
+    text-shadow: 0 6px 30px rgba(0,0,0,0.9);
+  }
+  .big .no {
+    color: #FAC51C; text-shadow: 0 0 44px rgba(250,197,28,0.6), 0 6px 30px rgba(0,0,0,0.9);
+    display: inline-block;
+  }
+  .big .word { display: inline-block; opacity: 0; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="line1" id="l1">Otro crédito a ciegas…</div>
+    <div class="big">
+      <span class="word no" id="w1">NO&nbsp;</span><span class="word" id="w2">es&nbsp;</span><span class="word" id="w3">la&nbsp;</span><span class="word" id="w4">solución</span>
+    </div>
+  </div>
+<script>
+  const tl = gsap.timeline({ paused: true });
+  tl.fromTo('#l1', { opacity:0, y:24 }, { opacity:1, y:0, duration:0.30, ease:'power2.out' }, 0.10);
+  // sync "NO es la solución" right after "a ciegas" (rel 1.66)
+  tl.fromTo('#w1', { opacity:0, scale:1.6 }, { opacity:1, scale:1, duration:0.34, ease:'back.out(2.4)' }, 1.66);
+  tl.fromTo('#w2', { opacity:0, y:16 }, { opacity:1, y:0, duration:0.22, ease:'power2.out' }, 1.92);
+  tl.fromTo('#w3', { opacity:0, y:16 }, { opacity:1, y:0, duration:0.22, ease:'power2.out' }, 2.06);
+  tl.fromTo('#w4', { opacity:0, y:16 }, { opacity:1, y:0, duration:0.26, ease:'power2.out' }, 2.22);
+  tl.to('.wrap', { opacity:0, y:-26, duration:0.40, ease:'power2.in' }, 2.80);
+  window.__timelines = { main: tl };
+  tl.play();
+</script>
+</body>
+</html>

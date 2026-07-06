@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Anton&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<style>
+ *{box-sizing:border-box;margin:0;padding:0}
+ html,body{background:transparent!important;width:1080px;height:1920px;overflow:hidden;font-family:'Poppins',sans-serif}
+ .assist{position:absolute;left:50%;top:1050px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:12px;
+   padding:11px 24px;border-radius:999px;background:rgba(13,15,20,0.42);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+   border:1.5px solid rgba(250,197,28,0.35);box-shadow:0 10px 30px rgba(0,0,0,0.4);opacity:0;white-space:nowrap}
+ .assist svg{width:30px;height:30px;flex:0 0 auto}
+ .assist span{font-family:'Poppins',sans-serif;font-weight:700;font-size:28px;letter-spacing:1px;color:#FAC51C;text-transform:uppercase}
+ .stage{position:absolute;left:50%;top:1170px;transform:translateX(-50%);width:92%;height:0}
+ .chunk{position:absolute;left:50%;top:0;transform:translateX(-50%);max-width:840px;text-align:center;padding:24px 40px;border-radius:26px;
+   background:rgba(15,17,23,0.50);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+   border:1.5px solid rgba(255,255,255,0.12);box-shadow:0 20px 60px rgba(0,0,0,0.45);opacity:0}
+ .w{display:inline-block;margin:2px 0.12em;font-family:'Poppins',sans-serif;font-weight:700;font-size:52px;line-height:1.32;
+   color:#7a7a82;text-shadow:0 2px 10px rgba(0,0,0,0.5);transform-origin:center}
+ .kw{display:inline-block;margin:2px 0.12em;font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:60px;
+   line-height:1.25;letter-spacing:1px;vertical-align:-2px;opacity:0.35;transform-origin:center;
+   background:linear-gradient(180deg,#FFF6C8 0%,#FBD24E 40%,#F5A623 75%,#E08600 100%);
+   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+   -webkit-text-stroke:1px rgba(120,70,0,0.25);
+   filter:drop-shadow(0 0 16px rgba(250,197,28,0.6)) drop-shadow(0 2px 2px rgba(0,0,0,0.45))}
+</style></head><body>
+<div class="assist" id="assist"><svg viewBox="0 0 24 24" fill="none" stroke="#FAC51C" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span>Casos reales como el tuyo</span></div>
+<div class="stage"><div class="chunk" id="ch0"><span class="w" id="c0w0">En</span><span class="w" id="c0w1">Credi</span><span class="w" id="c0w2">Ayudarte</span><span class="w" id="c0w3">hemos</span><span class="w" id="c0w4">acompañado</span><span class="kw" id="c0w5">casos</span><span class="w" id="c0w6">parecidos</span></div></div>
+<script>const tl=gsap.timeline({paused:true});
+tl.fromTo('#assist',{opacity:0,y:14,scale:0.9},{opacity:1,y:0,scale:1,duration:0.34,ease:'back.out(2)'},0.15);
+tl.to('#assist',{y:-8,duration:1.6,ease:'sine.inOut',yoyo:true,repeat:4},0.6);
+tl.to('#assist',{opacity:0,duration:0.3,ease:'power2.in'},2.74);
+tl.fromTo('#ch0',{opacity:0,y:24,scale:0.97},{opacity:1,y:0,scale:1,duration:0.26,ease:'power3.out'},0.00);tl.to('#c0w0',{color:'#ffffff',duration:0.12},0.00);tl.to('#c0w1',{color:'#ffffff',duration:0.12},0.24);tl.to('#c0w2',{color:'#ffffff',duration:0.12},0.48);tl.to('#c0w3',{color:'#ffffff',duration:0.12},0.92);tl.to('#c0w4',{color:'#ffffff',duration:0.12},1.30);tl.to('#c0w5',{opacity:1,duration:0.14},1.90);tl.fromTo('#c0w5',{scale:1.16},{scale:1,duration:0.22,ease:'back.out(2)'},1.90);tl.to('#c0w6',{color:'#ffffff',duration:0.12},2.28);tl.to('#ch0',{opacity:0,y:-16,duration:0.22,ease:'power2.in'},2.97);window.__timelines={main:tl};tl.play();</script>
+</body></html>

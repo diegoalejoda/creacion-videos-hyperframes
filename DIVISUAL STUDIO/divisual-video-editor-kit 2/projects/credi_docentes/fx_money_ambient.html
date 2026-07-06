@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>FX — Money ambient</title>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: transparent !important; width: 1080px; height: 1920px; overflow: hidden; }
+  .p { position: absolute; will-change: transform, opacity; opacity: 0; }
+  .coin {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #FFE89A 0%, #FAC51C 45%, #C9930A 100%);
+    border: 3px solid #FFD84D; box-shadow: 0 0 22px rgba(250,197,28,0.7);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Georgia', serif; font-weight: 700; color: #7a5400; font-size: 36px;
+  }
+  .coin.sm { width: 42px; height: 42px; font-size: 24px; }
+  .bill {
+    width: 90px; height: 50px; border-radius: 8px;
+    background: linear-gradient(135deg, #2ecc71 0%, #1e9e57 100%);
+    border: 2px solid #7CF0AE; box-shadow: 0 0 18px rgba(46,204,113,0.6);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Georgia', serif; font-weight: 700; color: #eafff3; font-size: 30px;
+  }
+  .dollar {
+    font-family: 'Georgia', serif; font-weight: 700; color: #FAC51C; font-size: 70px;
+    text-shadow: 0 0 24px rgba(250,197,28,0.8);
+  }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script>
+  const stage = document.getElementById('stage');
+  // columnas en los bordes (evita el centro: cara + subtítulos)
+  const leftX = () => 6 + Math.random()*120;
+  const rightX = () => 954 + Math.random()*120;
+  const items = [];
+  function make(kind, side, i){
+    const el = document.createElement('div');
+    el.className = 'p';
+    if (kind===0){ const c=document.createElement('div'); c.className='coin'+(Math.random()<0.5?' sm':''); c.textContent='$'; el.appendChild(c); }
+    else if (kind===1){ const b=document.createElement('div'); b.className='bill'; b.textContent='$'; el.appendChild(b); }
+    else { const dsp=document.createElement('div'); dsp.className='dollar'; dsp.textContent='$'; el.appendChild(dsp); }
+    const x = side===0 ? leftX() : rightX();
+    el.style.left = x+'px';
+    el.style.top = '0px';
+    stage.appendChild(el);
+    items.push({el, x});
+    return el;
+  }
+  const TOTAL = 48.9;
+  const tl = gsap.timeline({ paused: true });
+  const TOP = -200, BOTTOM = 2120;       // fuera de pantalla arriba/abajo
+  const SPAN = BOTTOM - TOP;             // recorrido total
+  let n = 0;
+  for (let side=0; side<2; side++){
+    for (let k=0; k<9; k++){
+      const kind = k%3;
+      const el = make(kind, side, n);
+      const speed = 150 + Math.random()*90;          // px/seg hacia arriba
+      const phase = Math.random()*SPAN;              // posición inicial aleatoria -> llena pantalla en t=0
+      const rotSpd = (Math.random()-0.5)*40;
+      gsap.set(el, { opacity: 0.28 + Math.random()*0.30 });
+      // valor lineal grande + wrap con modulo -> loop infinito determinista
+      tl.fromTo(el,
+        { y: phase, rotation: 0 },
+        { y: '+=' + (speed*TOTAL), rotation: rotSpd*TOTAL, duration: TOTAL, ease:'none', immediateRender:true,
+          modifiers: { y: (yv)=>{ let v=parseFloat(yv); v = BOTTOM - (((v - TOP) % SPAN + SPAN) % SPAN); return v+'px'; } } },
+        0);
+      n++;
+    }
+  }
+  window.__timelines = { main: tl };
+  tl.play();
+</script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+overflow(index)   checked (custom mode, warning-only)
+overflow(rail)    skipped (infra)
+rail-climax       PASS (no duplicate reveal)
