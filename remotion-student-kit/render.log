@@ -1,0 +1,126 @@
+bundling...
+comp 1744f @ 30fps
+render 5%
+render 10%
+render 15%
+
+💡 Get help for this issue at https://remotion.dev/docs/timeout
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+SymbolicateableError: A delayRender() "brand-fonts" was called but not cleared after 28000ms. See https://remotion.dev/docs/timeout for help. The delayRender was called: 
+    at delayRenderInternal (http://localhost:3001/bundle.js:3649:18)
+    at delayRender (http://localhost:3001/bundle.js:3681:10)
+    at loadBrandFonts (http://localhost:3001/bundle.js:90:37)
+    at 2037 (http://localhost:3001/bundle.js:1276:1)
+    at __webpack_require__ (http://localhost:3001/bundle.js:16689:42)
+    at http://localhost:3001/bundle.js:16967:11
+    at http://localhost:3001/bundle.js:16971:12
+    ... collapsed 7 duplicate lines matching above lines ...
+    at http://localhost:3001/bundle.js:3669:39 {
+  stackFrame: [
+    {
+      columnNumber: 38,
+      fileName: 'http://localhost:3001/bundle.js',
+      functionName: '',
+      lineNumber: 3668
+    }
+  ],
+  delayRenderCall: [
+    {
+      columnNumber: 18,
+      fileName: 'http://localhost:3001/bundle.js',
+      functionName: 'delayRenderInternal',
+      lineNumber: 3649
+    },
+    {
+      columnNumber: 10,
+      fileName: 'http://localhost:3001/bundle.js',
+      functionName: 'delayRender',
+      lineNumber: 3681
+    },
+    {
+      columnNumber: 37,
+      fileName: 'http://localhost:3001/bundle.js',
+      functionName: 'loadBrandFonts',
+      lineNumber: 90
+    },
+    {
+      columnNumber: 1,
+      fileName: 'http://localhost:3001/bundle.js',
+      functionName: '2037',
+      lineNumber: 1276
+    },
+    {
+      columnNumber: 42,
+      fileName: 'http://localhost:3001/bundle.js',
+      functionName: '__webpack_require__',
+      lineNumber: 16689
+    },
+    {
+      columnNumber: 11,
+      fileName: 'http://localhost:3001/bundle.js',
+      functionName: null,
+      lineNumber: 16967
+    },
+    {
+      columnNumber: 12,
+      fileName: 'http://localhost:3001/bundle.js',
+      functionName: null,
+      lineNumber: 16971
+    },
+    {
+      columnNumber: 18,
+      fileName: 'http://localhost:3001/bundle.js',
+      functionName: 'delayRenderInternal',
+      lineNumber: 3649
+    },
+    {
+      columnNumber: 10,
+      fileName: 'http://localhost:3001/bundle.js',
+      functionName: 'delayRender',
+      lineNumber: 3681
+    },
+    {
+      columnNumber: 37,
+      fileName: 'http://localhost:3001/bundle.js',
+      functionName: 'loadBrandFonts',
+      lineNumber: 90
+    },
+    {
+      columnNumber: 1,
+      fileName: 'http://localhost:3001/bundle.js',
+      functionName: '2037',
+      lineNumber: 1276
+    },
+    {
+      columnNumber: 42,
+      fileName: 'http://localhost:3001/bundle.js',
+      functionName: '__webpack_require__',
+      lineNumber: 16689
+    },
+    {
+      columnNumber: 11,
+      fileName: 'http://localhost:3001/bundle.js',
+      functionName: null,
+      lineNumber: 16967
+    },
+    {
+      columnNumber: 12,
+      fileName: 'http://localhost:3001/bundle.js',
+      functionName: null,
+      lineNumber: 16971
+    },
+    {
+      columnNumber: 39,
+      fileName: 'http://localhost:3001/bundle.js',
+      functionName: null,
+      lineNumber: 3669
+    }
+  ],
+  frame: 415,
+  chunk: null
+}
+
+Node.js v26.3.0

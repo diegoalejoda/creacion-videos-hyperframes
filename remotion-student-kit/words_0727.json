@@ -1,0 +1,716 @@
+{
+ "words": [
+  {
+   "t": "Estás",
+   "start": 0.0,
+   "end": 0.42
+  },
+  {
+   "t": "perdiendo",
+   "start": 0.42,
+   "end": 0.84
+  },
+  {
+   "t": "plata",
+   "start": 0.84,
+   "end": 1.2
+  },
+  {
+   "t": "cada",
+   "start": 1.2,
+   "end": 1.58
+  },
+  {
+   "t": "mes",
+   "start": 1.58,
+   "end": 1.82
+  },
+  {
+   "t": "por",
+   "start": 1.82,
+   "end": 2.08
+  },
+  {
+   "t": "estas",
+   "start": 2.08,
+   "end": 2.34
+  },
+  {
+   "t": "tres",
+   "start": 2.34,
+   "end": 2.54
+  },
+  {
+   "t": "cosas",
+   "start": 2.54,
+   "end": 2.84
+  },
+  {
+   "t": "y",
+   "start": 2.84,
+   "end": 3.16
+  },
+  {
+   "t": "la",
+   "start": 3.16,
+   "end": 3.36
+  },
+  {
+   "t": "última",
+   "start": 3.36,
+   "end": 3.68
+  },
+  {
+   "t": "te",
+   "start": 3.68,
+   "end": 3.9
+  },
+  {
+   "t": "va",
+   "start": 3.9,
+   "end": 4.04
+  },
+  {
+   "t": "a",
+   "start": 4.04,
+   "end": 4.12
+  },
+  {
+   "t": "sorprender.",
+   "start": 4.12,
+   "end": 4.58
+  },
+  {
+   "t": "Si",
+   "start": 4.78,
+   "end": 4.82
+  },
+  {
+   "t": "tienes",
+   "start": 4.82,
+   "end": 5.28
+  },
+  {
+   "t": "tres",
+   "start": 5.28,
+   "end": 5.72
+  },
+  {
+   "t": "o",
+   "start": 5.72,
+   "end": 5.9
+  },
+  {
+   "t": "cuatro",
+   "start": 5.9,
+   "end": 6.32
+  },
+  {
+   "t": "deudas",
+   "start": 6.32,
+   "end": 6.78
+  },
+  {
+   "t": "por",
+   "start": 6.78,
+   "end": 6.92
+  },
+  {
+   "t": "ahí",
+   "start": 6.92,
+   "end": 7.1
+  },
+  {
+   "t": "pequeñas,",
+   "start": 7.1,
+   "end": 7.64
+  },
+  {
+   "t": "cada",
+   "start": 7.88,
+   "end": 8.0
+  },
+  {
+   "t": "una",
+   "start": 8.0,
+   "end": 8.18
+  },
+  {
+   "t": "te",
+   "start": 8.18,
+   "end": 8.4
+  },
+  {
+   "t": "cobra",
+   "start": 8.4,
+   "end": 8.54
+  },
+  {
+   "t": "por",
+   "start": 8.54,
+   "end": 8.82
+  },
+  {
+   "t": "separado",
+   "start": 8.82,
+   "end": 9.36
+  },
+  {
+   "t": "estudio,",
+   "start": 9.36,
+   "end": 9.86
+  },
+  {
+   "t": "seguro",
+   "start": 10.08,
+   "end": 10.4
+  },
+  {
+   "t": "y",
+   "start": 10.4,
+   "end": 10.7
+  },
+  {
+   "t": "manejo.",
+   "start": 10.7,
+   "end": 11.16
+  },
+  {
+   "t": "Si",
+   "start": 11.26,
+   "end": 11.5
+  },
+  {
+   "t": "aceptaste",
+   "start": 11.5,
+   "end": 11.98
+  },
+  {
+   "t": "un",
+   "start": 11.98,
+   "end": 12.22
+  },
+  {
+   "t": "crédito",
+   "start": 12.22,
+   "end": 12.5
+  },
+  {
+   "t": "por",
+   "start": 12.5,
+   "end": 12.72
+  },
+  {
+   "t": "afán",
+   "start": 12.72,
+   "end": 13.1
+  },
+  {
+   "t": "y",
+   "start": 13.1,
+   "end": 13.32
+  },
+  {
+   "t": "no",
+   "start": 13.32,
+   "end": 13.5
+  },
+  {
+   "t": "te",
+   "start": 13.5,
+   "end": 13.68
+  },
+  {
+   "t": "fijaste",
+   "start": 13.68,
+   "end": 14.12
+  },
+  {
+   "t": "en",
+   "start": 14.12,
+   "end": 14.52
+  },
+  {
+   "t": "qué",
+   "start": 14.52,
+   "end": 14.68
+  },
+  {
+   "t": "tasa",
+   "start": 14.68,
+   "end": 14.92
+  },
+  {
+   "t": "realmente",
+   "start": 14.92,
+   "end": 15.3
+  },
+  {
+   "t": "estás",
+   "start": 15.3,
+   "end": 15.48
+  },
+  {
+   "t": "pagando,",
+   "start": 15.48,
+   "end": 15.84
+  },
+  {
+   "t": "si",
+   "start": 16.0,
+   "end": 16.12
+  },
+  {
+   "t": "hiciste",
+   "start": 16.12,
+   "end": 16.36
+  },
+  {
+   "t": "un",
+   "start": 16.36,
+   "end": 16.54
+  },
+  {
+   "t": "crédito",
+   "start": 16.54,
+   "end": 16.82
+  },
+  {
+   "t": "digital",
+   "start": 16.82,
+   "end": 17.28
+  },
+  {
+   "t": "y",
+   "start": 17.28,
+   "end": 17.58
+  },
+  {
+   "t": "no",
+   "start": 17.58,
+   "end": 17.78
+  },
+  {
+   "t": "te",
+   "start": 17.78,
+   "end": 17.92
+  },
+  {
+   "t": "fijaste",
+   "start": 17.92,
+   "end": 18.32
+  },
+  {
+   "t": "que",
+   "start": 18.32,
+   "end": 18.5
+  },
+  {
+   "t": "el",
+   "start": 18.5,
+   "end": 18.68
+  },
+  {
+   "t": "valor",
+   "start": 18.68,
+   "end": 18.96
+  },
+  {
+   "t": "que",
+   "start": 18.96,
+   "end": 19.14
+  },
+  {
+   "t": "te",
+   "start": 19.14,
+   "end": 19.4
+  },
+  {
+   "t": "desembolsaron",
+   "start": 19.4,
+   "end": 20.3
+  },
+  {
+   "t": "le",
+   "start": 20.3,
+   "end": 20.6
+  },
+  {
+   "t": "sumaron",
+   "start": 20.6,
+   "end": 20.98
+  },
+  {
+   "t": "el",
+   "start": 20.98,
+   "end": 21.16
+  },
+  {
+   "t": "aval,",
+   "start": 21.16,
+   "end": 21.54
+  },
+  {
+   "t": "que",
+   "start": 21.6,
+   "end": 21.86
+  },
+  {
+   "t": "puede",
+   "start": 21.86,
+   "end": 22.08
+  },
+  {
+   "t": "ser",
+   "start": 22.08,
+   "end": 22.44
+  },
+  {
+   "t": "hasta",
+   "start": 22.44,
+   "end": 22.74
+  },
+  {
+   "t": "un",
+   "start": 22.74,
+   "end": 23.04
+  },
+  {
+   "t": "30",
+   "start": 23.04,
+   "end": 23.34
+  },
+  {
+   "t": "%",
+   "start": 23.34,
+   "end": 23.74
+  },
+  {
+   "t": "más",
+   "start": 23.74,
+   "end": 24.22
+  },
+  {
+   "t": "del",
+   "start": 24.22,
+   "end": 24.42
+  },
+  {
+   "t": "dinero",
+   "start": 24.42,
+   "end": 24.68
+  },
+  {
+   "t": "que",
+   "start": 24.68,
+   "end": 24.94
+  },
+  {
+   "t": "recibiste.",
+   "start": 24.94,
+   "end": 25.3
+  },
+  {
+   "t": "A",
+   "start": 25.46,
+   "end": 25.54
+  },
+  {
+   "t": "un",
+   "start": 25.54,
+   "end": 25.64
+  },
+  {
+   "t": "pensionado",
+   "start": 25.64,
+   "end": 26.12
+  },
+  {
+   "t": "que",
+   "start": 26.12,
+   "end": 26.28
+  },
+  {
+   "t": "atendimos",
+   "start": 26.28,
+   "end": 26.84
+  },
+  {
+   "t": "le",
+   "start": 26.84,
+   "end": 27.16
+  },
+  {
+   "t": "sacamos",
+   "start": 27.16,
+   "end": 27.54
+  },
+  {
+   "t": "esa",
+   "start": 27.54,
+   "end": 27.74
+  },
+  {
+   "t": "cuenta",
+   "start": 27.74,
+   "end": 28.08
+  },
+  {
+   "t": "y",
+   "start": 28.08,
+   "end": 28.54
+  },
+  {
+   "t": "estaba",
+   "start": 28.54,
+   "end": 28.76
+  },
+  {
+   "t": "perdiendo",
+   "start": 28.76,
+   "end": 29.34
+  },
+  {
+   "t": "un",
+   "start": 29.34,
+   "end": 29.7
+  },
+  {
+   "t": "muy",
+   "start": 29.7,
+   "end": 29.92
+  },
+  {
+   "t": "buen",
+   "start": 29.92,
+   "end": 30.04
+  },
+  {
+   "t": "porcentaje",
+   "start": 30.04,
+   "end": 30.78
+  },
+  {
+   "t": "de",
+   "start": 30.78,
+   "end": 30.9
+  },
+  {
+   "t": "lo",
+   "start": 30.9,
+   "end": 31.02
+  },
+  {
+   "t": "que",
+   "start": 31.02,
+   "end": 31.16
+  },
+  {
+   "t": "ganaba.",
+   "start": 31.16,
+   "end": 31.42
+  },
+  {
+   "t": "Si",
+   "start": 31.6,
+   "end": 31.76
+  },
+  {
+   "t": "recibes",
+   "start": 31.76,
+   "end": 32.16
+  },
+  {
+   "t": "pensión",
+   "start": 32.16,
+   "end": 32.84
+  },
+  {
+   "t": "o",
+   "start": 32.84,
+   "end": 33.04
+  },
+  {
+   "t": "nómina",
+   "start": 33.04,
+   "end": 33.38
+  },
+  {
+   "t": "del",
+   "start": 33.38,
+   "end": 33.56
+  },
+  {
+   "t": "gobierno,",
+   "start": 33.56,
+   "end": 33.94
+  },
+  {
+   "t": "podríamos",
+   "start": 34.14,
+   "end": 34.5
+  },
+  {
+   "t": "ayudarte",
+   "start": 34.5,
+   "end": 35.12
+  },
+  {
+   "t": "a",
+   "start": 35.12,
+   "end": 35.42
+  },
+  {
+   "t": "organizar",
+   "start": 35.42,
+   "end": 35.78
+  },
+  {
+   "t": "tus",
+   "start": 35.78,
+   "end": 35.96
+  },
+  {
+   "t": "cuotas",
+   "start": 35.96,
+   "end": 36.4
+  },
+  {
+   "t": "y",
+   "start": 36.4,
+   "end": 36.58
+  },
+  {
+   "t": "si",
+   "start": 36.58,
+   "end": 36.7
+  },
+  {
+   "t": "es",
+   "start": 36.7,
+   "end": 36.88
+  },
+  {
+   "t": "posible,",
+   "start": 36.88,
+   "end": 37.24
+  },
+  {
+   "t": "a",
+   "start": 37.5,
+   "end": 37.56
+  },
+  {
+   "t": "que",
+   "start": 37.56,
+   "end": 37.7
+  },
+  {
+   "t": "pagues",
+   "start": 37.7,
+   "end": 37.9
+  },
+  {
+   "t": "menos.",
+   "start": 37.9,
+   "end": 38.18
+  },
+  {
+   "t": "Escríbenos",
+   "start": 38.48,
+   "end": 38.8
+  },
+  {
+   "t": "al",
+   "start": 38.8,
+   "end": 38.92
+  },
+  {
+   "t": "WhatsApp",
+   "start": 38.92,
+   "end": 39.16
+  },
+  {
+   "t": "y",
+   "start": 39.16,
+   "end": 39.48
+  },
+  {
+   "t": "te",
+   "start": 39.48,
+   "end": 39.72
+  },
+  {
+   "t": "responderemos",
+   "start": 39.72,
+   "end": 40.24
+  },
+  {
+   "t": "de",
+   "start": 40.24,
+   "end": 40.48
+  },
+  {
+   "t": "forma",
+   "start": 40.48,
+   "end": 40.68
+  },
+  {
+   "t": "inmediata.",
+   "start": 40.68,
+   "end": 41.14
+  }
+ ],
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 4.58,
+   "text": "Estás perdiendo plata cada mes por estas tres cosas y la última te va a sorprender."
+  },
+  {
+   "start": 4.78,
+   "end": 11.16,
+   "text": "Si tienes tres o cuatro deudas por ahí pequeñas, cada una te cobra por separado estudio, seguro y manejo."
+  },
+  {
+   "start": 11.26,
+   "end": 15.84,
+   "text": "Si aceptaste un crédito por afán y no te fijaste en qué tasa realmente estás pagando,"
+  },
+  {
+   "start": 16.0,
+   "end": 21.54,
+   "text": "si hiciste un crédito digital y no te fijaste que el valor que te desembolsaron le sumaron el aval,"
+  },
+  {
+   "start": 21.6,
+   "end": 25.3,
+   "text": "que puede ser hasta un 30% más del dinero que recibiste."
+  },
+  {
+   "start": 25.46,
+   "end": 28.08,
+   "text": "A un pensionado que atendimos le sacamos esa cuenta"
+  },
+  {
+   "start": 28.08,
+   "end": 31.42,
+   "text": "y estaba perdiendo un muy buen porcentaje de lo que ganaba."
+  },
+  {
+   "start": 31.6,
+   "end": 36.4,
+   "text": "Si recibes pensión o nómina del gobierno, podríamos ayudarte a organizar tus cuotas"
+  },
+  {
+   "start": 36.4,
+   "end": 38.18,
+   "text": "y si es posible, a que pagues menos."
+  },
+  {
+   "start": 38.48,
+   "end": 41.14,
+   "text": "Escríbenos al WhatsApp y te responderemos de forma inmediata."
+  }
+ ]
+}

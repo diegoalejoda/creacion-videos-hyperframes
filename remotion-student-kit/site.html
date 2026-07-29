@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CrediAyudarte | Asesoría financiera para pensionados y empleados públicos</title>
+  <meta name="description" content="CrediAyudarte: asesoría financiera, crédito con libranza, crédito para reportados y compra de cartera para pensionados y empleados públicos. Te ayudamos de verdad." />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Sprite de iconos -->
+  <svg style="display:none">
+    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+    <symbol id="icon-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="icon-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0-3-3.85"/></symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+    <symbol id="icon-file-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 11 17 15 12.5"/></symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+    <symbol id="icon-trending-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></symbol>
+    <symbol id="icon-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+    <symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></symbol>
+    <symbol id="icon-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></symbol>
+    <symbol id="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.94.56 3.76 1.55 5.3L2 22l4.94-1.56a9.9 9.9 0 0 0 5.1 1.4h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.05c-.24.68-1.4 1.3-1.94 1.38-.5.08-1.12.11-1.81-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.16-4.93-4.35-.14-.19-1.18-1.57-1.18-3 0-1.42.74-2.12 1-2.41.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.58.81 2 .88 2.15.07.15.12.32.02.51-.1.19-.15.31-.3.48-.15.17-.31.38-.45.51-.15.14-.3.29-.13.57.17.29.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.46.3.15.47.13.65-.05.18-.18.74-.86.94-1.15.2-.29.4-.24.66-.14.27.1 1.71.81 2 .96.29.14.49.21.56.33.07.12.07.7-.17 1.39z"/></symbol>
+    <symbol id="icon-alert-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></symbol>
+    <symbol id="icon-loader" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="16.24"/></symbol>
+  </svg>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#inicio" class="header__logo">
+        <img src="assets/logo.png" alt="CrediAyudarte - Te ayudamos de verdad" />
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#simulador">Simulador</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <div class="header__actions">
+        <a href="https://wa.me/573152474348" target="_blank" rel="noopener" class="header__phone header__whatsapp">
+          <span class="header__whatsapp-icon">
+            <svg><use href="#icon-whatsapp"/></svg>
+            <span class="header__whatsapp-ping"></span>
+          </span>
+          <span class="header__whatsapp-text">Escríbenos<small>Asistente virtual 24/7</small></span>
+        </a>
+        <a href="#contacto" class="btn btn-primary">Solicita tu crédito</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero__top">
+        <span class="eyebrow">Te ayudamos de verdad</span>
+        <h1>Asesoría financiera para <span>pensionados y empleados públicos</span></h1>
+        <p>Más de 10 años diseñando soluciones de crédito claras y honestas para quienes han dedicado su vida a servir. Maestros, pensionados y servidores públicos en Cúcuta confían en nosotros.</p>
+        <div class="hero__actions">
+          <a href="#contacto" class="btn btn-primary">Solicita tu crédito</a>
+          <a href="#servicios" class="btn btn-secondary">Conoce nuestros servicios</a>
+        </div>
+        <div class="hero__disclaimer">NO COBRAMOS NINGÚN DINERO ANTICIPADO</div>
+      </div>
+
+      <div class="plans">
+        <article class="plan-card plan-card--featured">
+          <span class="plan-card__badge">Más solicitado</span>
+          <div class="plan-card__icon"><svg><use href="#icon-file-check"/></svg></div>
+          <h3>Crédito con Libranza</h3>
+          <p>Descuento directo de tu mesada pensional o nómina, con cuotas fijas y trámite ágil de principio a fin.</p>
+          <div class="plan-card__rate">1.35% <span>mensual (16.2% E.A.)</span></div>
+          <ul class="plan-card__features">
+            <li><svg><use href="#icon-check"/></svg> Plazos desde 6 meses hasta 15 años</li>
+            <li><svg><use href="#icon-check"/></svg> Cuota fija, sin sorpresas</li>
+            <li><svg><use href="#icon-check"/></svg> Aprobación rápida</li>
+          </ul>
+          <a href="#contacto" class="btn btn-primary btn-block">Más información</a>
+        </article>
+
+        <article class="plan-card">
+          <div class="plan-card__icon"><svg><use href="#icon-search"/></svg></div>
+          <h3>Crédito para Reportados</h3>
+          <p>¿Estás reportado en centrales de riesgo? Evaluamos tu caso y te ayudamos a acceder a un crédito a tu medida.</p>
+          <div class="plan-card__rate">Tasa <span>según evaluación</span></div>
+          <ul class="plan-card__features">
+            <li><svg><use href="#icon-check"/></svg> Evaluación sin compromiso</li>
+            <li><svg><use href="#icon-check"/></svg> Planes de saneamiento</li>
+            <li><svg><use href="#icon-check"/></svg> Acompañamiento personalizado</li>
+          </ul>
+          <a href="#contacto" class="btn btn-secondary btn-block">Más información</a>
+        </article>
+
+        <article class="plan-card">
+          <div class="plan-card__icon"><svg><use href="#icon-layers"/></svg></div>
+          <h3>Compra de Cartera</h3>
+          <p>Unificamos tus deudas en una sola cuota mensual, con mejores condiciones y mayor tranquilidad.</p>
+          <div class="plan-card__rate">1 sola <span>cuota mensual</span></div>
+          <ul class="plan-card__features">
+            <li><svg><use href="#icon-check"/></svg> Reduce el valor de tu cuota</li>
+            <li><svg><use href="#icon-check"/></svg> Un solo pago, una sola fecha</li>
+            <li><svg><use href="#icon-check"/></svg> Libera tu capacidad de crédito</li>
+          </ul>
+          <a href="#contacto" class="btn btn-secondary btn-block">Más información</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TIRA DE CONFIANZA ===================== -->
+  <section class="trust">
+    <div class="container trust__inner">
+      <p class="trust__lead">Respaldo institucional sólido: más de 450 convenios con entidades del Estado y fondos de pensiones en toda Colombia.</p>
+      <div class="trust__stats">
+        <div class="trust__stat">
+          <strong>+3.000</strong>
+          <span>Clientes atendidos</span>
+        </div>
+        <div class="trust__stat">
+          <strong>+450</strong>
+          <span>Convenios institucionales</span>
+        </div>
+        <div class="trust__stat">
+          <strong>+10</strong>
+          <span>Años de experiencia</span>
+        </div>
+        <div class="trust__stat">
+          <strong>24/7</strong>
+          <span>Atención por WhatsApp</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BENEFICIOS ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Nuestra promesa</span>
+        <h2>¿Por qué elegir CrediAyudarte?</h2>
+        <p>Acompañamos a nuestros clientes con honestidad, cercanía y procesos claros, de principio a fin.</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit">
+          <div class="benefit__icon"><svg><use href="#icon-users"/></svg></div>
+          <h3>Asesoría personalizada</h3>
+          <p>Analizamos tu caso particular para ofrecerte la mejor alternativa.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit__icon"><svg><use href="#icon-clock"/></svg></div>
+          <h3>Respuesta rápida</h3>
+          <p>Procesos ágiles para que tengas tu respuesta en poco tiempo.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit__icon"><svg><use href="#icon-heart"/></svg></div>
+          <h3>Atención humana y cercana</h3>
+          <p>Te escuchamos y te explicamos todo en un lenguaje claro.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit__icon"><svg><use href="#icon-file-check"/></svg></div>
+          <h3>Trámite 100% transparente</h3>
+          <p>Conoces cada condición de tu crédito antes de firmar.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit__icon"><svg><use href="#icon-shield"/></svg></div>
+          <h3>Sin cobros anticipados</h3>
+          <p>Nunca te pediremos dinero por adelantado para tu solicitud.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit__icon"><svg><use href="#icon-briefcase"/></svg></div>
+          <h3>Respaldo institucional</h3>
+          <p>Más de 450 convenios con entidades del Estado y fondos de pensiones.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit__icon"><svg><use href="#icon-award"/></svg></div>
+          <h3>Acompañamiento integral</h3>
+          <p>Te guiamos en cada paso, desde la solicitud hasta el desembolso.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit__icon"><svg><use href="#icon-lock"/></svg></div>
+          <h3>Seguridad y confianza</h3>
+          <p>Tu información y tu tranquilidad son nuestra prioridad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TRAYECTORIA / ESTADÍSTICAS ===================== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="highlight">
+        <div class="highlight__content">
+          <span class="eyebrow">Nuestra trayectoria</span>
+          <h2>Más de una década ayudando a quienes más lo merecen</h2>
+          <p>Desde Cúcuta, hemos construido una red de confianza con maestros, pensionados y empleados públicos en toda Colombia, ofreciendo soluciones financieras honestas, claras y a la medida de cada historia.</p>
+          <a href="#contacto" class="btn btn-light">Habla con un asesor</a>
+        </div>
+        <div class="highlight__stats">
+          <div class="highlight__stat">
+            <strong>+3.000</strong>
+            <span>Clientes felices</span>
+          </div>
+          <div class="highlight__stat">
+            <strong>+450</strong>
+            <span>Convenios activos</span>
+          </div>
+          <div class="highlight__stat">
+            <strong>+10</strong>
+            <span>Años de experiencia</span>
+          </div>
+          <div class="highlight__stat">
+            <strong>24/7</strong>
+            <span>Asistente virtual por WhatsApp</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICIOS ===================== -->
+  <section class="section" id="servicios">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Soluciones financieras</span>
+        <h2>Nuestros servicios</h2>
+        <p>Productos diseñados para acompañar las finanzas de pensionados y empleados públicos en cada etapa.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-card__icon"><svg><use href="#icon-trending-up"/></svg></div>
+          <h3>Asesoría Financiera</h3>
+          <p>Analizamos tu situación financiera y te orientamos hacia la decisión que más beneficie tu bolsillo y tu tranquilidad.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon"><svg><use href="#icon-file-check"/></svg></div>
+          <h3>Crédito con Libranza</h3>
+          <p>Descuento directo de tu mesada o nómina, con cuotas fijas y tasas preferenciales desde 1.35% mensual.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon"><svg><use href="#icon-search"/></svg></div>
+          <h3>Crédito para Reportados</h3>
+          <p>Si estás reportado en centrales de riesgo, te ayudamos a acceder a un crédito y a recuperar tu historial.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon"><svg><use href="#icon-layers"/></svg></div>
+          <h3>Compra de Cartera</h3>
+          <p>Unifica tus deudas en una sola cuota mensual, con mejores condiciones y mayor tranquilidad financiera.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon"><svg><use href="#icon-shield"/></svg></div>
+          <h3>Saneamiento de Crédito en Mora</h3>
+          <p>Te acompañamos a poner al día tus obligaciones y a recuperar tu tranquilidad financiera paso a paso.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-card__icon"><svg><use href="#icon-briefcase"/></svg></div>
+          <h3>Crédito de Libre Inversión</h3>
+          <p>Recursos para lo que necesites: salud, vivienda, estudio o ese proyecto personal que tienes pendiente.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SIMULADOR ===================== -->
+  <section class="section section--alt" id="simulador">
+    <div class="container simulator">
+      <div class="simulator__intro">
+        <span class="eyebrow">Simulador de crédito</span>
+        <h2>Conoce tu cuota antes de solicitar</h2>
+        <p>Con tasas desde 1.35% mensual (16.2% E.A.) y plazos desde 180 días hasta 180 meses, diseñamos un plan a tu medida. Estos son los documentos que necesitas para iniciar tu solicitud:</p>
+        <ul class="requirements">
+          <li><svg><use href="#icon-check-circle"/></svg> Fotocopia de la cédula a color, con firma y huella</li>
+          <li><svg><use href="#icon-check-circle"/></svg> Últimos dos desprendibles de pago o mesada pensional</li>
+          <li><svg><use href="#icon-check-circle"/></svg> Recibo de servicio público como referencia familiar o personal</li>
+        </ul>
+        <br>
+        <a href="#contacto" class="btn btn-primary">Solicitar simulación personalizada</a>
+      </div>
+
+      <div class="sim-table">
+        <div class="sim-table__header">
+          <span>Ejemplo de crédito</span>
+          <strong>$20.000.000 a 12 meses</strong>
+        </div>
+        <table>
+          <tbody>
+            <tr>
+              <td>Monto solicitado</td>
+              <td>$20.000.000</td>
+            </tr>
+            <tr>
+              <td>Plazo</td>
+              <td>12 meses</td>
+            </tr>
+            <tr>
+              <td>Tasa mensual</td>
+              <td>1.35% (16.2% E.A.)</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>Cuota mensual aproximada</td>
+              <td>$1.835.941</td>
+            </tr>
+          </tfoot>
+        </table>
+        <p class="sim-table__footnote">Simulación informativa, sin costos adicionales. La tasa final se asigna según el perfil crediticio de cada cliente. Plazos disponibles desde 180 días hasta 180 meses.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIOS ===================== -->
+  <section class="section" id="testimonios">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Lo que dicen de nosotros</span>
+        <h2>La confianza de nuestros clientes</h2>
+        <p>Maestros y pensionados que ya mejoraron su tranquilidad financiera con CrediAyudarte.</p>
+      </div>
+
+      <div class="testimonial-track">
+        <article class="testimonial-card">
+          <p class="testimonial-card__quote">Agradezco a CrediAyudarte toda la colaboración prestada, son muy eficientes.</p>
+          <div class="testimonial-card__person">
+            <div class="testimonial-card__avatar">JM</div>
+            <div>
+              <strong>Jose Jesús Morales Chacón</strong>
+              <span>Docente</span>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card">
+          <p class="testimonial-card__quote">Es una empresa muy joven pero muy seria, trabaja con honestidad.</p>
+          <div class="testimonial-card__person">
+            <div class="testimonial-card__avatar">MV</div>
+            <div>
+              <strong>Martha Janeth Villamizar</strong>
+              <span>Docente</span>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card">
+          <p class="testimonial-card__quote">En CrediAyudarte en verdad ayudan, muchas gracias por toda su colaboración.</p>
+          <div class="testimonial-card__person">
+            <div class="testimonial-card__avatar">RR</div>
+            <div>
+              <strong>Rolando Rincón Jiménez</strong>
+              <span>Docente</span>
+            </div>
+          </div>
+        </article>
+        <article class="testimonial-card">
+          <p class="testimonial-card__quote">Son muy oportunos y su servicio es excelente, sin duda los recomiendo.</p>
+          <div class="testimonial-card__person">
+            <div class="testimonial-card__avatar">HS</div>
+            <div>
+              <strong>Harold Wilson Serrano</strong>
+              <span>Pensionado CASUR</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SÍGUENOS EN FACEBOOK ===================== -->
+  <section class="section section--alt" id="facebook">
+    <div class="container social">
+      <div class="social__content">
+        <span class="eyebrow">Síguenos en redes</span>
+        <h2>No te pierdas nuestras promociones en Facebook</h2>
+        <p>En nuestra página oficial de Facebook compartimos consejos financieros, promociones exclusivas, testimonios de clientes y las últimas novedades de CrediAyudarte. ¡Únete a nuestra comunidad!</p>
+        <ul class="requirements">
+          <li><svg><use href="#icon-check-circle"/></svg> Promociones y tasas especiales</li>
+          <li><svg><use href="#icon-check-circle"/></svg> Testimonios reales de nuestros clientes</li>
+          <li><svg><use href="#icon-check-circle"/></svg> Tips y novedades financieras</li>
+        </ul>
+        <a href="https://www.facebook.com/crediayudarte/" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg><use href="#icon-facebook"/></svg> Síguenos en Facebook
+        </a>
+      </div>
+      <div class="social__embed">
+        <iframe
+          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcrediayudarte%2F&tabs=timeline&width=500&height=560&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+          width="500" height="560" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+          allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          loading="lazy" title="Página de Facebook de CrediAyudarte"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA FINAL ===================== -->
+  <section class="section">
+    <div class="container">
+      <div class="cta">
+        <div class="cta__content">
+          <h2>¿Listo para mejorar tu economía?</h2>
+          <p>Cuéntanos tu situación y te diremos, sin compromiso, cuál es la mejor solución para ti.</p>
+          <div class="cta__actions">
+            <a href="https://wa.me/573152474348" class="btn btn-light" target="_blank" rel="noopener">
+              <svg><use href="#icon-whatsapp"/></svg> Escríbenos por WhatsApp y te asistimos al instante
+            </a>
+          </div>
+          <span class="cta__disclaimer">NO COBRAMOS NINGÚN DINERO ANTICIPADO</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FORMULARIO DE CONTACTO / CAPTURA DE LEADS ===================== -->
+  <section class="section" id="contacto">
+    <div class="container lead-form-layout">
+      <div class="lead-form-intro">
+        <span class="eyebrow">Solicita tu crédito</span>
+        <h2>Cuéntanos tu caso y te contactamos hoy mismo</h2>
+        <p>Completa el formulario y uno de nuestros asesores se pondrá en contacto contigo por WhatsApp para explicarte la mejor opción según tu perfil.</p>
+        <ul class="requirements">
+          <li><svg><use href="#icon-check-circle"/></svg> Respuesta rápida por WhatsApp</li>
+          <li><svg><use href="#icon-check-circle"/></svg> Evaluación sin compromiso</li>
+          <li><svg><use href="#icon-check-circle"/></svg> Atención para pensionados y empleados públicos</li>
+        </ul>
+        <div class="lead-form-disclaimer">NO COBRAMOS NINGÚN DINERO ANTICIPADO</div>
+      </div>
+
+      <div class="lead-form-card">
+        <form id="leadForm" class="lead-form" novalidate>
+          <div class="form-group">
+            <label for="leadNombre">Primer nombre</label>
+            <input type="text" id="leadNombre" name="nombre" placeholder="Ej: Martha" required autocomplete="given-name" />
+            <span class="form-error" data-error-for="leadNombre"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="leadTelefono">WhatsApp / Teléfono</label>
+            <input type="tel" id="leadTelefono" name="telefono" placeholder="Ej: 3001234567" required autocomplete="tel" inputmode="numeric" />
+            <span class="form-error" data-error-for="leadTelefono"></span>
+          </div>
+
+          <div class="form-group">
+            <label>¿Cuál es tu situación laboral?</label>
+            <div class="radio-card-group" role="radiogroup" aria-label="Tipo de perfil">
+              <label class="radio-card">
+                <input type="radio" name="perfil" value="Empleado público" required />
+                <span class="radio-card__icon"><svg><use href="#icon-briefcase"/></svg></span>
+                <span class="radio-card__label">Empleado público</span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="perfil" value="Pensionado" required />
+                <span class="radio-card__icon"><svg><use href="#icon-award"/></svg></span>
+                <span class="radio-card__label">Pensionado</span>
+              </label>
+            </div>
+            <span class="form-error" data-error-for="perfil"></span>
+          </div>
+
+          <div class="form-group">
+            <label>¿Cómo está tu situación en centrales de riesgo?</label>
+            <div class="radio-card-group" role="radiogroup" aria-label="Estado en centrales de riesgo">
+              <label class="radio-card">
+                <input type="radio" name="vida_crediticia" value="Bien reportado" required />
+                <span class="radio-card__icon"><svg><use href="#icon-check-circle"/></svg></span>
+                <span class="radio-card__label">Bien reportado</span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="vida_crediticia" value="Mal reportado" required />
+                <span class="radio-card__icon"><svg><use href="#icon-search"/></svg></span>
+                <span class="radio-card__label">Mal reportado</span>
+              </label>
+            </div>
+            <span class="form-error" data-error-for="vida_crediticia"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="leadFormSubmit">
+            <span class="btn-text">Solicitar mi crédito</span>
+            <svg class="btn-spinner" aria-hidden="true"><use href="#icon-loader"/></svg>
+          </button>
+
+          <div class="form-feedback" id="leadFormFeedback" role="status" aria-live="polite"></div>
+
+          <p class="lead-form-disclaimer lead-form-disclaimer--inline">NO COBRAMOS NINGÚN DINERO ANTICIPADO</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== UBICACIÓN ===================== -->
+  <section class="section section--alt" id="sedes">
+    <div class="container social">
+      <div class="social__content">
+        <span class="eyebrow">Visítanos</span>
+        <h2>Encuéntranos en Cúcuta</h2>
+        <p>Te esperamos en nuestra oficina principal para asesorarte personalmente. Si prefieres atención virtual, escríbenos a nuestro WhatsApp y nuestro asistente virtual te ayudará de inmediato.</p>
+        <div class="location-card__details">
+          <span><svg><use href="#icon-phone"/></svg> 315 247 4348</span>
+          <span><svg><use href="#icon-mail"/></svg> gerencia@crediayudarte.com</span>
+          <span><svg><use href="#icon-clock"/></svg> Lunes a viernes, 8:00 a.m. - 5:00 p.m.</span>
+        </div>
+        <a href="https://www.google.com/maps/place/CrediAyudarte/@7.8848649,-72.5054295,17z/data=!3m1!4b1!4m6!3m5!1s0x8e66451b1225c98d:0x9312b6d9ddaaeab2!8m2!3d7.8848649!4d-72.5028546!16s%2Fg%2F11gxscc6q7" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg><use href="#icon-map-pin"/></svg> Cómo llegar en Google Maps
+        </a>
+      </div>
+      <div class="social__embed social__embed--map">
+        <iframe
+          src="https://www.google.com/maps?q=CrediAyudarte,7.8848649,-72.5028546&amp;z=16&amp;output=embed"
+          width="500" height="450" style="border:0" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Ubicación de CrediAyudarte en Google Maps"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img src="assets/logo.png" alt="CrediAyudarte" />
+          <p>Asesoría financiera para pensionados y empleados públicos. Más de 10 años ayudando de verdad, con honestidad y cercanía.</p>
+          <div class="footer__social">
+            <a href="https://wa.me/573152474348" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#icon-whatsapp"/></svg></a>
+            <a href="https://www.facebook.com/crediayudarte/" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#icon-facebook"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg><use href="#icon-instagram"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Navegación</h4>
+          <div class="footer__links">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#simulador">Simulador</a>
+            <a href="#testimonios">Testimonios</a>
+            <a href="#contacto">Contacto</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Servicios</h4>
+          <div class="footer__links">
+            <a href="#servicios">Crédito con Libranza</a>
+            <a href="#servicios">Crédito para Reportados</a>
+            <a href="#servicios">Compra de Cartera</a>
+            <a href="#servicios">Saneamiento de Crédito</a>
+            <a href="#servicios">Crédito de Libre Inversión</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Contacto</h4>
+          <ul class="footer__contact">
+            <li><svg><use href="#icon-phone"/></svg> 315 247 4348</li>
+            <li><svg><use href="#icon-mail"/></svg> gerencia@crediayudarte.com</li>
+            <li><svg><use href="#icon-map-pin"/></svg> Cúcuta, Norte de Santander, Colombia</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© 2026 CrediAyudarte. Todos los derechos reservados.</span>
+        <span>NO COBRAMOS NINGÚN DINERO ANTICIPADO</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== BOTÓN FLOTANTE DE WHATSAPP ===================== -->
+  <a href="https://wa.me/573152474348" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Escríbenos por WhatsApp">
+    <span class="whatsapp-float__ping"></span>
+    <svg><use href="#icon-whatsapp"/></svg>
+    <span class="whatsapp-float__tooltip">¿Tienes dudas? Escríbenos a nuestro WhatsApp y nuestro asistente virtual te ayudará de inmediato.</span>
+  </a>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
